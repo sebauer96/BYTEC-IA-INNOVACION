@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Inteligencia Artificial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <div class="pixel-float pixel-1"></div>
+    <div class="pixel-float pixel-2"></div>
+    <div class="pixel-float pixel-3"></div>
+    <div class="pixel-float pixel-4"></div>
+    <div class="pixel-float pixel-5"></div>
+    <div class="pixel-float pixel-6"></div>
+
+    <div class="container">
+
+        <header class="hero">
+            <div class="hero-badge">ACADEMIA</div>
+            <h1 class="hero-title">BYTEC<span class="blink">_</span></h1>
+            <div class="hero-divider">
+                <span class="divider-pixel"></span>
+                <span class="divider-pixel"></span>
+                <span class="divider-pixel"></span>
+                <span class="divider-line"></span>
+                <span class="divider-pixel"></span>
+                <span class="divider-pixel"></span>
+                <span class="divider-pixel"></span>
+            </div>
+            <h2 class="hero-subtitle">Inteligencia Artificial</h2>
+            <p class="hero-desc">Dominá las herramientas de IA para potenciar tu creatividad, automatizar tareas y trabajar de forma más inteligente. De curiosos a expertos en prompts.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">6</span>
+                    <span class="stat-label">Clases</span>
+                </div>
+                <div class="stat-sep">◆</div>
+                <div class="stat">
+                    <span class="stat-number">90</span>
+                    <span class="stat-label">Min / clase</span>
+                </div>
+                <div class="stat-sep">◆</div>
+                <div class="stat">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Práctica</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="classes-section">
+            <h3 class="section-title">
+                <span class="section-icon">▸</span>
+                Seleccioná una clase para comenzar
+            </h3>
+
+            <div class="classes-grid">
+
+                <a href="#" class="class-card locked">
+                    <div class="card-number">01</div>
+                    <div class="card-content">
+                        <h4 class="card-title">¿Qué es la Inteligencia Artificial?</h4>
+                        <p class="card-desc">Conceptos fundamentales, historia de la IA, tipos de IA, modelos de lenguaje y cómo funcionan por dentro.</p>
+                        <div class="card-tags">
+                            <span class="tag">Fundamentos</span>
+                            <span class="tag">LLMs</span>
+                            <span class="tag">Historia</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-badge coming-soon">COMPLETADA</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </a>
+
+                <a href="clase-2/index.html" class="class-card available">
+                    <div class="card-number">02</div>
+                    <div class="card-content">
+                        <h4 class="card-title">Creatividad Aumentada & Ingeniería de Prompts</h4>
+                        <p class="card-desc">Cómo escribir prompts efectivos, técnicas de clonación de estilo, framework A.I.D.A. y la regla 80/20 humano-IA.</p>
+                        <div class="card-tags">
+                            <span class="tag">Prompts</span>
+                            <span class="tag">Creatividad</span>
+                            <span class="tag">A.I.D.A.</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-badge active">DISPONIBLE</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </a>
+
+                <a href="#" class="class-card locked">
+                    <div class="card-number">03</div>
+                    <div class="card-content">
+                        <h4 class="card-title">IA para Productividad & Automatización</h4>
+                        <p class="card-desc">Automatización de tareas repetitivas, resúmenes inteligentes, organización de información y flujos de trabajo con IA.</p>
+                        <div class="card-tags">
+                            <span class="tag">Productividad</span>
+                            <span class="tag">Automatización</span>
+                            <span class="tag">Flujos</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-badge coming-soon">PRÓXIMAMENTE</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </a>
+
+                <a href="#" class="class-card locked">
+                    <div class="card-number">04</div>
+                    <div class="card-content">
+                        <h4 class="card-title">IA Visual: Imágenes, Video & Diseño</h4>
+                        <p class="card-desc">Generación de imágenes con DALL-E y Midjourney, edición con IA, creación de contenido visual y video.</p>
+                        <div class="card-tags">
+                            <span class="tag">Imágenes</span>
+                            <span class="tag">Video</span>
+                            <span class="tag">Diseño</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-badge coming-soon">PRÓXIMAMENTE</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </a>
+
+                <a href="#" class="class-card locked">
+                    <div class="card-number">05</div>
+                    <div class="card-content">
+                        <h4 class="card-title">IA en el Mundo Real: Casos & Ética</h4>
+                        <p class="card-desc">Aplicaciones reales en negocios, educación y salud. Sesgos, ética, privacidad y uso responsable de la IA.</p>
+                        <div class="card-tags">
+                            <span class="tag">Casos reales</span>
+                            <span class="tag">Ética</span>
+                            <span class="tag">Sesgos</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-badge coming-soon">PRÓXIMAMENTE</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </a>
+
+                <a href="#" class="class-card locked">
+                    <div class="card-number">06</div>
+                    <div class="card-content">
+                        <h4 class="card-title">Proyecto Final: Tu Asistente IA Personalizado</h4>
+                        <p class="card-desc">Creá tu propio sistema de prompts personalizado aplicando todo lo aprendido. Presentación y feedback grupal.</p>
+                        <div class="card-tags">
+                            <span class="tag">Proyecto</span>
+                            <span class="tag">Sistema</span>
+                            <span class="tag">Presentación</span>
+                        </div>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-badge coming-soon">PRÓXIMAMENTE</span>
+                    </div>
+                    <div class="card-glow"></div>
+                </a>
+
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-logo">▸ BYTEC<span class="blink">_</span></div>
+            <p class="footer-text">Potenciando la inteligencia humana con inteligencia artificial.</p>
+            <div class="footer-line"></div>
+        </footer>
+
+    </div>
+
+    <script>
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+        let shootingStars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = document.documentElement.scrollHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 2500);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.3,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.015 + 0.003
+                });
+            }
+        }
+
+        function spawnShootingStar() {
+            if (Math.random() < 0.003 && shootingStars.length < 2) {
+                shootingStars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height * 0.4,
+                    length: Math.random() * 80 + 40,
+                    speed: Math.random() * 6 + 4,
+                    angle: Math.PI / 4 + Math.random() * 0.3,
+                    opacity: 1
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+
+            spawnShootingStar();
+            shootingStars.forEach((s, i) => {
+                const endX = s.x + Math.cos(s.angle) * s.length;
+                const endY = s.y + Math.sin(s.angle) * s.length;
+                const gradient = ctx.createLinearGradient(s.x, s.y, endX, endY);
+                gradient.addColorStop(0, `rgba(247, 80, 1, ${s.opacity})`);
+                gradient.addColorStop(1, `rgba(247, 80, 1, 0)`);
+                ctx.beginPath();
+                ctx.moveTo(s.x, s.y);
+                ctx.lineTo(endX, endY);
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                s.x += Math.cos(s.angle) * s.speed;
+                s.y += Math.sin(s.angle) * s.speed;
+                s.opacity -= 0.012;
+                if (s.opacity <= 0) shootingStars.splice(i, 1);
+            });
+
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+    </script>
+
+</body>
+</html>

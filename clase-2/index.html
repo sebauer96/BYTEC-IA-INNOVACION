@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Clase 2: Creatividad Aumentada & Ingeniería de Prompts</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-logo">▸ BYTEC</a>
+        <span class="nav-progress" id="navProgress">1 / 25</span>
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
+        </div>
+    </nav>
+
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: PORTADA ==================== -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CLASE 02</div>
+                <h1 class="title-main">Creatividad Aumentada<br><span class="title-accent">& Ingeniería de Prompts</span></h1>
+                <p class="title-sub">Prompts · Técnicas · A.I.D.A. · Factor Humano · Casos Prácticos</p>
+                <div class="title-meta">
+                    <span class="meta-item">⏱ 90 minutos</span>
+                    <span class="meta-item">🧠 Práctica incluida</span>
+                    <span class="meta-item">🚀 Nivel: Explorador</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 2: OBJETIVO ==================== -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Objetivo de Hoy</h2>
+                <div class="objective-card">
+                    <p class="objective-text">Aprender a <strong>comunicarte efectivamente con la IA</strong> para obtener resultados creativos, precisos y útiles. Dominar la ingeniería de prompts y entender cuándo el <strong>toque humano</strong> es irremplazable.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Creatividad Aumentada</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">20 min</span>
+                        <span class="timeline-label">Ingeniería de Prompts</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Técnicas Avanzadas</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Framework A.I.D.A.</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">La Regla 80/20</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">25 min</span>
+                        <span class="timeline-label">Casos Prácticos + Ejercicios</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: EL RETO CREATIVO ==================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧱 El Reto Creativo</h2>
+                <p class="slide-text">Todos nos enfrentamos a los mismos obstáculos al crear contenido. La creatividad no es magia: es un <strong>proceso</strong> que se puede optimizar.</p>
+                <div class="metaphor-box">
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">😵</div>
+                        <h3>Bloqueo Creativo</h3>
+                        <p>La mente en blanco. Sabés que tenés que escribir, pero <strong>no sale nada</strong>.</p>
+                    </div>
+                    <div class="metaphor-plus">+</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">⏰</div>
+                        <h3>Tiempo Perdido</h3>
+                        <p>Horas frente a la pantalla para producir un <strong>texto mediocre</strong>.</p>
+                    </div>
+                    <div class="metaphor-plus">+</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">📄</div>
+                        <h3>Textos Planos</h3>
+                        <p>Resultados <strong>genéricos</strong> que no conectan con nadie.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>La buena noticia:</strong> Estos problemas no son de talento, son de <em>proceso</em>. Y los procesos se pueden mejorar con las herramientas correctas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: LA SOLUCIÓN TECNOLÓGICA ==================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-heading">🤖 La Solución: IA como Asistente 24/7</h2>
+                <p class="slide-text">La inteligencia artificial no viene a <strong>reemplazarte</strong>. Viene a ser tu copiloto creativo, disponible a cualquier hora, sin cansarse y sin juzgarte.</p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">Sin IA</h3>
+                        <div class="comparison-visual">😰</div>
+                        <p style="margin-top: 12px; font-size: 13px;">Página en blanco → Frustración → Texto genérico → Horas desperdiciadas</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Con IA</h3>
+                        <div class="comparison-visual">🚀</div>
+                        <p style="margin-top: 12px; font-size: 13px;">Prompt claro → Borrador al instante → Edición humana → Resultado excelente</p>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>¿Qué hace la IA?</h4>
+                        <ul>
+                            <li>Automatiza el "trabajo sucio" inicial</li>
+                            <li>Procesa grandes volúmenes de texto</li>
+                            <li>Genera variaciones y opciones rápido</li>
+                            <li>Nunca tiene bloqueo creativo</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>¿Qué hacés vos?</h4>
+                        <ul>
+                            <li>Sos el <strong>"editor jefe"</strong></li>
+                            <li>Definís la dirección y el tono</li>
+                            <li>Aportás experiencia y autenticidad</li>
+                            <li>Das el toque final que la IA no puede</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: GARBAGE IN GARBAGE OUT ==================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-heading">🗑️ Garbage In, Garbage Out</h2>
+                <p class="slide-text">El principio lógico más importante de la IA: <strong>la calidad de la respuesta es directamente proporcional a la calidad de tu instrucción</strong>.</p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">Prompt Malo ❌</h3>
+                        <div class="code-block small">
+<pre><code>"Escribime algo sobre marketing"</code></pre>
+                        </div>
+                        <p style="margin-top: 12px; font-size: 13px;">Resultado: Un texto genérico de 500 palabras que podrías encontrar en cualquier blog. Sin personalidad, sin enfoque.</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Prompt Bueno ✅</h3>
+                        <div class="code-block small">
+<pre><code>"Actuá como un experto en
+marketing digital. Escribí
+3 hooks para Instagram sobre
+café artesanal, tono informal,
+máximo 15 palabras cada uno."</code></pre>
+                        </div>
+                        <p style="margin-top: 12px; font-size: 13px;">Resultado: 3 frases precisas, en el tono correcto, listas para usar.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Regla de oro:</strong> Si tu prompt es vago, la respuesta será vaga. Si tu prompt es específico, la respuesta será específica. <em>Siempre.</em></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 6: LOS 4 PILARES ==================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏛️ Los 4 Pilares de un Super-Prompt</h2>
+                <p class="slide-text">Todo prompt profesional se construye con estos <strong>4 componentes</strong>. Mientras más pilares uses, mejor será el resultado:</p>
+                <div class="step-cards">
+                    <div class="step-card">
+                        <span class="step-num">R</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 13px; margin-bottom: 6px;">ROL</h4>
+                        <p>Asigná una <strong>identidad</strong> a la IA. ¿Quién debe "ser"?</p>
+                        <p style="margin-top: 8px; font-size: 12px; color: var(--muted-text);">Ej: "Sos un nutricionista deportivo con 15 años de experiencia"</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">C</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 13px; margin-bottom: 6px;">CONTEXTO</h4>
+                        <p>Definí el <strong>escenario</strong> y el público objetivo.</p>
+                        <p style="margin-top: 8px; font-size: 12px; color: var(--muted-text);">Ej: "Para una audiencia de jóvenes de 18-25 años en Argentina"</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">I</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 13px; margin-bottom: 6px;">INPUT</h4>
+                        <p>Proveé <strong>datos duros</strong> para evitar que invente.</p>
+                        <p style="margin-top: 8px; font-size: 12px; color: var(--muted-text);">Ej: "Basate en estos datos: proteína 25g, carbohidratos 40g..."</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">O</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 13px; margin-bottom: 6px;">OUTPUT</h4>
+                        <p>Determiná el <strong>formato exacto</strong> de la salida.</p>
+                        <p style="margin-top: 8px; font-size: 12px; color: var(--muted-text);">Ej: "Formato: tabla con 3 columnas: comida, calorías, horario"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: EJEMPLO SUPER-PROMPT ==================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-heading">📝 Ejemplo: Super-Prompt Completo</h2>
+                <p class="slide-text">Veamos cómo se arma un prompt profesional usando los <strong>4 pilares</strong> juntos:</p>
+                <div class="code-block">
+<pre><code><strong>ROL:</strong>     "Actuá como un community manager experto
+          en gastronomía y redes sociales."
+
+<strong>CONTEXTO:</strong> "Estoy lanzando una cafetería artesanal en
+          Buenos Aires. Mi público es gente de 25-40 años
+          que valora la experiencia, no solo el café."
+
+<strong>INPUT:</strong>   "Nuestros productos estrella son: café de
+          especialidad de Colombia, medialunas caseras,
+          y brunch los domingos."
+
+<strong>OUTPUT:</strong>  "Generame un calendario de contenido para
+          Instagram de 1 semana (lunes a domingo).
+          Formato: tabla con columnas: Día, Tipo de post,
+          Caption, Hashtags sugeridos. Tono: cercano
+          y aspiracional."</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>⚡ <strong>Resultado:</strong> En lugar de un texto genérico, vas a recibir una tabla organizada, con 7 posts específicos para tu negocio, listos para adaptar y publicar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: EJERCICIO SUPER-PROMPT ==================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio: Armá Tu Super-Prompt</h2>
+                <p class="slide-text">Tu turno. Elegí <strong>un tema que te interese</strong> (tu trabajo, un hobby, un proyecto) y construí un prompt con los 4 pilares:</p>
+                <div class="practice-checklist">
+                    <div class="check-item">🎭 <strong>ROL:</strong> ¿Qué experto necesitás? (ej: diseñador, coach, copywriter, chef...)</div>
+                    <div class="check-item">🌍 <strong>CONTEXTO:</strong> ¿Para quién es? ¿En qué situación? ¿Qué mercado o plataforma?</div>
+                    <div class="check-item">📊 <strong>INPUT:</strong> ¿Qué datos concretos le podés dar? (nombres, números, hechos)</div>
+                    <div class="check-item">📋 <strong>OUTPUT:</strong> ¿Qué formato querés? (lista, tabla, guion, email, post...)</div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Tip: Sé ridículamente específico</h4>
+                        <p>En vez de "escribí un email", pedí: "escribí un email de 150 palabras, tono formal pero cálido, con un CTA claro al final". Cuantos más detalles, menos ida y vuelta.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Tip: Iterá el prompt</h4>
+                        <p>Si el resultado no es perfecto, <strong>no borres todo</strong>. Ajustá: "Ahora hacelo más corto", "Cambiá el tono a informal", "Agregá datos de X". La IA recuerda el contexto.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: TÉCNICA DEL ESPEJO ==================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-heading">🪞 La Técnica del "Espejo" (Clonación de Estilo)</h2>
+                <p class="slide-text">En lugar de <em>describir</em> un estilo con palabras, <strong>mostráselo directamente</strong>. La IA analiza los patrones lingüísticos y los replica.</p>
+                <div class="code-block">
+<pre><code><strong>Prompt:</strong>
+"Analizá el estilo de escritura de este texto y luego
+escribí un texto nuevo sobre [TEMA] usando exactamente
+el mismo tono, ritmo y estructura:
+
+[Pegá acá un párrafo de ejemplo del estilo que querés]"</code></pre>
+                </div>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>¿Cuándo usarla?</h3>
+                        <ul class="styled-list">
+                            <li>Para mantener consistencia de marca</li>
+                            <li>Para imitar el estilo de un autor</li>
+                            <li>Para adaptar un tono editorial</li>
+                            <li>Para replicar tu propia voz</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>¿Qué analiza la IA?</h3>
+                        <ul class="styled-list">
+                            <li>Largo de las oraciones</li>
+                            <li>Vocabulario y nivel de formalidad</li>
+                            <li>Uso de metáforas y recursos</li>
+                            <li>Estructura de los párrafos</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Clave:</strong> Mientras más largo y representativo sea el texto de ejemplo, mejor será la clonación. Un párrafo funciona; una página completa es aún mejor.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: PARAMETRIZACIÓN DE PERSONALIDAD ==================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎛️ Parametrización de la Personalidad</h2>
+                <p class="slide-text">Podés "programar" la <strong>voz de la IA</strong> usando adjetivos claros. Es como ajustar los controles de un ecualizador, pero para el tono.</p>
+                <div class="personality-grid">
+                    <div class="personality-card">
+                        <span class="personality-emoji">🏢</span>
+                        <h4>Corporativa</h4>
+                        <p>"Respondé de manera profesional, seria, con datos y sin emojis."</p>
+                    </div>
+                    <div class="personality-card">
+                        <span class="personality-emoji">💥</span>
+                        <h4>Disruptiva</h4>
+                        <p>"Sé provocador, desafía lo establecido, usá un tono rebelde y directo."</p>
+                    </div>
+                    <div class="personality-card">
+                        <span class="personality-emoji">💚</span>
+                        <h4>Empática</h4>
+                        <p>"Hablá con calidez, validá emociones, sé comprensivo y accesible."</p>
+                    </div>
+                    <div class="personality-card">
+                        <span class="personality-emoji">😂</span>
+                        <h4>Humorística</h4>
+                        <p>"Usá humor, ironía y referencias pop. Que sea divertido de leer."</p>
+                    </div>
+                </div>
+                <div class="code-block">
+<pre><code><strong>Ejemplo de prompt:</strong>
+"Sos un asesor financiero que explica como si fuera un
+amigo en un asado. Tono: cercano, argentino, con humor
+sutil pero información precisa. Explicame qué es un
+plazo fijo y por qué conviene o no en inflación alta."</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: EJERCICIO CLONACIÓN ==================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio: Cloná un Estilo</h2>
+                <p class="slide-text">Vamos a practicar las dos técnicas juntas. Seguí estos pasos:</p>
+                <div class="step-cards">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Buscá un <strong>texto que te guste</strong> de una web, blog, red social o libro.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Copiá un <strong>fragmento</strong> representativo del estilo (2-3 párrafos).</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>Usá la <strong>técnica del espejo</strong> para pedirle a la IA que escriba sobre otro tema con ese estilo.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <p>Agregá <strong>adjetivos de personalidad</strong> para ajustar el tono (más formal, más juguetón, etc.).</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🔬 <strong>Desafío extra:</strong> Pedile a la IA que escriba el <strong>mismo texto</strong> en 3 personalidades distintas (corporativa, empática, humorística) y compará los resultados.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: CHAIN OF THOUGHT ==================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔗 Técnica Extra: Chain of Thought</h2>
+                <p class="slide-text">Cuando necesitás que la IA <strong>razone paso a paso</strong> en lugar de dar una respuesta directa, usá "Chain of Thought" (Cadena de Pensamiento).</p>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>Sin Chain of Thought ❌</h3>
+                        <div class="code-block small">
+<pre><code>"¿Cuánto cuesta un viaje a
+Europa para 2 personas?"</code></pre>
+                        </div>
+                        <p class="slide-text">Da un número genérico sin justificación.</p>
+                    </div>
+                    <div class="col">
+                        <h3>Con Chain of Thought ✅</h3>
+                        <div class="code-block small">
+<pre><code>"Necesito calcular el costo de
+un viaje a Europa para 2
+personas. Pensá paso a paso:
+vuelos, alojamiento, comida,
+transporte y extras. Detallá
+cada categoría."</code></pre>
+                        </div>
+                        <p class="slide-text">Desglosa cada componente con lógica.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🧠 <strong>Frase mágica:</strong> Agregá <em>"Pensá paso a paso"</em> o <em>"Razoná antes de responder"</em> a tus prompts complejos. La calidad de razonamiento mejora dramáticamente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: TEMPERATURA ==================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2 class="slide-heading">🌡️ Técnica Extra: Temperatura y Creatividad</h2>
+                <p class="slide-text">La "temperatura" controla <strong>cuán creativa o predecible</strong> es la respuesta de la IA. Aunque no siempre podés ajustarla directamente, podés simularla con tus prompts.</p>
+                <div class="temperature-scale">
+                    <div class="temp-item temp-low">
+                        <span class="temp-value">BAJA</span>
+                        <span class="temp-label">Predecible · Factual · Segura</span>
+                        <p>Ideal para datos, traducciones, resúmenes y respuestas que deben ser exactas.</p>
+                    </div>
+                    <div class="temp-item temp-mid">
+                        <span class="temp-value">MEDIA</span>
+                        <span class="temp-label">Balanceada · Versátil</span>
+                        <p>Ideal para la mayoría de tareas: emails, contenido, explicaciones.</p>
+                    </div>
+                    <div class="temp-item temp-high">
+                        <span class="temp-value">ALTA</span>
+                        <span class="temp-label">Creativa · Impredecible · Loca</span>
+                        <p>Ideal para brainstorming, poesía, ideas disruptivas, nombres de marca.</p>
+                    </div>
+                </div>
+                <div class="code-block">
+<pre><code><strong>Para simular temperatura baja:</strong>
+"Dame la respuesta más precisa y conservadora posible.
+No agregues opiniones ni florituras."
+
+<strong>Para simular temperatura alta:</strong>
+"Sé lo más creativo y original que puedas. Sorprendeme.
+Pensá fuera de la caja, incluso si suena raro."</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: FRAMEWORK AIDA ==================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2 class="slide-heading">📐 Framework A.I.D.A.</h2>
+                <p class="slide-text">Un modelo clásico de comunicación persuasiva que podés usar como <strong>estructura de tus prompts</strong> o pedirle a la IA que lo aplique:</p>
+                <div class="aida-grid">
+                    <div class="aida-card">
+                        <span class="aida-letter">A</span>
+                        <div>
+                            <h4>Atención</h4>
+                            <p>Un <strong>gancho inicial</strong> para captar la mirada rápidamente. La primera línea es la más importante.</p>
+                            <span class="aida-example">"¿Sabías que el 80% de los textos se abandonan en la primera línea?"</span>
+                        </div>
+                    </div>
+                    <div class="aida-card">
+                        <span class="aida-letter">I</span>
+                        <div>
+                            <h4>Interés</h4>
+                            <p><strong>Planteá y validá</strong> el problema central. Que el lector diga "esto me pasa a mí".</p>
+                            <span class="aida-example">"Escribir contenido que enganche es el mayor desafío para emprendedores..."</span>
+                        </div>
+                    </div>
+                    <div class="aida-card">
+                        <span class="aida-letter">D</span>
+                        <div>
+                            <h4>Deseo</h4>
+                            <p>Mostrá <strong>cómo la solución</strong> resuelve ese problema. Pintá el escenario ideal.</p>
+                            <span class="aida-example">"Imaginá tener un asistente que genere 10 ideas de contenido en 30 segundos..."</span>
+                        </div>
+                    </div>
+                    <div class="aida-card">
+                        <span class="aida-letter">A</span>
+                        <div>
+                            <h4>Acción</h4>
+                            <p>Indicá claramente cuál es el <strong>siguiente paso</strong>. El CTA (Call to Action).</p>
+                            <span class="aida-example">"Probá este prompt ahora mismo y contanos el resultado..."</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: EJERCICIO AIDA ==================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio: Escribí con A.I.D.A.</h2>
+                <p class="slide-text">Usá este prompt para que la IA te genere contenido estructurado con A.I.D.A.:</p>
+                <div class="code-block">
+<pre><code>"Escribí un texto persuasivo para [TU PRODUCTO/SERVICIO]
+usando el framework A.I.D.A. (Atención, Interés, Deseo,
+Acción). El texto es para [PLATAFORMA: Instagram/email/web].
+
+Mi público objetivo es [DESCRIPCIÓN].
+El tono debe ser [ADJETIVOS: cercano, profesional, etc.].
+
+Marcá claramente cada sección del framework."</code></pre>
+                </div>
+                <div class="practice-checklist">
+                    <div class="check-item">📱 <strong>Opción A:</strong> Un post de Instagram para tu negocio o marca personal.</div>
+                    <div class="check-item">📧 <strong>Opción B:</strong> Un email de venta para un servicio que ofrezcas.</div>
+                    <div class="check-item">🌐 <strong>Opción C:</strong> Un texto para la landing page de un producto inventado.</div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Tip pro:</strong> Pedile a la IA que genere <strong>3 versiones</strong> del mismo AIDA con tonos distintos. Elegí la mejor y combiná elementos de las tres.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: EL FACTOR HUMANO ==================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧑‍🎨 El Factor Humano: La Regla 80/20</h2>
+                <p class="slide-text">En un flujo de trabajo optimizado, la IA y el humano tienen roles muy claros. <strong>Ninguno reemplaza al otro.</strong></p>
+                <div class="rule-8020">
+                    <div class="rule-ia">
+                        <span class="rule-percent">80%</span>
+                        <span class="rule-label">IA</span>
+                        <p>Genera la estructura, el borrador, las variaciones, los datos procesados y la base del contenido.</p>
+                    </div>
+                    <div class="rule-human">
+                        <span class="rule-percent">20%</span>
+                        <span class="rule-label">Humano</span>
+                        <p>Aporta precisión, autenticidad, anécdotas, perspectiva única y el toque final que conecta.</p>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Lo que la IA hace bien</h4>
+                        <ul>
+                            <li>Generar ideas rápidamente</li>
+                            <li>Estructurar información</li>
+                            <li>Producir variaciones de texto</li>
+                            <li>Resumir contenido extenso</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Lo que SOLO el humano puede</h4>
+                        <ul>
+                            <li>Agregar experiencias vividas</li>
+                            <li>Detectar sutilezas culturales</li>
+                            <li>Dar una opinión con criterio</li>
+                            <li>Conectar emocionalmente</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: CONTROL DE CALIDAD ==================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔍 Control de Calidad (Curaduría)</h2>
+                <p class="slide-text">La IA es poderosa, pero <strong>no infalible</strong>. Tu rol como curador es esencial. Nunca copies y pegues sin revisar.</p>
+                <div class="step-cards">
+                    <div class="step-card">
+                        <span class="step-num">⚠️</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">ALUCINACIONES</h4>
+                        <p>Los modelos pueden <strong>inventar datos</strong> que suenan reales pero son falsos. Siempre verificá hechos y cifras.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">🤖</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">LENGUAJE ROBÓTICO</h4>
+                        <p>Detectá y eliminá frases artificiales: "en este sentido", "cabe destacar", "es importante señalar".</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">✨</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">TU ESENCIA</h4>
+                        <p>Añadí <strong>anécdotas</strong>, perspectivas únicas y experiencias personales que la IA no puede generar.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">🎯</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">FACT-CHECKING</h4>
+                        <p>Si la IA cita una estadística, <strong>verificala</strong>. Buscá la fuente original antes de publicar.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🚨 <strong>Palabras robóticas a eliminar:</strong> "en el ámbito de", "resulta fundamental", "en definitiva", "cabe mencionar", "es menester", "sin lugar a dudas". Si las ves, reescribí como hablarías vos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: CASO 1 - TRADUCCIÓN SENSORIAL ==================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎨 Caso 1: Traducción Sensorial</h2>
+                <p class="slide-text">Transformá características técnicas en descripciones emocionales que apelen a los <strong>5 sentidos</strong>:</p>
+                <div class="code-block">
+<pre><code><strong>Prompt:</strong>
+"Tengo estas especificaciones técnicas de un producto:
+- Auriculares inalámbricos
+- 40 horas de batería
+- Cancelación activa de ruido
+- Peso: 250g
+- Driver de 40mm
+
+Transformá cada característica en una descripción sensorial
+y emocional que el cliente pueda SENTIR. No quiero datos
+fríos: quiero que imagine la experiencia de usarlos."</code></pre>
+                </div>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>Antes (Técnico) 😴</h3>
+                        <p class="slide-text">"40 horas de batería. Cancelación activa de ruido. Driver de 40mm."</p>
+                    </div>
+                    <div class="col">
+                        <h3>Después (Sensorial) ✨</h3>
+                        <p class="slide-text">"Tu playlist te acompaña por 3 días sin enchufe. El mundo se apaga y solo queda tu música. Cada nota, como si el artista estuviera en tu oído."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 19: CASO 2 - EL ENTREVISTADOR ==================== -->
+        <section class="slide" data-slide="18">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎙️ Caso 2: Ingeniería Inversa (El Entrevistador)</h2>
+                <p class="slide-text">Invertí la dinámica: en vez de darle instrucciones a la IA, <strong>pedile que te haga preguntas</strong>. Luego, con tus respuestas, ella redacta.</p>
+                <div class="code-block">
+<pre><code><strong>Prompt:</strong>
+"Quiero escribir mi bio profesional para LinkedIn pero no
+sé qué poner. Tomá el rol de un periodista y haceme 10
+preguntas para extraer lo más interesante de mi carrera.
+Preguntame una por una y esperá mi respuesta antes de
+seguir con la siguiente."</code></pre>
+                </div>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>La IA te pregunta sobre tu carrera, logros y personalidad.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Vos respondés con tus propias palabras, sin pensar en redacción.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>La IA toma todas las respuestas y redacta una bio pulida y auténtica.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>¿Por qué funciona?</strong> Porque la información auténtica sale más natural cuando <em>respondés preguntas</em> que cuando intentás escribir de cero. La IA hace el trabajo de organizar y pulir.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 20: CASO 3 - EL BOMBERO ==================== -->
+        <section class="slide" data-slide="19">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧯 Caso 3: Filtro de Objetividad (El Bombero)</h2>
+                <p class="slide-text">Usá la IA para procesar mensajes hostiles o críticas, eliminando tu <strong>sesgo emocional</strong>:</p>
+                <div class="code-block">
+<pre><code><strong>Prompt:</strong>
+"Recibí este mensaje hostil de un cliente enojado:
+
+'Su servicio es pésimo, me cobraron doble y nadie responde.
+Voy a hacer una denuncia y contarle a todos lo terrible
+que son.'
+
+Analizá el mensaje, identificá las quejas legítimas y
+generame una respuesta profesional, empática y orientada
+a la solución. Sin defensividad, sin sarcasmo. Máximo
+100 palabras."</code></pre>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>¿Qué hace la IA?</h4>
+                        <ul>
+                            <li>Filtra la hostilidad del tono</li>
+                            <li>Identifica los problemas reales</li>
+                            <li>Genera una respuesta equilibrada</li>
+                            <li>Mantiene el profesionalismo</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>¿Cuándo usarlo?</h4>
+                        <ul>
+                            <li>Reseñas negativas en Google/Redes</li>
+                            <li>Emails de clientes furiosos</li>
+                            <li>Comentarios hostiles en redes</li>
+                            <li>Conflictos laborales por escrito</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 21: CASO 4 - DIETA DE PALABRAS ==================== -->
+        <section class="slide" data-slide="20">
+            <div class="slide-content">
+                <h2 class="slide-heading">✂️ Caso 4: La Dieta de Palabras</h2>
+                <p class="slide-text">Enseñá a la IA a <strong>auditar y reescribir sus propios textos</strong>, eliminando la grasa innecesaria:</p>
+                <div class="code-block">
+<pre><code><strong>Prompt:</strong>
+"Reescribí el siguiente texto aplicando estas reglas:
+1. Eliminá todos los adjetivos innecesarios
+2. Acortá cada oración a máximo 15 palabras
+3. Reemplazá palabras complicadas por versiones simples
+4. Hacelo sonar como una conversación, no como un ensayo
+5. Reducí el texto total un 40%
+
+Texto original:
+[Pegá tu texto acá]"</code></pre>
+                </div>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>Antes (inflado) 😵‍💫</h3>
+                        <div class="code-block small">
+<pre><code>"En el dinámico y sumamente
+competitivo mundo del marketing
+digital actual, resulta
+absolutamente fundamental
+implementar estrategias
+innovadoras y disruptivas..."</code></pre>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h3>Después (limpio) ✨</h3>
+                        <div class="code-block small">
+<pre><code>"El marketing digital es
+competitivo. Para destacar,
+necesitás estrategias que
+funcionen, no palabras bonitas."</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 22: CASO 5 - AUTOMATIZACIÓN DE ESTRUCTURAS ==================== -->
+        <section class="slide" data-slide="21">
+            <div class="slide-content">
+                <h2 class="slide-heading">📊 Caso 5: Automatización de Estructuras</h2>
+                <p class="slide-text">Usá la IA para generar <strong>tablas, matrices y plantillas</strong> que estandaricen tu trabajo:</p>
+                <div class="code-block">
+<pre><code><strong>Prompt:</strong>
+"Creá una tabla/matriz de planificación de contenido
+para un mes completo con las siguientes columnas:
+
+| Semana | Tema | Formato | Plataforma | CTA | Estado |
+
+El nicho es [TU NICHO]. Generá 4 semanas con 3
+publicaciones cada una. Variá los formatos entre
+carrusel, reel, historia y post estático."</code></pre>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Ideas para automatizar</h4>
+                        <ul>
+                            <li>Calendarios de contenido mensuales</li>
+                            <li>Matrices de decisión (pros y contras)</li>
+                            <li>Esquemas de emails secuenciales</li>
+                            <li>Briefs creativos estandarizados</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Formatos que podés pedir</h4>
+                        <ul>
+                            <li>Tablas con columnas específicas</li>
+                            <li>Listas numeradas y jerárquicas</li>
+                            <li>CSV para importar a Excel</li>
+                            <li>JSON para programadores</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⚡ <strong>Power tip:</strong> Pedile que genere las tablas en formato <strong>Markdown</strong> si trabajás con herramientas como Notion, o en formato <strong>CSV</strong> si necesitás importar a una planilla.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 23: PROMPT NEGATIVO ==================== -->
+        <section class="slide" data-slide="22">
+            <div class="slide-content">
+                <h2 class="slide-heading">🚫 Técnica Extra: El Prompt Negativo</h2>
+                <p class="slide-text">A veces es más efectivo decirle a la IA lo que <strong>NO querés</strong> que lo que sí querés:</p>
+                <div class="code-block">
+<pre><code><strong>Prompt con restricciones:</strong>
+"Escribí un texto de venta para un curso de fotografía.
+
+NO uses:
+- Frases como 'aprende a tu ritmo' o 'de cero a experto'
+- Emojis
+- Más de 3 oraciones por párrafo
+- Superlativos exagerados ('el mejor', 'increíble')
+- Testimonios inventados
+
+SÍ usá:
+- Datos concretos
+- Preguntas directas al lector
+- Un tono como si hablaras con un amigo
+- Máximo 150 palabras"</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>¿Por qué funciona?</strong> Porque las restricciones claras <em>eliminan lo genérico</em>. Cuando le prohibís los clichés, la IA se ve forzada a ser original. Es como poesía con reglas: la limitación impulsa la creatividad.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 24: EJERCICIOS ==================== -->
+        <section class="slide" data-slide="23">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏋️ Ejercicios para Practicar</h2>
+                <p class="slide-text">Practicá cada técnica directamente en ChatGPT, Claude o tu IA favorita:</p>
+                <div class="exercises-list">
+                    <div class="exercise-card">
+                        <span class="exercise-num">01</span>
+                        <div>
+                            <h4>Super-Prompt con 4 Pilares</h4>
+                            <p>Elegí un tema de tu vida real y armá un prompt usando Rol, Contexto, Input y Output.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">02</span>
+                        <div>
+                            <h4>Clonación de Estilo</h4>
+                            <p>Tomá un fragmento de tu blog/marca favorita y pedile a la IA que escriba sobre otro tema con ese mismo estilo.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">03</span>
+                        <div>
+                            <h4>El Entrevistador</h4>
+                            <p>Pedile a la IA que te entreviste para escribir tu bio de LinkedIn. Respondé las preguntas y pedile que redacte.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">04</span>
+                        <div>
+                            <h4>Filtro de Objetividad</h4>
+                            <p>Inventá (o usá) una queja real y pedile a la IA que genere una respuesta profesional y empática.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">05</span>
+                        <div>
+                            <h4>Traducción Sensorial</h4>
+                            <p>Tomá las specs de un producto (celular, auto, comida) y convertilo en una descripción emocional.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">06</span>
+                        <div>
+                            <h4>Desafío A.I.D.A. Completo</h4>
+                            <p>Creá una pieza de contenido persuasivo con A.I.D.A. para un producto/servicio real. Generá 3 versiones con tonos distintos.</p>
+                        </div>
+                        <span class="difficulty hard">Desafío</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">07</span>
+                        <div>
+                            <h4>Desafío: La Dieta de Palabras</h4>
+                            <p>Agarrá un texto que hayas escrito y pedile a la IA que lo reduzca un 40% sin perder el mensaje.</p>
+                        </div>
+                        <span class="difficulty hard">Desafío</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 25: CIERRE ==================== -->
+        <section class="slide" data-slide="24">
+            <div class="slide-content slide-title-content">
+                <h2 class="slide-heading">📝 Tarea Semanal</h2>
+                <div class="homework-card">
+                    <h3>Tu Primer Sistema de Prompts</h3>
+                    <p>Creá un <strong>documento con 5 prompts reutilizables</strong> para tu trabajo o vida personal. Cada prompt debe:</p>
+                    <ul>
+                        <li>Usar al menos <strong>3 de los 4 pilares</strong> (Rol, Contexto, Input, Output)</li>
+                        <li>Resolver un <strong>problema real</strong> que tengas (emails, contenido, organización, etc.)</li>
+                        <li>Incluir <strong>instrucciones de formato</strong> específicas</li>
+                        <li>Haber sido <strong>testeado y ajustado</strong> al menos 2 veces</li>
+                        <li>Tener una versión "antes" y "después" mostrando la <strong>mejora iterativa</strong></li>
+                    </ul>
+                </div>
+                <div class="closing-message">
+                    <div class="pixel-badge">CLASE 02 COMPLETADA</div>
+                    <p>De escribir prompts genéricos → a construir instrucciones profesionales. ¡La IA ahora trabaja para vos!</p>
+                    <div class="title-logo">BYTEC<span class="blink">_</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="keyboard-hint">
+        Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar
+    </div>
+
+    <script>
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navProgress = document.getElementById('navProgress');
+
+        function updateSlide() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) slide.classList.add('active');
+            });
+            navProgress.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(dir) {
+            const next = currentSlide + dir;
+            if (next >= 0 && next < totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        let touchStartX = 0;
+        document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+        document.addEventListener('touchend', e => {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 1 : -1);
+        });
+    </script>
+
+</body>
+</html>

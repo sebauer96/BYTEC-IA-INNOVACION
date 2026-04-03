@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Clase 3: Diseño Visual con IA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-logo">▸ BYTEC</a>
+        <span class="nav-progress" id="navProgress">1 / 28</span>
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
+        </div>
+    </nav>
+
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: PORTADA ==================== -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CLASE 03</div>
+                <h1 class="title-main">Diseño Visual<br><span class="title-accent">con Inteligencia Artificial</span></h1>
+                <p class="title-sub">Imágenes · Estilos · Redes Sociales · Logos · Personajes</p>
+                <div class="title-meta">
+                    <span class="meta-item">⏱ 90 minutos</span>
+                    <span class="meta-item">🎨 100% Práctica</span>
+                    <span class="meta-item">🚀 Nivel: Creativo</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 2: OBJETIVO ==================== -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Objetivo de Hoy</h2>
+                <div class="objective-card">
+                    <p class="objective-text">Aprender a <strong>generar imágenes con IA</strong> para cualquier necesidad: redes sociales, proyectos personales, fotos de perfil, logos y contenido visual. Dominar la <strong>anatomía de un prompt visual</strong> y la técnica de iteración.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">¿Por qué diseño visual con IA?</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Herramientas y anatomía del prompt</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Ejercicios: Calentamiento</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Estilos artísticos y redes sociales</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">35 min</span>
+                        <span class="timeline-label">Ejercicios prácticos guiados</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Tips pro + cierre</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: ¿POR QUÉ DISEÑO VISUAL CON IA? ==================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-heading">🖼️ ¿Por Qué Diseño Visual con IA?</h2>
+                <p class="slide-text">No necesitás ser diseñador, fotógrafo ni tener Photoshop. Con un buen prompt, <strong>cualquier persona</strong> puede crear imágenes profesionales en segundos.</p>
+                <div class="metaphor-box">
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">📱</div>
+                        <h3>Redes Sociales</h3>
+                        <p>Fotos de perfil, posts, historias y portadas <strong>sin necesidad de sesión fotográfica</strong>.</p>
+                    </div>
+                    <div class="metaphor-plus">+</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">🎨</div>
+                        <h3>Proyectos Personales</h3>
+                        <p>Invitaciones, stickers, wallpapers, arte para imprimir, <strong>lo que imagines</strong>.</p>
+                    </div>
+                    <div class="metaphor-plus">+</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">💡</div>
+                        <h3>Ideas y Conceptos</h3>
+                        <p>Visualizar cosas que solo existen en tu cabeza: <strong>de la idea a la imagen</strong>.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⚡ <strong>Antes:</strong> Necesitabas un diseñador, un fotógrafo o días aprendiendo Photoshop. <strong>Ahora:</strong> Escribís un texto y tenés la imagen en 15 segundos. El superpoder es saber <em>qué escribir</em>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: HERRAMIENTAS ==================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-heading">🛠️ Herramientas de Generación de Imágenes</h2>
+                <p class="slide-text">Hay varias herramientas, cada una con su <strong>estilo y ventajas</strong>. Hoy vamos a trabajar con las dos más accesibles:</p>
+                <div class="tools-grid">
+                    <div class="tool-card featured">
+                        <span class="tool-emoji">🤖</span>
+                        <h4>ChatGPT (DALL-E)</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag pro">Gratis (limitado)</span>
+                            <span class="tool-tag pro">Conversacional</span>
+                        </div>
+                        <p>Podés pedirle cambios hablando: <em>"Sacale el fondo"</em>, <em>"Hacelo más oscuro"</em>. Ideal para <strong>iterar sin reescribir</strong>.</p>
+                    </div>
+                    <div class="tool-card featured">
+                        <span class="tool-emoji">🍌</span>
+                        <h4>Nano Banana</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag pro">Gratis</span>
+                            <span class="tool-tag pro">Rápido</span>
+                        </div>
+                        <p>Generación rápida. Ideal para <strong>probar muchas ideas</strong> en poco tiempo. No tiene chat: editás el prompt y volvés a generar.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">🎨</span>
+                        <h4>Midjourney</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Pago</span>
+                            <span class="tool-tag">Discord</span>
+                        </div>
+                        <p>Calidad artística superior. Funciona por Discord. Ideal para <strong>resultados ultra profesionales</strong>.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">🖌️</span>
+                        <h4>Ideogram / Leonardo</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Freemium</span>
+                            <span class="tool-tag">Texto en imagen</span>
+                        </div>
+                        <p>Buenos con texto dentro de imágenes (logos, carteles). Leonardo tiene <strong>modelos especializados</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: ANATOMÍA DEL PROMPT VISUAL ==================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔬 Anatomía de un Prompt Visual</h2>
+                <p class="slide-text">Un prompt visual tiene <strong>5 componentes clave</strong>. Mientras más completes, mejor será el resultado:</p>
+                <div class="anatomy-visual">
+                    <div class="anatomy-piece">
+                        <span class="anatomy-num">1</span>
+                        <h4>Sujeto</h4>
+                        <p>¿Qué aparece en la imagen?</p>
+                        <span class="anatomy-ex">"Un gato con anteojos"</span>
+                    </div>
+                    <div class="anatomy-connector">+</div>
+                    <div class="anatomy-piece">
+                        <span class="anatomy-num">2</span>
+                        <h4>Estilo</h4>
+                        <p>¿Cómo se ve?</p>
+                        <span class="anatomy-ex">"Fotografía cinematográfica"</span>
+                    </div>
+                    <div class="anatomy-connector">+</div>
+                    <div class="anatomy-piece">
+                        <span class="anatomy-num">3</span>
+                        <h4>Entorno</h4>
+                        <p>¿Dónde está?</p>
+                        <span class="anatomy-ex">"En una biblioteca antigua"</span>
+                    </div>
+                    <div class="anatomy-connector">+</div>
+                    <div class="anatomy-piece">
+                        <span class="anatomy-num">4</span>
+                        <h4>Iluminación</h4>
+                        <p>¿Qué luz tiene?</p>
+                        <span class="anatomy-ex">"Luz suave de ventana"</span>
+                    </div>
+                    <div class="anatomy-connector">+</div>
+                    <div class="anatomy-piece">
+                        <span class="anatomy-num">5</span>
+                        <h4>Atmósfera</h4>
+                        <p>¿Qué se siente?</p>
+                        <span class="anatomy-ex">"Acogedor y nostálgico"</span>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Regla simple:</strong> Sujeto solo = resultado genérico. Sujeto + Estilo + Entorno + Iluminación + Atmósfera = resultado profesional.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 6: BÁSICO VS DETALLADO ==================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔎 Prompt Básico vs Prompt Detallado</h2>
+                <p class="slide-text">La diferencia entre una imagen mediocre y una increíble es <strong>la cantidad de detalle</strong> en tu instrucción:</p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">Prompt Básico ❌</h3>
+                        <div class="code-block small">
+<pre><code>"Genera una imagen de
+un perro con sombrero"</code></pre>
+                        </div>
+                        <p style="margin-top: 12px; font-size: 13px;">Resultado: Un perro genérico, sombrero genérico, fondo blanco. Sin personalidad.</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Prompt Detallado ✅</h3>
+                        <div class="code-block small">
+<pre><code>"Fotografía profesional de
+estilo cinemático de un
+Golden Retriever usando un
+sombrero de copa antiguo.
+Sentado en un sillón de
+terciopelo verde en una
+biblioteca clásica. Luz suave
+de ventana lateral. Ambiente
+elegante y nostálgico."</code></pre>
+                        </div>
+                        <p style="margin-top: 12px; font-size: 13px;">Resultado: Una imagen con personalidad, composición y emoción.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: EJERCICIO CALENTAMIENTO 1 ==================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio en Clase: Comparando Herramientas</h2>
+                <div class="exercise-time-badge">⏱ 10 minutos</div>
+                <p class="slide-text">Vamos a pedir <strong>exactamente lo mismo</strong> a dos herramientas distintas y comparar los resultados.</p>
+                <div class="code-block">
+<pre><code><strong>Prompt (copiá y pegá en ambas):</strong>
+
+"Una foto realista de un perro astronauta caminando por
+la superficie de Marte, estilo película de ciencia ficción,
+alta definición."</code></pre>
+                </div>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Pegá el prompt en <strong>ChatGPT</strong> y generá la imagen.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Pegá el mismo prompt en <strong>Nano Banana</strong> y generá.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p><strong>Compará:</strong> ¿Cuál te gustó más? ¿Qué diferencias ves?</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Conclusión clave:</strong> Cada IA tiene su propio "estilo artístico". No hay una mejor que otra, depende de lo que necesites. Es como elegir entre Instagram y TikTok: diferentes herramientas para diferentes momentos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: EJERCICIO CALENTAMIENTO 2 ==================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio en Clase: Describir e Iterar</h2>
+                <div class="exercise-time-badge">⏱ 15 minutos</div>
+                <p class="slide-text">La magia de la IA visual no es solo generar: es <strong>corregir sin empezar de cero</strong>.</p>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">EL ERROR</h4>
+                        <p>Abrí ChatGPT y pedí: <em>"Genera una imagen de un perro con sombrero"</em>. Mirá lo genérico que sale.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">EL DETALLE</h4>
+                        <p>Ahora pedí la versión completa del Golden Retriever con los 5 componentes. Mirá la diferencia.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">LA ITERACIÓN</h4>
+                        <p>Sin empezar de cero, decile: <em>"Me gusta, pero cambiá el sombrero de copa por una boina francesa roja"</em>.</p>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>En ChatGPT (conversacional)</h4>
+                        <p>Podés decir: <em>"Sacale el fondo"</em>, <em>"Hacelo más oscuro"</em>, <em>"Ponele un cielo estrellado"</em>. La IA <strong>mantiene todo lo demás</strong> y solo cambia lo que pediste.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>En Nano Banana (por prompt)</h4>
+                        <p>Tenés que <strong>editar el texto del prompt</strong> directamente: borrá "sombrero de copa" y escribí "boina francesa roja". Luego volvé a generar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: ESTILOS ARTÍSTICOS ==================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎭 Estilos Artísticos: Tu Paleta de Filtros</h2>
+                <p class="slide-text">El estilo es la <strong>palabra mágica</strong> que transforma todo. La misma idea puede verse totalmente distinta cambiando una sola palabra:</p>
+                <div class="styles-grid">
+                    <div class="style-card">
+                        <span class="style-emoji">📷</span>
+                        <h4>Fotografía Cinematográfica</h4>
+                        <p>"cinematic photography, dramatic lighting"</p>
+                    </div>
+                    <div class="style-card">
+                        <span class="style-emoji">🌊</span>
+                        <h4>Acuarela</h4>
+                        <p>"watercolor painting, soft and delicate"</p>
+                    </div>
+                    <div class="style-card">
+                        <span class="style-emoji">🌃</span>
+                        <h4>Cyberpunk</h4>
+                        <p>"cyberpunk style, neon lights, futuristic"</p>
+                    </div>
+                    <div class="style-card">
+                        <span class="style-emoji">💥</span>
+                        <h4>Pop Art</h4>
+                        <p>"pop art, bold colors, comic style"</p>
+                    </div>
+                    <div class="style-card">
+                        <span class="style-emoji">✏️</span>
+                        <h4>Dibujo a Lápiz</h4>
+                        <p>"pencil sketch, hand-drawn, detailed"</p>
+                    </div>
+                    <div class="style-card">
+                        <span class="style-emoji">🎮</span>
+                        <h4>Pixel Art</h4>
+                        <p>"pixel art, retro 8-bit, videogame"</p>
+                    </div>
+                    <div class="style-card">
+                        <span class="style-emoji">🧸</span>
+                        <h4>3D Pixar/Disney</h4>
+                        <p>"3D render, Pixar animation style"</p>
+                    </div>
+                    <div class="style-card">
+                        <span class="style-emoji">🖼️</span>
+                        <h4>Flat Design / Vector</h4>
+                        <p>"flat design, minimalist, clean vector"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: EJERCICIO CAMALEÓN ==================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio en Clase: El Camaleón (3 Estilos, 1 Idea)</h2>
+                <div class="exercise-time-badge">⏱ 10 minutos</div>
+                <p class="slide-text">Vamos a ver cómo la <strong>misma idea</strong> cambia completamente según el estilo. Elegí algo que te guste (tu mascota, un paisaje, un objeto) y generalo 3 veces.</p>
+                <div class="code-block">
+<pre><code><strong>Prompt base (completá con tu idea):</strong>
+
+"[TU SUJETO, ej: un gato durmiendo sobre una pila de libros].
+Estilo: [CAMBIAR EN CADA VERSIÓN]. Alta calidad."</code></pre>
+                </div>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">🌃</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">VERSIÓN 1</h4>
+                        <p>Estilo <strong>Cyberpunk</strong>: luces de neón, futurista, colores eléctricos.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">🌊</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">VERSIÓN 2</h4>
+                        <p>Estilo <strong>Acuarela</strong>: suave, artístico, delicado, colores pastel.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">💥</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">VERSIÓN 3</h4>
+                        <p>Estilo <strong>Pop Art</strong>: colores planos y vibrantes, tipo cómic, llamativo.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Pregunta para el grupo:</strong> ¿Cuál de las 3 versiones elegirias para un post de Instagram? ¿Y para un fondo de pantalla? ¿Y para una invitación? El estilo lo cambia todo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: IMÁGENES PARA REDES SOCIALES ==================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2 class="slide-heading">📱 Imágenes para Redes Sociales</h2>
+                <p class="slide-text">La IA es tu <strong>diseñador gráfico personal</strong> para redes. Podés generar contenido visual para cualquier plataforma sin saber diseño:</p>
+                <div class="social-grid">
+                    <div class="social-card">
+                        <span class="social-icon">📸</span>
+                        <h4>Posts de Instagram</h4>
+                        <ul>
+                            <li>Fotos estéticas para tu feed</li>
+                            <li>Imágenes de fondo para quotes</li>
+                            <li>Ilustraciones temáticas</li>
+                        </ul>
+                        <span class="social-ratio">1:1 o 4:5</span>
+                    </div>
+                    <div class="social-card">
+                        <span class="social-icon">📖</span>
+                        <h4>Stories / Reels</h4>
+                        <ul>
+                            <li>Fondos con espacio para texto</li>
+                            <li>Portadas de highlights</li>
+                            <li>Imágenes de transición</li>
+                        </ul>
+                        <span class="social-ratio">9:16</span>
+                    </div>
+                    <div class="social-card">
+                        <span class="social-icon">🎵</span>
+                        <h4>TikTok / YouTube</h4>
+                        <ul>
+                            <li>Thumbnails llamativos</li>
+                            <li>Portadas de videos</li>
+                            <li>Fondos para pantalla verde</li>
+                        </ul>
+                        <span class="social-ratio">16:9 / 9:16</span>
+                    </div>
+                    <div class="social-card">
+                        <span class="social-icon">👤</span>
+                        <h4>Foto de Perfil</h4>
+                        <ul>
+                            <li>Avatares personalizados</li>
+                            <li>Versiones cartoon de vos</li>
+                            <li>Logos personales</li>
+                        </ul>
+                        <span class="social-ratio">1:1</span>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Tip:</strong> Podés pedir tamaños específicos en el prompt. Ej: <em>"formato vertical 9:16 para Instagram Stories"</em> o <em>"formato cuadrado 1:1 para post de Instagram"</em>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: EJEMPLOS REDES ==================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2 class="slide-heading">📝 Prompts Listos para Redes Sociales</h2>
+                <p class="slide-text">Copiá, personalizá y usá estos prompts para generar contenido visual hoy:</p>
+                <div class="prompt-gallery">
+                    <div class="prompt-example">
+                        <h4>📸 Post Estético para Feed</h4>
+                        <div class="code-block small">
+<pre><code>"Fotografía minimalista de un café latte
+con arte en la espuma, sobre una mesa de
+mármol blanco. Planta pequeña de fondo.
+Luz natural suave. Estilo Instagram
+aesthetic. Formato cuadrado 1:1."</code></pre>
+                        </div>
+                    </div>
+                    <div class="prompt-example">
+                        <h4>💬 Fondo para Quote / Frase</h4>
+                        <div class="code-block small">
+<pre><code>"Imagen de fondo abstracto con tonos
+pastel (rosa, lila, celeste). Textura suave
+tipo nube o degradado. Estilo minimalista.
+Mucho espacio vacío en el centro para
+agregar texto después. Formato 4:5."</code></pre>
+                        </div>
+                    </div>
+                    <div class="prompt-example">
+                        <h4>🎬 Thumbnail para YouTube/TikTok</h4>
+                        <div class="code-block small">
+<pre><code>"Imagen llamativa estilo thumbnail de
+YouTube. Fondo de colores vibrantes con
+efecto de explosión. Espacio vacío a la
+derecha para poner texto grande. Estilo
+energético y dinámico. Formato 16:9."</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: EJERCICIO POST PERFECTO ==================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio en Clase: Tu Post Perfecto</h2>
+                <div class="exercise-time-badge">⏱ 10 minutos</div>
+                <p class="slide-text">Vamos a crear una imagen para publicar en tus redes <strong>hoy</strong>. Elegí qué tipo de contenido querés:</p>
+                <div class="practice-checklist">
+                    <div class="check-item">📸 <strong>Opción A:</strong> Una foto estética de algo que te guste (comida, paisaje, outfit, mascota)</div>
+                    <div class="check-item">💬 <strong>Opción B:</strong> Un fondo bonito para poner una frase motivacional o graciosa</div>
+                    <div class="check-item">👤 <strong>Opción C:</strong> Un avatar o versión cartoon de vos mismo</div>
+                    <div class="check-item">🎨 <strong>Opción D:</strong> Una ilustración creativa sobre un tema que te apasione</div>
+                </div>
+                <div class="code-block">
+<pre><code><strong>Template base (completá los [CAMPOS]):</strong>
+
+"Genera una imagen para Instagram. Sujeto: [QUÉ APARECE].
+Estilo: [TIPO: fotografía, ilustración, 3D, acuarela].
+Ambiente: [DÓNDE / QUÉ SENSACIÓN]. Colores: [PALETA].
+Iluminación: [TIPO DE LUZ]. Formato: [1:1 / 4:5 / 9:16]."</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>🔄 <strong>Iterá:</strong> Si no sale perfecto a la primera, corregí: "Me gusta pero hacelo con tonos más cálidos" o "Sacá el objeto del fondo". La iteración es la clave.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: ESPACIO NEGATIVO ==================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2 class="slide-heading">🫧 El Truco del Espacio Negativo</h2>
+                <p class="slide-text">A veces la IA llena todo de detalles y <strong>no deja lugar para escribir texto</strong>. Este truco es esencial para stories y posts con texto:</p>
+                <div class="code-block">
+<pre><code><strong>Prompt para fondos con espacio para texto:</strong>
+
+"Una imagen de fondo para Instagram Stories con estética
+minimalista. Tema: [TU TEMÁTICA, ej: flores silvestres /
+atardecer en la playa / texturas de café y granos].
+
+Importante: Dejá un amplio espacio vacío (espacio negativo)
+en el centro y arriba, con un color de fondo suave, para que
+yo pueda agregar texto después. Los objetos deben estar solo
+en los bordes inferiores."</code></pre>
+                </div>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>Sin espacio negativo ❌</h3>
+                        <p class="slide-text">La imagen está llena de detalles. Si le ponés texto encima, no se lee. Inusable para stories.</p>
+                    </div>
+                    <div class="col">
+                        <h3>Con espacio negativo ✅</h3>
+                        <p class="slide-text">Los elementos están en los bordes. El centro queda limpio para tu frase, encuesta o sticker.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: EJERCICIO FONDOS STORIES ==================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio en Clase: Fondos para Stories</h2>
+                <div class="exercise-time-badge">⏱ 10 minutos</div>
+                <p class="slide-text">Creá <strong>3 fondos distintos</strong> para tus historias de Instagram. Pensá en temas que solés compartir:</p>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">FONDO MOTIVACIONAL</h4>
+                        <p>Colores cálidos, texturas suaves, espacio para una <strong>frase inspiradora</strong>.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">FONDO DIVERTIDO</h4>
+                        <p>Colores vibrantes, elementos juguetones, espacio para una <strong>encuesta o pregunta</strong>.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">FONDO ELEGANTE</h4>
+                        <p>Tonos oscuros o neutros, minimalista, espacio para <strong>anunciar algo importante</strong>.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Desafío:</strong> Usá las palabras clave <em>"espacio negativo"</em>, <em>"formato vertical 9:16"</em> y <em>"los objetos solo en los bordes"</em> en tus prompts. Eso le dice a la IA exactamente lo que necesitás.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: LOGOS CON IA ==================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-content">
+                <h2 class="slide-heading">✨ Logos e Isotipos con IA</h2>
+                <p class="slide-text">La IA puede generar <strong>isotipos y emblemas</strong> como punto de partida. No reemplaza a un diseñador profesional, pero es genial para <strong>explorar ideas</strong>:</p>
+                <div class="code-block">
+<pre><code><strong>Prompt para logos:</strong>
+
+"Un diseño de logotipo minimalista y vectorial plano
+(flat design). El símbolo es [TU IDEA: ej: un colibrí
+geométrico / una montaña con un sol / unas auriculares
+con alas]. Colores: [COLOR 1] y [COLOR 2] sobre fondo
+blanco sólido. Estilo: Moderno, limpio, sin sombras
+complejas."</code></pre>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Tips para mejores logos</h4>
+                        <ul>
+                            <li>Usá palabras: <em>"vector", "flat", "clean lines"</em></li>
+                            <li>Pedí <strong>fondo blanco sólido</strong> siempre</li>
+                            <li>Evitá pedir texto (la IA escribe mal)</li>
+                            <li>Agregá <em>"4k"</em> para más definición</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Ideas para tu logo personal</h4>
+                        <ul>
+                            <li>Tus iniciales en diseño geométrico</li>
+                            <li>Un animal que te represente</li>
+                            <li>Un objeto de tu hobby favorito</li>
+                            <li>Un símbolo abstracto con tus colores</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: EJERCICIO LOGO ==================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio en Clase: Tu Logo Personal</h2>
+                <div class="exercise-time-badge">⏱ 10 minutos</div>
+                <p class="slide-text">Todos tenemos una "marca personal" en redes. Creá un <strong>ícono o símbolo</strong> que te represente:</p>
+                <div class="practice-checklist">
+                    <div class="check-item">🤔 <strong>Paso 1:</strong> Pensá en algo que te identifique: un animal, un instrumento, un deporte, una comida, un hobby.</div>
+                    <div class="check-item">🎨 <strong>Paso 2:</strong> Elegí 2 colores que te gusten para el diseño.</div>
+                    <div class="check-item">✍️ <strong>Paso 3:</strong> Armá el prompt usando el template de logos y agregá <em>"minimalist", "vector", "clean"</em>.</div>
+                    <div class="check-item">🔄 <strong>Paso 4:</strong> Si no te convence, iterá: <em>"Hacelo más simple"</em>, <em>"Cambiá el color a azul"</em>, <em>"Hacelo más geométrico"</em>.</div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Bonus:</strong> Una vez que tengas tu logo, usalo como <strong>foto de perfil</strong> en alguna red. Si estás en ChatGPT, pedile que le ponga fondo transparente o que lo adapte a un círculo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: PERSONAJES Y MASCOTAS ==================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧸 Personajes y Avatares (Estilo Pixar)</h2>
+                <p class="slide-text">Crear un personaje 3D al estilo Pixar/Disney es una de las <strong>cosas más divertidas</strong> que podés hacer con IA. Sirve para avatares, stickers o simplemente para divertirte:</p>
+                <div class="code-block">
+<pre><code><strong>Prompt para personaje 3D:</strong>
+
+"Genera un personaje en 3D estilo película de animación
+de Pixar/Disney. El personaje es [DESCRIPCIÓN: ej: un
+chico con pelo rizado y anteojos / una abuela con delantal
+de cocina / un gato con capa de superhéroe]. Es simpático
+y expresivo. Guiñando un ojo y haciendo el gesto de 'OK'
+con la mano. Fondo limpio y desenfocado."</code></pre>
+                </div>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>Ideas para tu avatar</h3>
+                        <ul class="styled-list">
+                            <li>Vos mismo en versión Pixar</li>
+                            <li>Tu mascota como personaje animado</li>
+                            <li>Un personaje con tu profesión u hobby</li>
+                            <li>Tu familia en modo Disney</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>Usos en redes</h3>
+                        <ul class="styled-list">
+                            <li>Foto de perfil original</li>
+                            <li>Stickers personalizados para stories</li>
+                            <li>Posts divertidos y únicos</li>
+                            <li>Regalos digitales para amigos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 19: EJERCICIO AVATAR ==================== -->
+        <section class="slide" data-slide="18">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio en Clase: Tu Avatar Pixar</h2>
+                <div class="exercise-time-badge">⏱ 10 minutos</div>
+                <p class="slide-text">Creá tu <strong>versión animada</strong> al estilo película de Pixar. Describite o describí a alguien que quieras:</p>
+                <div class="code-block">
+<pre><code><strong>Template (completá con tu descripción):</strong>
+
+"Genera un personaje en 3D estilo Pixar/Disney basado en
+esta descripción: [GÉNERO, EDAD APROX, PELO, RASGOS: ej:
+una chica de 25 años con pelo largo ondulado, ojos grandes,
+sonrisa amplia]. Lleva [ROPA: ej: una remera con el logo
+de una banda / un buzo oversize / uniforme de chef].
+Expresión: [EMOCIÓN: ej: sonriendo, guiñando un ojo].
+Fondo: [COLOR SÓLIDO O AMBIENTE]. Alta calidad."</code></pre>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Si no se parece...</h4>
+                        <p>Iterá con detalles: <em>"El pelo es más oscuro"</em>, <em>"Tiene barba corta"</em>, <em>"Los ojos son más grandes"</em>. Cada detalle extra acerca el resultado.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Desafío grupal</h4>
+                        <p>Compartí tu avatar con el grupo. <strong>¿Se reconocen entre ustedes?</strong> El que más se parezca gana el título de "Prompt Artist".</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 20: CAMPAÑA FESTIVA ==================== -->
+        <section class="slide" data-slide="19">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎄 Adaptación Temática (Fechas Especiales)</h2>
+                <p class="slide-text">¿Querés contenido para Navidad, Halloween, San Valentín o el Día del Amigo? <strong>No necesitás hacer una sesión de fotos nueva</strong>. La IA adapta cualquier imagen a cualquier fecha:</p>
+                <div class="code-block">
+<pre><code><strong>Prompt para contenido festivo:</strong>
+
+"Genera una imagen para Instagram con temática de
+[FECHA: Navidad / Halloween / Primavera / San Valentín].
+Sujeto: [LO QUE QUIERAS MOSTRAR]. Incluí elementos
+decorativos de la fecha como [DETALLES: luces navideñas /
+calabazas / flores / corazones] pero que no tapen al sujeto
+principal. Iluminación mágica y cálida. Formato 1:1."</code></pre>
+                </div>
+                <div class="step-cards" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">💡</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">EN CHATGPT</h4>
+                        <p>Si sale muy cargado, decile: <em>"Está muy llena de cosas. Quitá los adornos del fondo y dejá solo las luces suaves."</em></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">💡</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">EN NANO BANANA</h4>
+                        <p>Editá el prompt: borrá los elementos que sobran y regenerá. Agregá <em>"minimalist"</em> si querés algo más limpio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 21: EJERCICIO CAMPAÑA ==================== -->
+        <section class="slide" data-slide="20">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio en Clase: Campaña Temática</h2>
+                <div class="exercise-time-badge">⏱ 10 minutos</div>
+                <p class="slide-text">Elegí una fecha especial (o inventá una) y creá una imagen temática para publicar:</p>
+                <div class="practice-checklist">
+                    <div class="check-item">🎄 <strong>Opción A:</strong> Navidad — Tu mascota, tu comida favorita o un paisaje con temática navideña.</div>
+                    <div class="check-item">🎃 <strong>Opción B:</strong> Halloween — Una versión terrorífica/graciosa de algo cotidiano.</div>
+                    <div class="check-item">💕 <strong>Opción C:</strong> San Valentín — Una imagen romántica o de amistad para compartir.</div>
+                    <div class="check-item">☀️ <strong>Opción D:</strong> Verano — Vibes de playa, pileta, vacaciones, helado.</div>
+                </div>
+                <div class="highlight-box">
+                    <p>🔄 <strong>Desafío extra:</strong> Generá la <strong>misma escena</strong> en dos fechas distintas (ej: tu mascota en Navidad vs Halloween). Mirá cómo el contexto temático transforma completamente la imagen.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 22: VISUALIZANDO LO INVISIBLE ==================== -->
+        <section class="slide" data-slide="21">
+            <div class="slide-content">
+                <h2 class="slide-heading">🌀 Visualizando lo Invisible</h2>
+                <p class="slide-text">¿Cómo mostrás algo que <strong>no se puede tocar</strong>? Ideas, emociones, conceptos abstractos... La IA puede convertir metáforas en imágenes:</p>
+                <div class="code-block">
+<pre><code><strong>Prompt para conceptos abstractos:</strong>
+
+"Actúa como un director creativo. Quiero una imagen
+conceptual que represente [CONCEPTO: ej: la libertad /
+la creatividad / la ansiedad / la música].
+
+Ejemplo visual: [METÁFORA: ej: una persona soltando
+mariposas desde sus manos / un cerebro hecho de engranajes
+de colores / una jaula abierta con pájaros volando].
+
+Estilo: Fotografía artística, inspiradora, luz brillante."</code></pre>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Ideas de conceptos para visualizar</h4>
+                        <ul>
+                            <li><strong>Libertad:</strong> cadenas rotas, pájaro volando, horizonte infinito</li>
+                            <li><strong>Creatividad:</strong> explosión de colores, cerebro con flores</li>
+                            <li><strong>Nostalgia:</strong> foto antigua, atardecer, objetos vintage</li>
+                            <li><strong>Caos:</strong> tormenta de papeles, cables enredados</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>¿Para qué sirve?</h4>
+                        <ul>
+                            <li>Posts reflexivos o filosóficos</li>
+                            <li>Portadas de playlists</li>
+                            <li>Ilustraciones para un blog o ensayo</li>
+                            <li>Fondos de pantalla con significado</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 23: EJERCICIO METÁFORA VISUAL ==================== -->
+        <section class="slide" data-slide="22">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio en Clase: Metáfora Visual</h2>
+                <div class="exercise-time-badge">⏱ 10 minutos</div>
+                <p class="slide-text">Elegí una <strong>emoción o concepto abstracto</strong> y convertilo en una imagen usando metáforas visuales:</p>
+                <div class="step-cards" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Elegí el concepto: <strong>paz, caos, amor, soledad, éxito, miedo, esperanza...</strong></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Pensá una <strong>metáfora visual</strong>: ¿qué imagen te viene a la mente?</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>Armá el prompt con <strong>sujeto, estilo, iluminación y atmósfera</strong>.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <p>Generá e iterá hasta que <strong>transmita lo que sentís</strong>.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Compartir:</strong> Mostrá tu imagen al grupo <strong>sin decir el concepto</strong>. Que los demás adivinen qué emoción quisiste transmitir. Si aciertan, tu prompt fue efectivo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 24: TIPS PRO ITERACIÓN ==================== -->
+        <section class="slide" data-slide="23">
+            <div class="slide-content">
+                <h2 class="slide-heading">⚡ Tips Pro: Iteración y Corrección</h2>
+                <p class="slide-text">La primera imagen casi nunca es la final. El <strong>80% del resultado</strong> está en saber corregir:</p>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">🎯</span>
+                        <h4>Sé específico al corregir</h4>
+                        <p>En vez de <em>"no me gusta"</em>, decí <em>"el fondo es muy oscuro, hacelo con tonos pastel"</em>. Cuanto más preciso, mejor.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">➕</span>
+                        <h4>Sumá, no reemplaces</h4>
+                        <p><em>"Agregale una taza de café al lado"</em> es mejor que reescribir todo el prompt desde cero.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🔑</span>
+                        <h4>Palabras clave mágicas</h4>
+                        <p><em>"4K"</em>, <em>"alta resolución"</em>, <em>"profesional"</em>, <em>"detallado"</em> mejoran la calidad al instante.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🚫</span>
+                        <h4>Usá negativas</h4>
+                        <p><em>"Sin texto"</em>, <em>"sin marcas de agua"</em>, <em>"sin personas"</em>. Decile lo que NO querés también.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🌐</span>
+                        <h4>Probá en inglés</h4>
+                        <p>Los modelos suelen generar mejores resultados con prompts en inglés. Probá ambos idiomas.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🔄</span>
+                        <h4>Regenerá varias veces</h4>
+                        <p>El mismo prompt puede dar resultados distintos. Si la primera no te gusta, regenerá sin cambiar nada.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 25: ERRORES COMUNES ==================== -->
+        <section class="slide" data-slide="24">
+            <div class="slide-content">
+                <h2 class="slide-heading">🚨 Errores Comunes y Cómo Evitarlos</h2>
+                <p class="slide-text">Estos son los errores que <strong>todos cometemos al principio</strong> y cómo solucionarlos:</p>
+                <div class="errors-grid">
+                    <div class="error-card">
+                        <div class="error-bad">❌ "Haceme una imagen bonita"</div>
+                        <div class="error-good">✅ Describí qué, cómo, dónde y con qué luz</div>
+                    </div>
+                    <div class="error-card">
+                        <div class="error-bad">❌ Pedir texto dentro de la imagen</div>
+                        <div class="error-good">✅ La IA escribe mal. Generá la imagen sin texto y agregá letras después en Canva o Instagram</div>
+                    </div>
+                    <div class="error-card">
+                        <div class="error-bad">❌ Reescribir todo si algo sale mal</div>
+                        <div class="error-good">✅ Iterá: "Me gusta, pero cambiá [ESTO]"</div>
+                    </div>
+                    <div class="error-card">
+                        <div class="error-bad">❌ Pedir demasiadas cosas en una imagen</div>
+                        <div class="error-good">✅ Menos es más. Una idea principal, pocos elementos</div>
+                    </div>
+                    <div class="error-card">
+                        <div class="error-bad">❌ Aceptar la primera imagen que sale</div>
+                        <div class="error-good">✅ Siempre generá 2-3 versiones y elegí la mejor</div>
+                    </div>
+                    <div class="error-card">
+                        <div class="error-bad">❌ No especificar el formato/tamaño</div>
+                        <div class="error-good">✅ Indicá "cuadrado 1:1" o "vertical 9:16" según la plataforma</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 26: EJERCICIO LIBRE CREATIVO ==================== -->
+        <section class="slide" data-slide="25">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio Libre: Desafío Creativo</h2>
+                <div class="exercise-time-badge">⏱ 15 minutos</div>
+                <p class="slide-text">Ahora que dominás las técnicas, es hora de <strong>crear sin restricciones</strong>. Elegí uno de estos desafíos:</p>
+                <div class="exercises-list">
+                    <div class="exercise-card">
+                        <span class="exercise-num">01</span>
+                        <div>
+                            <h4>La Portada de Álbum</h4>
+                            <p>Creá la portada de un álbum de música inventado. Elegí género, nombre del artista y estilo visual.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">02</span>
+                        <div>
+                            <h4>Tu Habitación Soñada</h4>
+                            <p>Diseñá tu habitación ideal: decoración, colores, muebles. Estilo: fotografía de revista de interiorismo.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">03</span>
+                        <div>
+                            <h4>Poster de Película</h4>
+                            <p>Creá el poster de una película que no existe. Definí género, protagonista y estilo visual.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">04</span>
+                        <div>
+                            <h4>Receta Imposible</h4>
+                            <p>Generá la foto de un plato de comida que no existe pero se vea delicioso. Ej: "sushi de chocolate con wasabi de frutilla".</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">05</span>
+                        <div>
+                            <h4>Fusión Histórica</h4>
+                            <p>Mezclá dos épocas: un samurái con auriculares, un gladiador con zapatillas, un vikingo en una cafetería moderna.</p>
+                        </div>
+                        <span class="difficulty hard">Desafío</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">06</span>
+                        <div>
+                            <h4>El Mundo al Revés</h4>
+                            <p>Una ciudad submarina, un bosque en el cielo, animales gigantes en una ciudad miniatura. ¡Rompé la realidad!</p>
+                        </div>
+                        <span class="difficulty hard">Desafío</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 27: EJERCICIOS EXTRA ==================== -->
+        <section class="slide" data-slide="26">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏋️ Ejercicios Extra para Practicar en Casa</h2>
+                <p class="slide-text">Si te quedaste con ganas, acá van más ideas para seguir practicando:</p>
+                <div class="exercises-list">
+                    <div class="exercise-card">
+                        <span class="exercise-num">🎨</span>
+                        <div>
+                            <h4>Pack de Highlights para Instagram</h4>
+                            <p>Generá 5 íconos temáticos para las portadas de tus highlights: viajes, comida, música, amigos, etc.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">📱</span>
+                        <div>
+                            <h4>Serie de Posts Cohesivos</h4>
+                            <p>Creá 3 imágenes para Instagram que se vean bien juntas en el feed (misma paleta de colores y estilo).</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">🖼️</span>
+                        <div>
+                            <h4>Wallpaper Pack</h4>
+                            <p>Generá 4 fondos de pantalla (2 para celular, 2 para computadora) con un estilo visual unificado.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">🃏</span>
+                        <div>
+                            <h4>Sticker Pack Personal</h4>
+                            <p>Creá 6 stickers de tu avatar Pixar con distintas expresiones (feliz, sorprendido, pensativo, etc.).</p>
+                        </div>
+                        <span class="difficulty hard">Desafío</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 28: CIERRE ==================== -->
+        <section class="slide" data-slide="27">
+            <div class="slide-content slide-title-content">
+                <h2 class="slide-heading">📝 Tarea Semanal</h2>
+                <div class="homework-card">
+                    <h3>Tu Mini Portafolio Visual con IA</h3>
+                    <p>Creá un <strong>álbum de 6 imágenes</strong> generadas con IA que podrías publicar en tus redes. Debe incluir:</p>
+                    <ul>
+                        <li>Al menos <strong>2 estilos artísticos distintos</strong> (ej: fotografía + ilustración)</li>
+                        <li>Al menos <strong>1 imagen con espacio negativo</strong> lista para agregar texto</li>
+                        <li>Al menos <strong>1 avatar o personaje</strong> (estilo Pixar, cartoon o lo que prefieras)</li>
+                        <li>Al menos <strong>1 imagen temática</strong> (para una fecha especial o concepto abstracto)</li>
+                        <li>Cada imagen debe tener el <strong>prompt que usaste</strong> (guardá los prompts)</li>
+                        <li>Bonus: Incluí el proceso de <strong>iteración</strong> (prompt original → correcciones → resultado final)</li>
+                    </ul>
+                </div>
+                <div class="closing-message">
+                    <div class="pixel-badge">CLASE 03 COMPLETADA</div>
+                    <p>De consumir imágenes → a crearlas. Tu IA ahora es tu estudio de diseño personal.</p>
+                    <div class="title-logo">BYTEC<span class="blink">_</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="keyboard-hint desktop-only">
+        Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar
+    </div>
+    <div class="keyboard-hint mobile-only">
+        Deslizá con el dedo <span class="swipe-icon">👆</span> para pasar los slides
+    </div>
+
+    <div class="mobile-overlay" id="mobileOverlay">
+        <div class="overlay-content">
+            <div class="overlay-icon">
+                <span class="swipe-hand">👆</span>
+                <div class="swipe-arrows">
+                    <span class="swipe-arrow-left">◂</span>
+                    <span class="swipe-arrow-right">▸</span>
+                </div>
+            </div>
+            <h3 class="overlay-title">¡Bienvenido!</h3>
+            <p class="overlay-text">Deslizá con el dedo hacia la <strong>izquierda</strong> o <strong>derecha</strong> para navegar entre los slides.</p>
+            <p class="overlay-text small">También podés usar los botones <strong>◂ ▸</strong> de arriba.</p>
+            <button class="overlay-btn" id="overlayBtn">¡Entendido, empecemos!</button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navProgress = document.getElementById('navProgress');
+
+        function updateSlide() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) slide.classList.add('active');
+            });
+            navProgress.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(dir) {
+            const next = currentSlide + dir;
+            if (next >= 0 && next < totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        document.addEventListener('touchend', e => {
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = touchStartY - e.changedTouches[0].screenY;
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                changeSlide(diffX > 0 ? 1 : -1);
+            }
+        }, { passive: true });
+
+        (function() {
+            const overlay = document.getElementById('mobileOverlay');
+            const btn = document.getElementById('overlayBtn');
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            const storageKey = 'bytec-swipe-hint-seen';
+
+            if (isTouchDevice && !localStorage.getItem(storageKey)) {
+                overlay.classList.add('visible');
+            }
+
+            btn.addEventListener('click', () => {
+                overlay.classList.remove('visible');
+                overlay.classList.add('hiding');
+                localStorage.setItem(storageKey, 'true');
+                setTimeout(() => { overlay.style.display = 'none'; }, 400);
+            });
+
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    btn.click();
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>

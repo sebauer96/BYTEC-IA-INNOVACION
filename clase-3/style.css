@@ -1,5 +1,5 @@
 /* ================================================
-   BYTEC — Clase 2: Creatividad Aumentada Styles
+   BYTEC — Clase 3: Diseño Visual con IA Styles
    Theme: Space + Pixel · Colors: #f75001, #04589d
    ================================================ */
 
@@ -613,215 +613,368 @@ code {
     border-color: var(--orange);
 }
 
-/* ==================== PERSONALITY GRID ==================== */
+/* ==================== EXERCISE TIME BADGE ==================== */
 
-.personality-grid {
+.exercise-time-badge {
+    display: inline-block;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    background: rgba(247, 80, 1, 0.15);
+    color: var(--orange);
+    padding: 6px 14px;
+    border: 1px solid var(--orange);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    animation: pulse-badge 2s ease-in-out infinite;
+}
+
+@keyframes pulse-badge {
+    0%, 100% { box-shadow: 0 0 8px rgba(247, 80, 1, 0.2); }
+    50% { box-shadow: 0 0 16px rgba(247, 80, 1, 0.5); }
+}
+
+/* ==================== TOOLS GRID ==================== */
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.tool-card {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+.tool-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-2px);
+}
+
+.tool-card.featured {
+    border-color: var(--orange);
+    background: linear-gradient(135deg, var(--dark-card), rgba(247, 80, 1, 0.04));
+}
+
+.tool-emoji {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.tool-card h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.tool-card p {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--muted-text);
+}
+
+.tool-tags {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.tool-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    background: rgba(4, 88, 157, 0.15);
+    color: var(--blue);
+    border: 1px solid rgba(4, 88, 157, 0.3);
+}
+
+.tool-tag.pro {
+    background: rgba(0, 230, 118, 0.1);
+    color: var(--success);
+    border-color: rgba(0, 230, 118, 0.3);
+}
+
+/* ==================== ANATOMY VISUAL ==================== */
+
+.anatomy-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 24px 0;
+    flex-wrap: wrap;
+}
+
+.anatomy-piece {
+    background: var(--dark-card);
+    border: 2px solid var(--dark-border);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    flex: 1;
+    min-width: 130px;
+    transition: all 0.3s;
+}
+
+.anatomy-piece:hover {
+    border-color: var(--orange);
+    transform: translateY(-3px);
+}
+
+.anatomy-num {
+    display: inline-block;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: var(--dark-bg);
+    background: var(--orange);
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.anatomy-piece h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.anatomy-piece p {
+    font-size: 11px;
+    color: var(--muted-text);
+    margin-bottom: 6px;
+}
+
+.anatomy-ex {
+    font-size: 10px;
+    color: var(--success);
+    font-style: italic;
+    display: block;
+}
+
+.anatomy-connector {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    color: var(--orange);
+    flex-shrink: 0;
+}
+
+/* ==================== STYLES GRID ==================== */
+
+.styles-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.style-card {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.style-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(247, 80, 1, 0.15);
+}
+
+.style-emoji {
+    font-size: 30px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.style-card h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.style-card p {
+    font-size: 10px;
+    color: var(--muted-text);
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* ==================== SOCIAL GRID ==================== */
+
+.social-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 14px;
     margin: 20px 0;
 }
 
-.personality-card {
+.social-card {
     background: var(--dark-card);
     border: 1px solid var(--dark-border);
     border-radius: 8px;
-    padding: 20px;
+    padding: 18px;
     text-align: center;
+    position: relative;
     transition: all 0.3s;
 }
 
-.personality-card:hover {
+.social-card:hover {
     border-color: var(--orange);
     transform: translateY(-3px);
 }
 
-.personality-emoji {
-    font-size: 36px;
+.social-icon {
+    font-size: 28px;
     display: block;
+    margin-bottom: 8px;
+}
+
+.social-card h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    color: white;
     margin-bottom: 10px;
 }
 
-.personality-card h4 {
+.social-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.social-card li {
+    font-size: 11px;
+    color: var(--muted-text);
+    padding: 3px 0 3px 14px;
+    position: relative;
+    line-height: 1.4;
+}
+
+.social-card li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-size: 10px;
+}
+
+.social-ratio {
+    display: inline-block;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    color: var(--blue);
+    background: rgba(4, 88, 157, 0.15);
+    padding: 4px 8px;
+    border-radius: 3px;
+    margin-top: 10px;
+    border: 1px solid rgba(4, 88, 157, 0.3);
+}
+
+/* ==================== PROMPT GALLERY ==================== */
+
+.prompt-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.prompt-example h4 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--orange);
     margin-bottom: 8px;
 }
 
-.personality-card p {
-    font-size: 12px;
-    line-height: 1.5;
-    color: var(--muted-text);
-}
+/* ==================== TIPS GRID ==================== */
 
-/* ==================== TEMPERATURE SCALE ==================== */
-
-.temperature-scale {
+.tips-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin: 20px 0;
-}
-
-.temp-item {
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    border: 2px solid;
-}
-
-.temp-low {
-    background: rgba(4, 88, 157, 0.15);
-    border-color: var(--blue);
-}
-
-.temp-mid {
-    background: rgba(255, 171, 0, 0.1);
-    border-color: var(--warning);
-}
-
-.temp-high {
-    background: rgba(247, 80, 1, 0.1);
-    border-color: var(--orange);
-}
-
-.temp-value {
-    display: block;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 20px;
-    font-weight: 900;
-    margin-bottom: 6px;
-}
-
-.temp-low .temp-value { color: var(--blue); }
-.temp-mid .temp-value { color: var(--warning); }
-.temp-high .temp-value { color: var(--orange); }
-
-.temp-label {
-    display: block;
-    font-size: 11px;
-    color: var(--muted-text);
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.temp-item p {
-    font-size: 12px;
-    line-height: 1.5;
-}
-
-/* ==================== AIDA GRID ==================== */
-
-.aida-grid {
-    display: flex;
-    flex-direction: column;
     gap: 12px;
     margin-top: 16px;
 }
 
-.aida-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
+.tip-card {
     background: var(--dark-card);
     border: 1px solid var(--dark-border);
     border-radius: 8px;
-    padding: 18px 20px;
+    padding: 16px;
     transition: all 0.3s;
 }
 
-.aida-card:hover {
+.tip-card:hover {
     border-color: var(--orange);
-    transform: translateX(4px);
+    transform: translateY(-2px);
 }
 
-.aida-letter {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 28px;
-    color: var(--orange);
-    flex-shrink: 0;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--orange);
-    border-radius: 6px;
-    background: rgba(247, 80, 1, 0.1);
+.tip-icon {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 8px;
 }
 
-.aida-card h4 {
+.tip-card h4 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 15px;
+    font-size: 12px;
     color: white;
-    margin-bottom: 4px;
-}
-
-.aida-card p {
-    font-size: 13px;
-    line-height: 1.5;
     margin-bottom: 6px;
 }
 
-.aida-example {
+.tip-card p {
     font-size: 12px;
+    line-height: 1.5;
     color: var(--muted-text);
-    font-style: italic;
-    display: block;
 }
 
-/* ==================== 80/20 RULE ==================== */
+/* ==================== ERRORS GRID ==================== */
 
-.rule-8020 {
+.errors-grid {
     display: grid;
-    grid-template-columns: 4fr 1fr;
-    gap: 16px;
-    margin: 24px 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 16px;
 }
 
-.rule-ia, .rule-human {
-    border-radius: 10px;
-    padding: 28px;
-    text-align: center;
-    position: relative;
+.error-card {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-border);
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.3s;
 }
 
-.rule-ia {
-    background: linear-gradient(135deg, rgba(4, 88, 157, 0.2), rgba(4, 88, 157, 0.05));
-    border: 2px solid var(--blue);
+.error-card:hover {
+    border-color: var(--orange);
 }
 
-.rule-human {
-    background: linear-gradient(135deg, rgba(247, 80, 1, 0.2), rgba(247, 80, 1, 0.05));
-    border: 2px solid var(--orange);
-}
-
-.rule-percent {
-    display: block;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 42px;
-    font-weight: 900;
-    margin-bottom: 4px;
-}
-
-.rule-ia .rule-percent { color: var(--blue); }
-.rule-human .rule-percent { color: var(--orange); }
-
-.rule-label {
-    display: block;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 14px;
-    letter-spacing: 3px;
-    margin-bottom: 12px;
-}
-
-.rule-ia .rule-label { color: var(--blue); }
-.rule-human .rule-label { color: var(--orange); }
-
-.rule-ia p, .rule-human p {
+.error-bad {
     font-size: 13px;
-    line-height: 1.6;
+    color: #ff6b6b;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--dark-border);
+}
+
+.error-good {
+    font-size: 13px;
+    color: var(--success);
+    line-height: 1.5;
 }
 
 /* ==================== EXERCISES ==================== */
@@ -1098,17 +1251,21 @@ kbd {
     .comparison-box { flex-direction: column; }
     .comparison-arrow { transform: rotate(90deg); }
 
-    .info-cards, .two-col, .temperature-scale { grid-template-columns: 1fr; }
+    .info-cards, .two-col, .tools-grid, .errors-grid, .prompt-gallery {
+        grid-template-columns: 1fr;
+    }
+
     .step-cards { grid-template-columns: 1fr 1fr; }
-    .personality-grid { grid-template-columns: 1fr 1fr; }
+    .styles-grid, .social-grid { grid-template-columns: 1fr 1fr; }
+    .tips-grid { grid-template-columns: 1fr 1fr; }
 
     .metaphor-box { flex-direction: column; }
     .metaphor-plus, .metaphor-equals { transform: rotate(90deg); }
 
     .title-meta { flex-direction: column; align-items: center; gap: 10px; }
     .exercise-card { flex-direction: column; text-align: center; }
-    .rule-8020 { grid-template-columns: 1fr; }
-    .aida-card { flex-direction: column; text-align: center; align-items: center; }
+    .anatomy-visual { flex-direction: column; }
+    .anatomy-connector { transform: rotate(90deg); }
 
     .slide-text { font-size: 14px; }
     .code-block code { font-size: 11px; }
@@ -1118,7 +1275,8 @@ kbd {
     .title-main { font-size: 20px; }
     .title-accent { font-size: 14px; }
     .step-cards { grid-template-columns: 1fr; }
-    .personality-grid { grid-template-columns: 1fr; }
+    .styles-grid, .social-grid { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
     .timeline { grid-template-columns: 1fr; }
 
     .slide-heading { font-size: 18px; }

@@ -885,8 +885,27 @@ SÍ usá:
 
     </main>
 
-    <div class="keyboard-hint">
+    <div class="keyboard-hint desktop-only">
         Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar
+    </div>
+    <div class="keyboard-hint mobile-only">
+        Deslizá con el dedo <span class="swipe-icon">👆</span> para pasar los slides
+    </div>
+
+    <div class="mobile-overlay" id="mobileOverlay">
+        <div class="overlay-content">
+            <div class="overlay-icon">
+                <span class="swipe-hand">👆</span>
+                <div class="swipe-arrows">
+                    <span class="swipe-arrow-left">◂</span>
+                    <span class="swipe-arrow-right">▸</span>
+                </div>
+            </div>
+            <h3 class="overlay-title">¡Bienvenido!</h3>
+            <p class="overlay-text">Deslizá con el dedo hacia la <strong>izquierda</strong> o <strong>derecha</strong> para navegar entre los slides.</p>
+            <p class="overlay-text small">También podés usar los botones <strong>◂ ▸</strong> de arriba.</p>
+            <button class="overlay-btn" id="overlayBtn">¡Entendido, empecemos!</button>
+        </div>
     </div>
 
     <script>
@@ -960,11 +979,42 @@ SÍ usá:
         });
 
         let touchStartX = 0;
-        document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; });
+        let touchStartY = 0;
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
         document.addEventListener('touchend', e => {
-            const diff = touchStartX - e.changedTouches[0].screenX;
-            if (Math.abs(diff) > 50) changeSlide(diff > 0 ? 1 : -1);
-        });
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = touchStartY - e.changedTouches[0].screenY;
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                changeSlide(diffX > 0 ? 1 : -1);
+            }
+        }, { passive: true });
+
+        (function() {
+            const overlay = document.getElementById('mobileOverlay');
+            const btn = document.getElementById('overlayBtn');
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            const storageKey = 'bytec-swipe-hint-seen';
+
+            if (isTouchDevice && !localStorage.getItem(storageKey)) {
+                overlay.classList.add('visible');
+            }
+
+            btn.addEventListener('click', () => {
+                overlay.classList.remove('visible');
+                overlay.classList.add('hiding');
+                localStorage.setItem(storageKey, 'true');
+                setTimeout(() => { overlay.style.display = 'none'; }, 400);
+            });
+
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    btn.click();
+                }
+            });
+        })();
     </script>
 
 </body>

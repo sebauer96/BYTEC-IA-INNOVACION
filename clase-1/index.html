@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Clase 1: ¿Qué es la Inteligencia Artificial?</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-logo">▸ BYTEC</a>
+        <span class="nav-progress" id="navProgress">1 / 30</span>
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
+        </div>
+    </nav>
+
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: PORTADA ==================== -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CLASE 01</div>
+                <h1 class="title-main">¿Qué es la<br><span class="title-accent">Inteligencia Artificial?</span></h1>
+                <p class="title-sub">Inteligencia · Historia · Ética · Herramientas · Futuro Laboral</p>
+                <div class="title-meta">
+                    <span class="meta-item">⏱ 90 minutos</span>
+                    <span class="meta-item">🧠 Conceptual + Debate</span>
+                    <span class="meta-item">🚀 Nivel: Desde cero</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 2: OBJETIVO ==================== -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Objetivo de Hoy</h2>
+                <div class="objective-card">
+                    <p class="objective-text">Entender <strong>qué es la inteligencia artificial</strong>, cómo llegamos hasta acá, cuáles son sus riesgos éticos, conocer las herramientas más importantes y comprender <strong>cómo impacta en el futuro del trabajo</strong>.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Inteligencia vs Conciencia</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Historia de la IA</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">20 min</span>
+                        <span class="timeline-label">Ética, datos y sesgos</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">IA Analítica vs Generativa</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">15 min</span>
+                        <span class="timeline-label">Herramientas actuales</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Futuro laboral + Cierre</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: ¿QUÉ ES LA INTELIGENCIA? ==================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧠 ¿Qué es la Inteligencia?</h2>
+                <p class="slide-text">Antes de hablar de inteligencia <em>artificial</em>, entendamos qué es la inteligencia. <strong>No es solo acumular datos o tener buena memoria.</strong></p>
+                <div class="step-cards">
+                    <div class="step-card">
+                        <span class="step-num">📚</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">APRENDER</h4>
+                        <p>Capacidad de aprender <strong>de la experiencia</strong>, no solo de memorizar.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">🔄</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">ADAPTARSE</h4>
+                        <p>Adaptarse a <strong>situaciones nuevas</strong> y desconocidas que nunca viste antes.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">🧩</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">RESOLVER</h4>
+                        <p>Usar la <strong>lógica</strong> para resolver problemas complejos paso a paso.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">💡</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">CREAR</h4>
+                        <p>Generar <strong>ideas originales</strong> combinando conocimientos previos.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Pregunta clave:</strong> Si una máquina puede aprender, adaptarse y resolver problemas... ¿es inteligente? Esta pregunta lleva 70 años sin respuesta definitiva.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: ¿Y LA CONCIENCIA? ==================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-heading">🪞 Inteligencia ≠ Conciencia</h2>
+                <p class="slide-text">Un concepto clave que mucha gente confunde. <strong>La inteligencia y la conciencia son cosas distintas:</strong></p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Inteligencia</h3>
+                        <div class="comparison-visual">🧠</div>
+                        <p style="margin-top: 12px; font-size: 13px;">Resolver problemas, aprender, adaptarse. Es un <strong>proceso medible</strong>. Las neuronas procesan información.</p>
+                    </div>
+                    <div class="comparison-arrow">≠</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">Conciencia</h3>
+                        <div class="comparison-visual">✨</div>
+                        <p style="margin-top: 12px; font-size: 13px;">La experiencia <strong>subjetiva</strong> de ser uno mismo. Sentir emociones, tener intenciones y libre albedrío.</p>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>El "Problema Duro" de la ciencia</h4>
+                        <p>Sabemos que la conciencia ocurre en el cerebro, pero <strong>no sabemos cómo ni por qué</strong>. Es el mayor misterio sin resolver de la neurociencia.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>¿Qué simula la IA?</h4>
+                        <p>La IA simula la <strong>herramienta</strong> (inteligencia), no al <strong>artesano</strong> (conciencia). Un sistema no necesita "entender" para generar respuestas correctas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: TURING Y DARTMOUTH ==================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏛️ El Origen: Turing & Dartmouth</h2>
+                <p class="slide-text">Todo empezó con una pregunta simple y revolucionaria: <strong>"¿Pueden las máquinas pensar?"</strong></p>
+                <div class="history-timeline">
+                    <div class="history-card">
+                        <span class="history-year">1950</span>
+                        <h4>Alan Turing</h4>
+                        <p>Planteó el <strong>Test de Turing</strong>: si no podés distinguir a una máquina de un humano en una conversación, esa máquina es "inteligente".</p>
+                    </div>
+                    <div class="history-connector">→</div>
+                    <div class="history-card">
+                        <span class="history-year">1956</span>
+                        <h4>Conferencia de Dartmouth</h4>
+                        <p>Se acuñó oficialmente el término <strong>"Inteligencia Artificial"</strong>. Los investigadores creían que la resolverían en pocos años.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🤔 <strong>Spoiler:</strong> No la resolvieron en pocos años. Llevó casi 70 años llegar al ChatGPT. Pero la pregunta de Turing sigue vigente: ¿las máquinas de hoy "piensan" o simplemente <em>imitan</em> muy bien?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 6: ERA DE LAS REGLAS ==================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-heading">📏 La Era de las Reglas (1956–1980s)</h2>
+                <p class="slide-text">La primera IA funcionaba con <strong>lógica y reglas estrictas</strong> programadas por humanos. Era básicamente un árbol gigante de "si pasa X, hacé Y".</p>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>✅ Funcionaba para...</h3>
+                        <ul class="styled-list">
+                            <li>Problemas con reglas claras (ajedrez)</li>
+                            <li>Cálculos matemáticos</li>
+                            <li>Sistemas de diagnóstico médico simples</li>
+                            <li>Entornos cerrados y predecibles</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>❌ Fallaba con...</h3>
+                        <ul class="styled-list">
+                            <li>El mundo real (demasiadas excepciones)</li>
+                            <li>Entender lenguaje natural</li>
+                            <li>Reconocer imágenes</li>
+                            <li>Cualquier cosa no prevista por el programador</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Analogía:</strong> Era como intentar enseñarle a alguien un idioma dándole un diccionario de 10 millones de páginas con todas las frases posibles. Funciona a veces, pero no entiende nada.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: INVIERNO DE LA IA ==================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-heading">❄️ El Invierno de la IA (1980s–1990s)</h2>
+                <p class="slide-text">Las promesas no se cumplieron. La desilusión fue tan grande que <strong>cortaron la financiación</strong> y la IA casi desaparece:</p>
+                <div class="metaphor-box">
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">💔</div>
+                        <h3>Promesas Incumplidas</h3>
+                        <p>Se prometieron autos que manejan solos para los 80s. <strong>No pasó.</strong></p>
+                    </div>
+                    <div class="metaphor-plus">+</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">🖥️</div>
+                        <h3>Poca Potencia</h3>
+                        <p>Las computadoras no tenían <strong>poder de cómputo</strong> suficiente.</p>
+                    </div>
+                    <div class="metaphor-plus">+</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">📂</div>
+                        <h3>Pocos Datos</h3>
+                        <p>No existía internet masivo. <strong>No había datos digitales</strong> para enseñarle.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🧊 <strong>Se llama "invierno"</strong> porque la IA quedó congelada. Los gobiernos dejaron de invertir, las universidades cambiaron de tema, y los investigadores se fueron a otras áreas. Duró casi 15 años.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: EL DESPERTAR ==================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-heading">🌅 El Despertar de la IA (2000s)</h2>
+                <p class="slide-text">Tres factores convergieron para <strong>derretir el invierno</strong> y despertar a la IA de su letargo:</p>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">📊</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">BIG DATA</h4>
+                        <p>Internet generó <strong>océanos de datos</strong>: fotos, textos, videos, búsquedas. Ahora había con qué enseñarle.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">⚡</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">GPUs</h4>
+                        <p>Las placas de video para gaming resultaron <strong>perfectas para los cálculos</strong> de redes neuronales.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">🧬</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">REDES NEURONALES</h4>
+                        <p>Se perfeccionaron las <strong>redes neuronales artificiales</strong>: las máquinas aprenden solas encontrando patrones.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🔑 <strong>Cambio fundamental:</strong> Se pasó de <em>"programar reglas"</em> a <em>"darle datos y que aprenda sola"</em>. En vez de decirle "un gato tiene orejas puntiagudas", le mostrás 10 millones de fotos de gatos y ella sola entiende qué es un gato.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: LA ERA SILENCIOSA ==================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-heading">🤫 La Era Silenciosa (2000–2020)</h2>
+                <p class="slide-text">La IA ya estaba en tu vida <strong>sin que lo supieras</strong>. Estos son algunos ejemplos que usás todos los días:</p>
+                <div class="silent-grid">
+                    <div class="silent-card">
+                        <span class="silent-icon">📧</span>
+                        <h4>Filtro Antispam</h4>
+                        <p>Tu email decide qué es spam y qué no. <strong>Eso es Machine Learning.</strong></p>
+                    </div>
+                    <div class="silent-card">
+                        <span class="silent-icon">🎵</span>
+                        <h4>Recomendaciones</h4>
+                        <p>Spotify, Netflix, YouTube: los algoritmos <strong>eligen qué te muestran</strong>.</p>
+                    </div>
+                    <div class="silent-card">
+                        <span class="silent-icon">🗺️</span>
+                        <h4>GPS Inteligente</h4>
+                        <p>Waze y Google Maps <strong>predicen el tráfico</strong> en tiempo real.</p>
+                    </div>
+                    <div class="silent-card">
+                        <span class="silent-icon">🗣️</span>
+                        <h4>Asistentes de Voz</h4>
+                        <p>Siri, Alexa, Google: entienden tu voz <strong>gracias a redes neuronales</strong>.</p>
+                    </div>
+                    <div class="silent-card">
+                        <span class="silent-icon">📱</span>
+                        <h4>Redes Sociales</h4>
+                        <p>El algoritmo de Instagram/TikTok <strong>cura tu feed</strong> según tu comportamiento.</p>
+                    </div>
+                    <div class="silent-card">
+                        <span class="silent-icon">📸</span>
+                        <h4>Desbloqueo Facial</h4>
+                        <p>Tu teléfono te <strong>reconoce la cara</strong>. Eso es reconocimiento facial con IA.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: EL ESTALLIDO GENERATIVO ==================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2 class="slide-heading">💥 El Estallido Generativo (2020–Hoy)</h2>
+                <p class="slide-text">El momento en que la IA pasó de ser <strong>invisible</strong> a estar en la boca de todos:</p>
+                <div class="era-timeline">
+                    <div class="era-card">
+                        <span class="era-year">2020</span>
+                        <p>Modelos gigantes aprenden a <strong>escribir como humanos</strong> (GPT-3).</p>
+                    </div>
+                    <div class="era-card highlight-era">
+                        <span class="era-year">2022</span>
+                        <p>El <strong>"Momento ChatGPT"</strong>: millones de personas conversan con una IA por primera vez.</p>
+                    </div>
+                    <div class="era-card">
+                        <span class="era-year">2023-24</span>
+                        <p>La IA es <strong>multimodal</strong>: genera texto, imagen, video y audio. Open Source explota.</p>
+                    </div>
+                    <div class="era-card">
+                        <span class="era-year">2025-26</span>
+                        <p><strong>Agentes de IA</strong> ejecutan tareas complejas. IA local corre en tu propia computadora.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>📈 <strong>Para dimensionar:</strong> ChatGPT alcanzó 100 millones de usuarios en <em>2 meses</em>. A Instagram le tomó 2.5 años. A Facebook, 4.5 años. Es la tecnología de adopción más rápida de la historia.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: EL PRECIO DEL GRATIS ==================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2 class="slide-heading">💰 El Precio del "Gratis"</h2>
+                <p class="slide-text">Si el producto es gratis, <strong>la mercancía sos vos</strong>. Cada clic, cada búsqueda, cada segundo en pantalla alimenta a la IA:</p>
+                <div class="step-cards">
+                    <div class="step-card">
+                        <span class="step-num">👁️</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">TUS CLICS</h4>
+                        <p>Cada like, cada scroll, cada pausa en un post es <strong>un dato</strong> que se registra.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">📍</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">TU UBICACIÓN</h4>
+                        <p>Tu teléfono sabe dónde estás, <strong>dónde fuiste</strong> y a qué hora llegaste.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">⏱️</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">TU TIEMPO</h4>
+                        <p>Cuánto tiempo mirás cada video, cada foto, cada publicación. <strong>Todo se mide.</strong></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">🧬</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">TU PERFIL</h4>
+                        <p>Con esos datos se crea un <strong>perfil psicológico</strong> para predecir tu comportamiento.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🔍 <strong>Tu huella digital</strong> incluye clics, ubicaciones, tiempo en pantalla, búsquedas, compras y contactos. Nuestro comportamiento es el <em>combustible gratuito</em> de la tecnología.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: CAMBRIDGE ANALYTICA ==================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2 class="slide-heading">🕵️ Caso: Cambridge Analytica</h2>
+                <p class="slide-text">Uno de los escándalos más grandes de la era digital. <strong>Cuando los datos se convierten en un arma:</strong></p>
+                <div class="case-flow">
+                    <div class="case-step">
+                        <span class="case-num">1</span>
+                        <p>Millones de perfiles de Facebook fueron <strong>expuestos sin consentimiento</strong> a través de un quiz inocente.</p>
+                    </div>
+                    <div class="case-step">
+                        <span class="case-num">2</span>
+                        <p>Con esos datos se crearon <strong>perfiles psicológicos</strong> detallados de cada persona.</p>
+                    </div>
+                    <div class="case-step">
+                        <span class="case-num">3</span>
+                        <p>Se usó <strong>microsegmentación</strong> para mostrar propaganda política personalizada a cada perfil.</p>
+                    </div>
+                    <div class="case-step">
+                        <span class="case-num">4</span>
+                        <p>Resultado: <strong>influencia directa en elecciones</strong> de EEUU y el Brexit. Polarización a escala masiva.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⚠️ <strong>La lección:</strong> Tus datos "inocentes" (likes, posts, fotos) pueden revelar tu personalidad, tus miedos y tus debilidades. Y eso puede usarse para <em>manipularte</em>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: CASO TARGET ==================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2 class="slide-heading">🛒 Caso: Target (2012)</h2>
+                <p class="slide-text">Un algoritmo de supermercado <strong>predijo un embarazo adolescente</strong> antes que la propia familia lo supiera:</p>
+                <div class="case-flow">
+                    <div class="case-step">
+                        <span class="case-num">1</span>
+                        <p>Target analizó <strong>cambios sutiles</strong> en los patrones de compra de sus clientes.</p>
+                    </div>
+                    <div class="case-step">
+                        <span class="case-num">2</span>
+                        <p>Creó un <strong>"puntaje de predicción de embarazo"</strong> basado en 25 productos clave.</p>
+                    </div>
+                    <div class="case-step">
+                        <span class="case-num">3</span>
+                        <p>Le envió <strong>cupones de productos de bebé</strong> a una adolescente. El padre se quejó furioso.</p>
+                    </div>
+                    <div class="case-step">
+                        <span class="case-num">4</span>
+                        <p>Días después, el padre pidió disculpas. Su hija <strong>efectivamente estaba embarazada</strong>.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🔬 <strong>La lección:</strong> Los datos transaccionales (lo que comprás) pueden exponer tus <em>secretos más íntimos</em>. Y eso fue en 2012. Hoy los algoritmos son infinitamente más potentes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: STRAVA Y CLEARVIEW ==================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2 class="slide-heading">📡 Más Casos: Strava & Clearview AI</h2>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>🗺️ Strava: Rutas Secretas</h3>
+                        <p class="slide-text">La app de fitness publicó un mapa de calor "anónimo" con las rutas de todos sus usuarios. Sin querer, <strong>reveló las rutas de patrullaje de bases militares secretas</strong>.</p>
+                        <div class="highlight-box">
+                            <p>La agregación de millones de datos "anónimos" puede revelar <strong>secretos profundos</strong>.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h3>📸 Clearview AI: Tu Cara</h3>
+                        <p class="slide-text">Aspiró <strong>miles de millones de fotos públicas</strong> de internet sin permiso y creó el motor de reconocimiento facial más potente del mundo, usado por policías.</p>
+                        <div class="highlight-box">
+                            <p>Tus fotos públicas pueden usarse en <strong>bases de datos policiales</strong> sin tu consentimiento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: SESGO ALGORÍTMICO ==================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2 class="slide-heading">⚖️ Sesgo Algorítmico: El Espejo Oscuro</h2>
+                <p class="slide-text">La IA <strong>no es neutral</strong>. Es un espejo de los datos con los que fue entrenada. Si la sociedad tiene prejuicios, la IA los amplifica:</p>
+                <div class="case-flow">
+                    <div class="case-step">
+                        <span class="case-num">🏢</span>
+                        <p><strong>Amazon</strong> creó una IA para filtrar CVs de programadores.</p>
+                    </div>
+                    <div class="case-step">
+                        <span class="case-num">📊</span>
+                        <p>La entrenaron con CVs recibidos durante <strong>10 años</strong> (mayormente de hombres).</p>
+                    </div>
+                    <div class="case-step">
+                        <span class="case-num">❌</span>
+                        <p>El sistema <strong>penalizaba automáticamente</strong> los CVs que incluían la palabra "mujer".</p>
+                    </div>
+                    <div class="case-step">
+                        <span class="case-num">🗑️</span>
+                        <p>Amazon tuvo que <strong>descartar el sistema</strong> completamente.</p>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>El problema de la "Caja Negra"</h4>
+                        <p>Muchos modelos de IA toman decisiones que <strong>ni sus propios creadores pueden explicar</strong>. ¿Cómo confiás en algo que no puede justificar sus decisiones?</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Datos sesgados = IA sesgada</h4>
+                        <p>Si entrenás una IA con datos que reflejan prejuicios históricos, la IA <strong>no corrige esos prejuicios, los acelera</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: DILEMAS ACTUALES ==================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔥 Dilemas de la IA Hoy</h2>
+                <p class="slide-text">Estos son los problemas éticos que <strong>están pasando ahora mismo</strong>, no en el futuro:</p>
+                <div class="dilemma-grid">
+                    <div class="dilemma-card">
+                        <span class="dilemma-icon">🎭</span>
+                        <h4>Deepfakes</h4>
+                        <p>Clonar voces y rostros es cada vez más fácil. ¿Cómo sabés si un video es real?</p>
+                    </div>
+                    <div class="dilemma-card">
+                        <span class="dilemma-icon">©️</span>
+                        <h4>Derechos de Autor</h4>
+                        <p>Los modelos de IA fueron entrenados con contenido de artistas y escritores sin pagarles ni un centavo.</p>
+                    </div>
+                    <div class="dilemma-card">
+                        <span class="dilemma-icon">🔒</span>
+                        <h4>Ciberseguridad</h4>
+                        <p>La IA genera nuevas formas de ataque: phishing hiper personalizado, malware inteligente.</p>
+                    </div>
+                    <div class="dilemma-card">
+                        <span class="dilemma-icon">❓</span>
+                        <h4>¿Qué es Real?</h4>
+                        <p>Es cada vez más difícil distinguir qué fue creado por un humano y qué por una IA.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🧠 <strong>Reflexión:</strong> La tecnología no es buena ni mala. Es una herramienta. Pero como toda herramienta poderosa, puede usarse para construir o para destruir. <em>Lo que importa es quién la usa y para qué.</em></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: EL GRAN SALTO ==================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-content">
+                <h2 class="slide-heading">🚀 El Gran Salto: Analítica vs Generativa</h2>
+                <p class="slide-text">Hay dos tipos fundamentales de IA, y la diferencia es clave para entender el mundo actual:</p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">IA Analítica</h3>
+                        <div class="comparison-visual">🔍</div>
+                        <p style="margin-top: 12px; font-size: 13px;"><strong>El Observador.</strong> Clasifica, categoriza y predice usando datos existentes. Entra mucho → Sale poco.</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">IA Generativa</h3>
+                        <div class="comparison-visual">🎨</div>
+                        <p style="margin-top: 12px; font-size: 13px;"><strong>El Creador.</strong> Produce contenido nuevo e inédito: texto, imagen, código, música. Entra poco → Sale mucho.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Ejemplo simple:</strong> IA Analítica mira tu email y dice <em>"esto es spam"</em>. IA Generativa recibe <em>"escribime un email de disculpa"</em> y lo redacta desde cero.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: TABLA COMPARATIVA ==================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-content">
+                <h2 class="slide-heading">📊 Analítica vs Generativa: Comparación</h2>
+                <div class="compare-table">
+                    <div class="table-row table-header">
+                        <span>Característica</span>
+                        <span>IA Analítica</span>
+                        <span>IA Generativa</span>
+                    </div>
+                    <div class="table-row">
+                        <span>Función principal</span>
+                        <span>Analizar, clasificar, predecir</span>
+                        <span>Crear, sintetizar, inventar</span>
+                    </div>
+                    <div class="table-row">
+                        <span>Tipo de salida</span>
+                        <span>Etiquetas, números, decisiones</span>
+                        <span>Textos, imágenes, código, música</span>
+                    </div>
+                    <div class="table-row">
+                        <span>Flujo de datos</span>
+                        <span>Entra mucho → Sale poco</span>
+                        <span>Entra poco → Sale mucho</span>
+                    </div>
+                    <div class="table-row">
+                        <span>Enfoque humano</span>
+                        <span>Optimización de procesos</span>
+                        <span>Ampliación de la creatividad</span>
+                    </div>
+                    <div class="table-row">
+                        <span>Ejemplo</span>
+                        <span>"Esto es spam" / "Hay 70% de lluvia"</span>
+                        <span>"Acá tenés el artículo que pediste"</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 19: CEREBROS TODO TERRENO ==================== -->
+        <section class="slide" data-slide="18">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧠 Los Cerebros Todo Terreno (Texto y Razonamiento)</h2>
+                <p class="slide-text">Las herramientas más populares de IA generativa para <strong>texto, conversación y razonamiento</strong>:</p>
+                <div class="tools-grid">
+                    <div class="tool-card featured">
+                        <span class="tool-emoji">💬</span>
+                        <h4>ChatGPT (OpenAI)</h4>
+                        <p>El pionero y el más popular. Excelente para tareas generales, razonamiento lógico y generación de imágenes integrada.</p>
+                    </div>
+                    <div class="tool-card featured">
+                        <span class="tool-emoji">📝</span>
+                        <h4>Claude (Anthropic)</h4>
+                        <p>El rey de la redacción natural y el análisis de documentos gigantes (PDFs, libros enteros). El mejor para programar.</p>
+                    </div>
+                    <div class="tool-card featured">
+                        <span class="tool-emoji">🔍</span>
+                        <h4>Gemini (Google)</h4>
+                        <p>Integrado en Google Docs, Drive y Gmail. Pionero en multimodalidad nativa. Acceso gratuito generoso.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">🔓</span>
+                        <h4>Llama 3 / DeepSeek (Open Source)</h4>
+                        <p>Modelos potentísimos y gratuitos. Privacidad total: tus datos no van a la nube. Corren en tu propia PC con Ollama.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 20: ARTISTAS VISUALES ==================== -->
+        <section class="slide" data-slide="19">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎨 Los Artistas Visuales (Imagen)</h2>
+                <p class="slide-text">Herramientas de IA que <strong>generan imágenes</strong> a partir de texto:</p>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <span class="tool-emoji">🖼️</span>
+                        <h4>Midjourney</h4>
+                        <p>El estándar de oro para calidad fotorrealista y artística. Funciona vía Discord o Web.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">🤖</span>
+                        <h4>DALL-E (en ChatGPT)</h4>
+                        <p>El más fácil de usar: integrado directamente en ChatGPT. Ideal para iterar conversando.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">🍌</span>
+                        <h4>Nano Banana (Gemini)</h4>
+                        <p>Fácil de usar, integrado con Gemini de Google. Gratis y rápido para probar ideas.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">🔧</span>
+                        <h4>Stable Diffusion</h4>
+                        <p>Rey del código abierto. Control absoluto pero requiere conocimientos técnicos. Corre localmente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 21: COPILOTOS Y FRONTERA ==================== -->
+        <section class="slide" data-slide="20">
+            <div class="slide-content">
+                <h2 class="slide-heading">⚡ Código, Audio y Video</h2>
+                <div class="two-col">
+                    <div class="col">
+                        <h3>💻 Copilotos Técnicos (Código)</h3>
+                        <ul class="styled-list">
+                            <li><strong>Copilot / Cursor / Claude Code:</strong> entornos que escriben código por vos</li>
+                            <li>No hace falta ser programador para crear sitios web o automatizaciones</li>
+                            <li>Pedís en lenguaje natural y te arma el código</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>🎬 La Frontera Final (Audio/Video)</h3>
+                        <ul class="styled-list">
+                            <li><strong>Sora / Veo / Runway:</strong> videos fotorrealistas desde texto</li>
+                            <li><strong>ElevenLabs:</strong> clonación de voz hiperrealista</li>
+                            <li><strong>Suno / Udio:</strong> canciones completas con letra, voz e instrumentos en segundos</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🌍 <strong>Panorama completo:</strong> La IA ya puede generar texto, imágenes, código, audio, video y música. En 2 años pasamos de "chatear con un bot" a tener <em>un estudio creativo completo</em> en la pantalla.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 22: ¿NOS DESPLAZA? ==================== -->
+        <section class="slide" data-slide="21">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏭 ¿La IA nos Desplaza?</h2>
+                <p class="slide-text">El elefante en la sala. Los datos del <strong>Foro Económico Mundial</strong> y el <strong>FMI</strong>:</p>
+                <div class="stats-grid">
+                    <div class="stat-card danger">
+                        <span class="stat-big">40%</span>
+                        <p>del empleo mundial está <strong>expuesto</strong> a la IA según el FMI</p>
+                    </div>
+                    <div class="stat-card danger">
+                        <span class="stat-big">92M</span>
+                        <p>empleos tradicionales se <strong>desplazarán</strong> para 2030</p>
+                    </div>
+                    <div class="stat-card success">
+                        <span class="stat-big">170M</span>
+                        <p>empleos <strong>nuevos</strong> se proyecta crear con IA</p>
+                    </div>
+                    <div class="stat-card success">
+                        <span class="stat-big">+78M</span>
+                        <p><strong>saldo positivo</strong> neto de puestos de trabajo</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>📊 <strong>El patrón histórico:</strong> Cada revolución tecnológica destruyó empleos Y creó nuevos. La imprenta, la electricidad, internet. La IA sigue el mismo patrón de <em>"destrucción creativa"</em>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 23: ROLES DEL FUTURO ==================== -->
+        <section class="slide" data-slide="22">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔮 Roles del Futuro</h2>
+                <p class="slide-text">Los nuevos trabajos que <strong>no existían hace 2 años</strong> y hoy tienen alta demanda:</p>
+                <div class="future-roles">
+                    <div class="role-card">
+                        <span class="role-icon">🎯</span>
+                        <h4>Orquestador de IA</h4>
+                        <p>Conecta herramientas de IA a <strong>problemas reales</strong> de negocio. No programa: entiende qué herramienta usar para cada caso.</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon">🔍</span>
+                        <h4>Curador de Datos</h4>
+                        <p>Asegura que la información sea <strong>real, precisa y sin sesgos</strong>. El guardián de la calidad del combustible de la IA.</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon">✍️</span>
+                        <h4>Prompt Engineer</h4>
+                        <p>Especialista en escribir <strong>instrucciones efectivas</strong> para que la IA produzca exactamente lo que se necesita.</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="role-icon">🤝</span>
+                        <h4>Habilidades Humanas</h4>
+                        <p>Empatía, liderazgo, negociación, pensamiento crítico. <strong>Lo que la IA no puede replicar.</strong></p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>📈 <strong>Dato:</strong> La demanda de alfabetización en IA aumentó un <strong>70%</strong> en 2024. Aprender a usar IA no es opcional: es la nueva alfabetización digital.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 24: LA REGLA DE ORO ==================== -->
+        <section class="slide" data-slide="23">
+            <div class="slide-content">
+                <h2 class="slide-heading">👑 La Regla de Oro</h2>
+                <div class="golden-rule">
+                    <div class="rule-main">
+                        <p class="rule-quote">"La IA por sí sola no te va a reemplazar en tu trabajo.</p>
+                        <p class="rule-quote accent">Una persona usando IA sí te va a reemplazar."</p>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>El dato económico</h4>
+                        <p>Las habilidades en IA pueden <strong>aumentar tu salario promedio en un 23%</strong> según el Global AI Jobs Barometer (2024).</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>La ventaja competitiva</h4>
+                        <p>Dominar la herramienta te permite ser <strong>más rápido, más creativo y más eficiente</strong>. No compitiendo con la IA, sino usándola.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>📚 <strong>Fuentes:</strong> "Gen-AI: Artificial Intelligence and the Future of Work" (FMI, 2024) · "The Future of Jobs Report" (WEF, 2020/2023) · "Global AI Jobs Barometer" (PwC, 2024).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 25: CIERRE ==================== -->
+        <section class="slide" data-slide="24">
+            <div class="slide-content slide-title-content">
+                <h2 class="slide-heading">📝 Resumen & Próxima Clase</h2>
+                <div class="homework-card">
+                    <h3>Lo que vimos hoy</h3>
+                    <ul>
+                        <li><strong>Inteligencia ≠ Conciencia:</strong> la IA simula la herramienta, no al artesano</li>
+                        <li><strong>Historia:</strong> de Turing (1950) al estallido generativo (2022)</li>
+                        <li><strong>Ética:</strong> datos como arma, sesgos, deepfakes y privacidad</li>
+                        <li><strong>Analítica vs Generativa:</strong> clasificar datos vs crear desde cero</li>
+                        <li><strong>Herramientas:</strong> ChatGPT, Claude, Gemini, Midjourney y más</li>
+                        <li><strong>Futuro laboral:</strong> destrucción creativa, +78M empleos netos</li>
+                        <li><strong>Regla de oro:</strong> no te reemplaza la IA, te reemplaza alguien usándola</li>
+                    </ul>
+                </div>
+                <div class="closing-message">
+                    <div class="pixel-badge">CLASE 01 COMPLETADA</div>
+                    <p>Ahora sabés qué es la IA. En la próxima clase, aprendés a usarla como un profesional.</p>
+                    <div class="title-logo">BYTEC<span class="blink">_</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="keyboard-hint desktop-only">
+        Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar
+    </div>
+    <div class="keyboard-hint mobile-only">
+        Deslizá con el dedo <span class="swipe-icon">👆</span> para pasar los slides
+    </div>
+
+    <div class="mobile-overlay" id="mobileOverlay">
+        <div class="overlay-content">
+            <div class="overlay-icon">
+                <span class="swipe-hand">👆</span>
+                <div class="swipe-arrows">
+                    <span class="swipe-arrow-left">◂</span>
+                    <span class="swipe-arrow-right">▸</span>
+                </div>
+            </div>
+            <h3 class="overlay-title">¡Bienvenido!</h3>
+            <p class="overlay-text">Deslizá con el dedo hacia la <strong>izquierda</strong> o <strong>derecha</strong> para navegar entre los slides.</p>
+            <p class="overlay-text small">También podés usar los botones <strong>◂ ▸</strong> de arriba.</p>
+            <button class="overlay-btn" id="overlayBtn">¡Entendido, empecemos!</button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navProgress = document.getElementById('navProgress');
+
+        function updateSlide() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) slide.classList.add('active');
+            });
+            navProgress.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(dir) {
+            const next = currentSlide + dir;
+            if (next >= 0 && next < totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        document.addEventListener('touchend', e => {
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = touchStartY - e.changedTouches[0].screenY;
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                changeSlide(diffX > 0 ? 1 : -1);
+            }
+        }, { passive: true });
+
+        (function() {
+            const overlay = document.getElementById('mobileOverlay');
+            const btn = document.getElementById('overlayBtn');
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            const storageKey = 'bytec-swipe-hint-seen';
+
+            if (isTouchDevice && !localStorage.getItem(storageKey)) {
+                overlay.classList.add('visible');
+            }
+
+            btn.addEventListener('click', () => {
+                overlay.classList.remove('visible');
+                overlay.classList.add('hiding');
+                localStorage.setItem(storageKey, 'true');
+                setTimeout(() => { overlay.style.display = 'none'; }, 400);
+            });
+
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    btn.click();
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>

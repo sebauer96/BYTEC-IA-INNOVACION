@@ -1,0 +1,62 @@
+---
+description: Project conventions for the BYTEC AI course website
+alwaysApply: true
+---
+
+# BYTEC — Curso de Inteligencia Artificial
+
+## About the Project
+
+This is a static HTML/CSS website for the **BYTEC academy** AI course (6 classes). It uses a space/pixel theme with animated stars, slide-based presentations, and responsive design.
+
+## Structure
+
+```
+index.html          — Landing page with 6 class cards
+style.css           — Landing page styles
+clase-1/            — Clase 1: ¿Qué es la IA?
+clase-2/            — Clase 2: Creatividad Aumentada & Prompts
+clase-3/            — Clase 3: Diseño Visual con IA
+clase-4/ to clase-6 — Pending classes
+```
+
+Each class has `index.html` (slides presentation) + `style.css` (self-contained styles).
+
+## Design Rules
+
+- **Theme**: Space + Pixel art. Dark background (#060614), orange accent (#f75001), blue secondary (#04589d).
+- **Fonts**: Press Start 2P (badges/numbers), Orbitron (headings), Space Mono (body text). Loaded from Google Fonts.
+- **Stars canvas**: Animated twinkling stars background via `<canvas>` in every page.
+- **Slides**: Each class is a full-screen slide presentation with navigation (arrows, keyboard, swipe).
+- **Keep the style consistent** across all classes — match the existing visual components and CSS patterns.
+
+## Slide Presentation Features
+
+- Navigation: keyboard arrows, click buttons (◂ ▸), and touch swipe.
+- Swipe detects horizontal vs vertical to avoid conflict with scrolling.
+- A **mobile overlay** appears on first visit (stored in localStorage as `bytec-swipe-hint-seen`) explaining swipe navigation.
+- Desktop shows keyboard hint; mobile shows swipe hint — toggled via `.desktop-only` / `.mobile-only` classes.
+
+## Responsive Requirements
+
+- All content must be responsive. Grids collapse from multi-column to single column.
+- Breakpoints: 768px (tablet) and 480px (small phone).
+- Code blocks use smaller font on mobile (11px). Slide text reduces to 14px.
+- Nav logo shrinks on 480px.
+
+## Content Style
+
+- **Language**: Spanish (argentinian informal "vos"). All UI text in Spanish.
+- **Code comments and CSS**: In English.
+- **Tone**: Accessible, practical, engaging. Not overly academic.
+- **Target audience**: General public (not developers or entrepreneurs specifically).
+- **Exercises**: Include time badges (⏱ X minutos) and step-by-step instructions.
+- **Prompts**: Show in code blocks with `<strong>` tags for labels (ROL, CONTEXTO, etc).
+
+## When Adding a New Class
+
+1. Create `clase-N/index.html` and `clase-N/style.css`.
+2. Copy the base CSS from an existing class and add new component styles as needed.
+3. Include: stars canvas, nav bar, slides container, keyboard/swipe hints, mobile overlay, and the full JS block.
+4. Update `index.html` landing page: change the class card from `locked` to `available`, update href, title, description, and tags.
+5. Keep consistent slide numbering in `data-slide` attributes and update the nav progress counter.

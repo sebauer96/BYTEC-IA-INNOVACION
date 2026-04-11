@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Clase 4: Videos y Voz con IA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-logo">▸ BYTEC</a>
+        <span class="nav-progress" id="navProgress">1 / 26</span>
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
+        </div>
+    </nav>
+
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: PORTADA ==================== -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CLASE 04</div>
+                <h1 class="title-main">Videos y Voz<br><span class="title-accent">con Inteligencia Artificial</span></h1>
+                <p class="title-sub">Voz · Video · Lip Sync · Música · Edición</p>
+                <div class="title-meta">
+                    <span class="meta-item">⏱ 90 minutos</span>
+                    <span class="meta-item">🎬 100% Práctica</span>
+                    <span class="meta-item">🚀 Nivel: Director</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 2: OBJETIVO ==================== -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Objetivo de Hoy</h2>
+                <div class="objective-card">
+                    <p class="objective-text">Crear <strong>videos profesionales con IA</strong> sin cámaras, micrófonos ni actores. Vamos a generar voz con IA, crear videos cinemáticos desde fotos y hacer que nuestros avatares hablen con lip sync.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">5 min</span>
+                        <span class="timeline-label">Flujo de trabajo profesional</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">25 min</span>
+                        <span class="timeline-label">Parte 1: Voz con ElevenLabs</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">30 min</span>
+                        <span class="timeline-label">Parte 2: Video con Veo3</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">20 min</span>
+                        <span class="timeline-label">Parte 3: Lip Sync con Hedra</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">5 min</span>
+                        <span class="timeline-label">Edición y ética</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">5 min</span>
+                        <span class="timeline-label">Ejercicios extra + cierre</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: FLUJO DE TRABAJO ==================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔄 El Flujo de Trabajo Profesional</h2>
+                <p class="slide-text">El secreto es <strong>cocinar los ingredientes por separado</strong>. No intentes que una sola herramienta haga todo. Cada componente se prepara con excelencia y luego se combina.</p>
+                <div class="workflow-pipeline">
+                    <div class="pipeline-step completed-step">
+                        <span class="pipeline-icon">📝</span>
+                        <h4>Guion</h4>
+                        <p>Clase 2: Narrativa AIDA</p>
+                    </div>
+                    <div class="pipeline-arrow">▸</div>
+                    <div class="pipeline-step completed-step">
+                        <span class="pipeline-icon">🖼️</span>
+                        <h4>Imagen</h4>
+                        <p>Clase 3: Visual profesional</p>
+                    </div>
+                    <div class="pipeline-arrow">▸</div>
+                    <div class="pipeline-step active-step">
+                        <span class="pipeline-icon">🎙️</span>
+                        <h4>Voz</h4>
+                        <p>Clase 4: Audio profesional</p>
+                    </div>
+                    <div class="pipeline-arrow">▸</div>
+                    <div class="pipeline-step active-step">
+                        <span class="pipeline-icon">🎬</span>
+                        <h4>Video Final</h4>
+                        <p>La integración completa</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⚡ Hoy vamos a cocinar el <strong>ingrediente final</strong>: el movimiento cinemático y el sonido profesional que transformarán tu contenido estático en experiencias dinámicas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: POR QUÉ AUDIO ==================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎙️ Parte 1: La Voz Profesional</h2>
+                <p class="slide-text">Nadie mira un video completo si el audio es deficiente. La audiencia <strong>perdona una imagen imperfecta</strong>, pero abandona inmediatamente si el sonido es malo.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🗣️</span>
+                        <h4>Locutores de IA</h4>
+                        <p>Voces que respiran, pausan y entonan como profesionales humanos</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🎭</span>
+                        <h4>Control emocional</h4>
+                        <p>Ajustá el tono, la velocidad y la emoción según tu mensaje</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">⬇️</span>
+                        <h4>Descarga instantánea</h4>
+                        <p>Audio listo en formato MP3 para usar en cualquier plataforma</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>¿Por qué no grabar tu propia voz?</strong> Podés hacerlo, pero el ruido ambiente, la timidez frente al micrófono y la falta de equipo profesional hacen que la IA sea una alternativa increíble.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: ELEVENLABS ==================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔊 ElevenLabs: Tu Estudio de Grabación</h2>
+                <p class="slide-text">ElevenLabs es la herramienta líder en generación de voz con IA. La versión gratuita permite <strong>generar hasta 10.000 caracteres por mes</strong>.</p>
+                <div class="tools-grid">
+                    <div class="tool-card featured">
+                        <span class="tool-emoji">🎙️</span>
+                        <h4>ElevenLabs</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag pro">Gratis (10K chars)</span>
+                            <span class="tool-tag pro">Múltiples voces</span>
+                        </div>
+                        <p>Voces ultra-realistas en español, inglés, portugués y más. Controlá velocidad, emoción y estilo de cada voz.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">🔑</span>
+                        <h4>Trucos de emoción</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Pausas</span>
+                            <span class="tool-tag">Énfasis</span>
+                        </div>
+                        <p>Puntos suspensivos <strong>"..."</strong> = pausas naturales. MAYÚSCULAS = énfasis. Signos de exclamación = energía.</p>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Voces serias y profundas</h4>
+                        <ul>
+                            <li>"Marcus" — Profunda, dramática</li>
+                            <li>"Daniel" — Seria, confiable</li>
+                            <li>Ideal para: narración, documentales, podcasts</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Voces jóvenes y dinámicas</h4>
+                        <ul>
+                            <li>"Rachel" — Enérgica, fresca</li>
+                            <li>"Sarah" — Cálida, amigable</li>
+                            <li>Ideal para: Reels, TikTok, tutoriales</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 6: EJERCICIO 1 ==================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio 1: El Locutor Profesional</h2>
+                <div class="exercise-time-badge">⏱ 20 minutos</div>
+                <p class="slide-text"><strong>Insumo:</strong> Tu guion o texto creativo de la Clase 2. <strong>Herramienta:</strong> ElevenLabs (versión gratuita).</p>
+                <div class="step-cards" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Accedé a <strong>ElevenLabs.io</strong> y copiá tu guion en la interfaz.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Seleccioná la <strong>voz adecuada</strong> según tu estilo (seria, joven, cálida).</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>Aplicá el <strong>truco de la emoción</strong>: "..." para pausas, MAYÚSCULAS para énfasis.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <p>Generá y <strong>descargá tu audio</strong> en formato MP3.</p>
+                    </div>
+                </div>
+                <div class="code-block">
+<pre><code><strong>Ejemplo de texto con trucos de emoción:</strong>
+
+"Imaginate... crear videos increíbles
+sin cámaras... sin micrófonos...
+solo con INTELIGENCIA ARTIFICIAL.
+¡Hoy lo vas a hacer!"</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Resultado:</strong> ¡Ya tenés tu audio profesional listo para usar en videos, Reels o cualquier proyecto!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: EJERCICIO BONUS VOZ ==================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio Bonus: Comparando Voces</h2>
+                <div class="exercise-time-badge">⏱ 10 minutos</div>
+                <p class="slide-text">Vamos a descubrir cómo la misma frase suena <strong>completamente diferente</strong> según la voz que elijas. Es como elegir un filtro de Instagram, pero para el sonido.</p>
+                <div class="code-block">
+<pre><code><strong>Texto para probar (copiá y pegá exactamente):</strong>
+
+"Bienvenidos... a una nueva forma de crear contenido.
+Hoy vas a descubrir que TODO es posible...
+con inteligencia artificial."</code></pre>
+                </div>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">VOZ SERIA</h4>
+                        <p>Elegí una voz grave y profesional. ¿Transmite autoridad y confianza?</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">VOZ ENÉRGICA</h4>
+                        <p>Ahora probá con una voz joven y dinámica. ¿Cambia el mood completamente?</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">DECISIÓN</h4>
+                        <p><strong>¿Cuál te gusta más para tus videos o proyectos?</strong> Descargá esa.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Pregunta para el grupo:</strong> ¿Alguno encontró una voz que le represente? La voz correcta cambia completamente cómo se percibe tu contenido.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: MOVIMIENTO CINEMÁTICO ==================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎬 Parte 2: Movimiento Cinemático</h2>
+                <p class="slide-text">¿Recuerdan las fotos que crearon en la Clase 3? Son visualmente atractivas, pero en Instagram y TikTok el ojo humano busca <strong>movimiento</strong>. El contenido estático simplemente no genera el mismo engagement.</p>
+                <div class="numbered-steps">
+                    <div class="num-step">
+                        <span class="num-step-number">01</span>
+                        <h4>Escribí tu idea</h4>
+                        <p>Describí la escena que querés ver en movimiento</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">02</span>
+                        <h4>Describí el estilo</h4>
+                        <p>Agregá detalles de cámara, luz y ambiente</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">03</span>
+                        <h4>Generá el video</h4>
+                        <p>Veo3 crea clips cinemáticos en segundos</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">04</span>
+                        <h4>Descargá tu video</h4>
+                        <p>Listo para compartir en redes sociales</p>
+                    </div>
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card featured">
+                        <span class="tool-emoji">🎬</span>
+                        <h4>Google Veo3</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag pro">Acceso via Google</span>
+                            <span class="tool-tag pro">Ultra realista</span>
+                        </div>
+                        <p>El modelo de video de Google. Genera clips de alta calidad desde texto o imágenes con resultados impresionantes.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">💡</span>
+                        <h4>¿Por qué Veo3?</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Calidad cine</span>
+                            <span class="tool-tag">Texto a video</span>
+                        </div>
+                        <p>Entiende movimientos de cámara, iluminación y física real. Podés crear videos desde una descripción de texto o desde una imagen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: PROMPTS DE MOVIMIENTO ==================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎥 Prompts de Movimiento Profesional</h2>
+                <p class="slide-text">El secreto para buenos videos con IA: describí <strong>la escena completa</strong> incluyendo movimiento de cámara, iluminación y ambiente.</p>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">🔍</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">ZOOM</h4>
+                        <p><em>"Slow zoom in, cinematic lighting, high quality"</em> — Acercamiento dramático a la escena.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">↔️</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">PANEO</h4>
+                        <p><em>"Camera pan right, dynamic movement"</em> — Desplazamiento lateral elegante.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">🌫️</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">AMBIENTE</h4>
+                        <p><em>"Smoke drifting slowly, soft lighting changes"</em> — Efectos atmosféricos sutiles.</p>
+                    </div>
+                </div>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <span class="vocab-term">"Dolly zoom"</span>
+                        <span class="vocab-def">Cámara avanza/retrocede</span>
+                    </div>
+                    <div class="vocab-item">
+                        <span class="vocab-term">"Pan"</span>
+                        <span class="vocab-def">Movimiento horizontal</span>
+                    </div>
+                    <div class="vocab-item">
+                        <span class="vocab-term">"Tilt"</span>
+                        <span class="vocab-def">Movimiento vertical</span>
+                    </div>
+                    <div class="vocab-item">
+                        <span class="vocab-term">"Golden hour"</span>
+                        <span class="vocab-def">Luz cálida de atardecer</span>
+                    </div>
+                    <div class="vocab-item">
+                        <span class="vocab-term">"Shallow DOF"</span>
+                        <span class="vocab-def">Fondo desenfocado</span>
+                    </div>
+                    <div class="vocab-item">
+                        <span class="vocab-term">"Lens flare"</span>
+                        <span class="vocab-def">Destello de luz en cámara</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: EJERCICIO 2 ==================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio 2: Tu Primer Video con IA</h2>
+                <div class="exercise-time-badge">⏱ 30 minutos</div>
+                <p class="slide-text"><strong>Insumo:</strong> Una imagen de la Clase 3 o una idea nueva. <strong>Herramienta:</strong> Google Veo3.</p>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Abrí <strong>Veo3</strong> y elegí: subir una imagen como base o escribir un prompt desde cero.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Elegí uno de los <strong>prompts de movimiento</strong> del slide anterior o inventá el tuyo.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p><strong>Generá el video</strong>, descargalo y compartilo con el grupo.</p>
+                    </div>
+                </div>
+                <div class="code-block">
+<pre><code><strong>Prompts listos para copiar en Veo3:</strong>
+
+Opción A: "A cat sleeping on a stack of books, slow zoom in,
+           warm golden hour lighting, cozy atmosphere"
+Opción B: "A steaming cup of coffee on a rainy window,
+           camera slowly panning right, cinematic"
+Opción C: "A city skyline at sunset, drone shot slowly
+           rising, dramatic clouds, 4K quality"
+Opción D: "A person walking through a flower field,
+           slow motion, soft backlight, dreamy mood"</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Resultado:</strong> Un video cinemático creado desde cero, perfecto para compartir en Reels, TikTok o donde quieras.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: EJERCICIO BONUS DIRECTOR ==================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio Bonus: ChatGPT como Director de Cine</h2>
+                <div class="exercise-time-badge">⏱ 10 minutos</div>
+                <p class="slide-text">En vez de inventar el prompt de video, pedile a <strong>ChatGPT que actúe como director de fotografía</strong>. La diferencia de calidad es impactante.</p>
+                <div class="code-block">
+<pre><code><strong>Prompt para ChatGPT (copiá exactamente):</strong>
+
+Actúa como director de fotografía profesional.
+Quiero crear un video corto con IA (Veo3) sobre
+[TU IDEA, ej: un gato durmiendo sobre libros /
+un atardecer en la playa / una ciudad futurista].
+
+Escribe un prompt técnico en inglés que describa:
+1. La escena con detalles visuales específicos
+2. Un movimiento de cámara dinámico y profesional
+3. Iluminación cinemática y efectos de ambiente
+
+El prompt debe ser descriptivo y usar terminología
+de cine profesional.</code></pre>
+                </div>
+                <div class="step-cards" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Copiá el resultado de ChatGPT y pegalo en <strong>Veo3</strong>.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p><strong>Compará</strong> el video con tu prompt básico vs el prompt de director. ¿Ves la diferencia?</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⚡ <strong>Aprendizaje clave:</strong> La IA de texto (ChatGPT) mejora drásticamente el resultado de la IA de video (Veo3). Es un workflow en cadena: texto → imagen → video.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: AVATARES PARLANTES ==================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2 class="slide-heading">🗣️ Parte 3: Avatares Parlantes</h2>
+                <p class="slide-text">Ahora llega la integración total. Vamos a tomar el personaje de la Clase 3 y <strong>sincronizarle los labios</strong> con el audio profesional del Ejercicio 1. Lip Sync con IA.</p>
+                <div class="numbered-steps">
+                    <div class="num-step">
+                        <span class="num-step-number">01</span>
+                        <h4>Subí la imagen</h4>
+                        <p>Tu avatar o foto de perfil con rostro visible</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">02</span>
+                        <h4>Cargá el audio</h4>
+                        <p>El MP3 profesional de ElevenLabs</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">03</span>
+                        <h4>Generá el video</h4>
+                        <p>La IA sincroniza los labios</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">04</span>
+                        <h4>Descargá</h4>
+                        <p>Tu personaje hablando profesionalmente</p>
+                    </div>
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card featured">
+                        <span class="tool-emoji">🎭</span>
+                        <h4>Hedra</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag pro">Gratis (beta)</span>
+                            <span class="tool-tag pro">Acepta audio propio</span>
+                        </div>
+                        <p>Recomendada: permite subir tu propio audio MP3 y sincronizarlo con cualquier rostro.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">🤖</span>
+                        <h4>D-ID</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Trial gratuito</span>
+                            <span class="tool-tag">Profesional</span>
+                        </div>
+                        <p>Alternativa con resultados muy pulidos. Tiene período de prueba limitado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: EJERCICIO 3 ==================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio 3: El Video Completo</h2>
+                <div class="exercise-time-badge">⏱ 20 minutos</div>
+                <p class="slide-text"><strong>Insumos:</strong> Imagen de personaje/avatar con rostro (Clase 3) + Audio MP3 (Ejercicio 1). <strong>Herramienta:</strong> Hedra.</p>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Abrí <strong>hedra.com</strong> y subí la imagen de tu personaje o tu propia foto.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Cargá el <strong>archivo MP3</strong> que descargaste de ElevenLabs.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>Presioná <strong>"Generar video"</strong> y esperá el procesamiento. ¡Descargá el resultado!</p>
+                    </div>
+                </div>
+                <div class="ethics-box">
+                    <h4>⚠️ Nota importante</h4>
+                    <p>Si usás una imagen <strong>sin rostro humano</strong> (paisaje, objeto, logo), el lip sync no funcionará. En ese caso, usá el video del Ejercicio 2 y agregá el audio de fondo con CapCut o Instagram.</p>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Resultado final:</strong> ¡Tu personaje está hablando con voz profesional! Perfecto para Reels, presentaciones o lo que se te ocurra.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: EJERCICIO BONUS COMPARACIÓN ==================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio Bonus: La Audición de Avatar</h2>
+                <div class="exercise-time-badge">⏱ 15 minutos</div>
+                <p class="slide-text">Vamos a probar el <strong>mismo audio con diferentes imágenes</strong> para ver cuál queda mejor como "presentador" de tu contenido.</p>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">A</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">TU FOTO REAL</h4>
+                        <p>Subí una <strong>selfie profesional</strong> tuya. ¿Se ve creíble el lip sync con tu cara?</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">B</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">TU AVATAR PIXAR</h4>
+                        <p>Usá el personaje 3D de la Clase 3. ¿Queda divertido y profesional?</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">C</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">AVATAR GENERADO</h4>
+                        <p>Generá en ChatGPT: <em>"Foto profesional de persona sonriendo, fondo neutro"</em></p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Pregunta para el grupo:</strong> ¿Cuál queda más natural? ¿Cuál usarías para tus redes? A veces el avatar genera más engagement que tu foto real.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: EDICIÓN FINAL ==================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2 class="slide-heading">✂️ Edición Final con CapCut</h2>
+                <p class="slide-text">Tenés el video y el audio. ¿Dónde se juntan? En <strong>CapCut</strong>, la app de edición gratuita con IA integrada.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">📝</span>
+                        <h4>Subtítulos automáticos</h4>
+                        <p>Un clic genera subtítulos perfectos. Video sin subtítulos = video que nadie ve.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🎵</span>
+                        <h4>Música de fondo</h4>
+                        <p>Biblioteca gratuita de música sin copyright para acompañar tu video.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">✨</span>
+                        <h4>Transiciones</h4>
+                        <p>Efectos profesionales para unir clips y darle ritmo al contenido.</p>
+                    </div>
+                </div>
+                <div class="step-cards" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Importá el video y el audio a CapCut</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Usá <strong>"Auto Captions"</strong> para subtítulos</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>Agregá transiciones y efectos</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <p>Exportá en formato <strong>vertical 1080x1920</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: ÉTICA ==================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-content">
+                <h2 class="slide-heading">⚖️ Ética y Responsabilidad con Deepfakes</h2>
+                <p class="slide-text">Un gran poder conlleva una gran responsabilidad. Las herramientas que aprendimos hoy pueden usarse para el bien o para el mal. Estas son las <strong>reglas fundamentales</strong>:</p>
+                <div class="ethics-box">
+                    <h4>🚫 Las 3 Reglas de Oro</h4>
+                    <ul>
+                        <li><strong>Nunca clones la voz</strong> de alguien sin su permiso explícito. Es ilegal en muchos países.</li>
+                        <li><strong>Nunca uses la imagen de un famoso</strong> sin autorización. Te cerrarán la cuenta o enfrentarás demandas.</li>
+                        <li><strong>Sé transparente:</strong> si tu presentador es IA, está perfectamente bien decirlo abiertamente. La honestidad genera confianza.</li>
+                    </ul>
+                </div>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">Uso incorrecto ❌</h3>
+                        <p style="margin-top: 12px; font-size: 13px;">Clonar la voz de un famoso para que "diga" cosas que nunca dijo.</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Uso correcto ✅</h3>
+                        <p style="margin-top: 12px; font-size: 13px;">Crear un avatar original con voz de IA y aclarar: "Presentador generado con IA".</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: RESUMEN FLUJO ==================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-content">
+                <h2 class="slide-heading">📋 Resumen del Flujo Completo</h2>
+                <p class="slide-text">Ya dominaste el flujo básico de producción multimedia con IA. Así queda el pipeline profesional:</p>
+                <div class="workflow-pipeline">
+                    <div class="pipeline-step completed-step">
+                        <span class="pipeline-icon">1️⃣</span>
+                        <h4>Guion AIDA</h4>
+                        <p>Clase 2</p>
+                    </div>
+                    <div class="pipeline-arrow">▸</div>
+                    <div class="pipeline-step completed-step">
+                        <span class="pipeline-icon">2️⃣</span>
+                        <h4>Imagen</h4>
+                        <p>Clase 3</p>
+                    </div>
+                    <div class="pipeline-arrow">▸</div>
+                    <div class="pipeline-step completed-step">
+                        <span class="pipeline-icon">3️⃣</span>
+                        <h4>Audio</h4>
+                        <p>ElevenLabs</p>
+                    </div>
+                    <div class="pipeline-arrow">▸</div>
+                    <div class="pipeline-step completed-step">
+                        <span class="pipeline-icon">4️⃣</span>
+                        <h4>Video</h4>
+                        <p>Veo3</p>
+                    </div>
+                    <div class="pipeline-arrow">▸</div>
+                    <div class="pipeline-step completed-step">
+                        <span class="pipeline-icon">5️⃣</span>
+                        <h4>Avatar</h4>
+                        <p>Hedra</p>
+                    </div>
+                    <div class="pipeline-arrow">▸</div>
+                    <div class="pipeline-step active-step">
+                        <span class="pipeline-icon">6️⃣</span>
+                        <h4>Edición</h4>
+                        <p>CapCut</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⚡ <strong>Antes:</strong> Locutor $200-500, video profesional $1.000-5.000, música original $300-1.000. <strong>Ahora con IA:</strong> Todo lo anterior gratis o por muy poco. Crear contenido profesional se democratizó.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: EJERCICIOS EXTRA INTRO ==================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏋️ Ejercicios Extra: Expandí tu Arsenal</h2>
+                <p class="slide-text">Ya dominan el flujo básico. Ahora vamos a explorar <strong>4 aplicaciones creativas</strong> que llevan tu contenido al siguiente nivel.</p>
+                <div class="options-grid">
+                    <div class="option-card">
+                        <span class="option-emoji">🎵</span>
+                        <span class="option-label">Opción A</span>
+                        <h4>Tu Música Original</h4>
+                        <p class="option-sub">Canciones con IA sin regalías</p>
+                        <p>Creá música original con <strong>Suno AI</strong> para tus videos, intros o simplemente para divertirte.</p>
+                    </div>
+                    <div class="option-card">
+                        <span class="option-emoji">🌍</span>
+                        <span class="option-label">Opción B</span>
+                        <h4>Hablá Otros Idiomas</h4>
+                        <p class="option-sub">Tu voz en inglés, portugués y más</p>
+                        <p>Creá contenido en otros idiomas <strong>sin saber hablarlos</strong> con ElevenLabs + ChatGPT.</p>
+                    </div>
+                    <div class="option-card">
+                        <span class="option-emoji">👻</span>
+                        <span class="option-label">Opción C</span>
+                        <h4>Contenido Faceless</h4>
+                        <p class="option-sub">Videos virales sin mostrar tu cara</p>
+                        <p>Combiná videos de stock gratuitos con narración de IA y subtítulos automáticos.</p>
+                    </div>
+                    <div class="option-card">
+                        <span class="option-emoji">📚</span>
+                        <span class="option-label">Opción D</span>
+                        <h4>Video Explicativo</h4>
+                        <p class="option-sub">Explicá cualquier tema en 15 seg</p>
+                        <p>Creá mini-tutoriales o explicaciones rápidas usando avatar + voz, sin grabarte.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Consejo:</strong> No intenten hacer los 4 hoy. Elijan el que más les interese o divierta. La maestría viene de la práctica enfocada.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 19: EJERCICIO EXTRA 1 - JINGLE ==================== -->
+        <section class="slide" data-slide="18">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎵 Ejercicio Extra 1: Tu Música Original</h2>
+                <div class="exercise-time-badge">⏱ 20 minutos</div>
+                <span class="level-badge level-1">NIVEL 1</span>
+                <p class="slide-text"><strong>Objetivo:</strong> Crear música original con IA para usar en tus videos sin problemas de copyright. <strong>Herramienta:</strong> Suno AI.</p>
+                <div class="code-block">
+<pre><code><strong>Prompt para Suno (copiá y adaptá):</strong>
+
+"Una canción instrumental de estilo [GÉNERO, ej: Lo-Fi
+Hip Hop / Electrónica suave / Jazz relajante].
+Ritmo: [VELOCIDAD, ej: Rápido y enérgico / Lento].
+Instrumentos: [ej: Piano acústico y bajo suave].
+Emoción: Que transmita [ej: Tranquilidad / Energía].
+Sin voces."</code></pre>
+                </div>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Entrá a <strong>suno.ai</strong> y pegá el prompt adaptado a tu gusto.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Suno genera 2 opciones. <strong>Escuchá ambas</strong> y elegí la mejor.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p><strong>Descargá</strong> y usala de fondo (bajando el volumen) en tus videos.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Resultado:</strong> Música 100% original y libre de copyright. ¡Usar música de otros te puede cerrar la cuenta en redes!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 20: EJERCICIO EXTRA 2 - POLÍGLOTA ==================== -->
+        <section class="slide" data-slide="19">
+            <div class="slide-content">
+                <h2 class="slide-heading">🌍 Ejercicio Extra 2: Hablá Otros Idiomas</h2>
+                <div class="exercise-time-badge">⏱ 25 minutos</div>
+                <span class="level-badge level-1">NIVEL 1</span>
+                <p class="slide-text"><strong>Objetivo:</strong> Demostrar que con IA podés crear contenido en inglés o portugués sin hablar el idioma. <strong>Herramientas:</strong> ElevenLabs + ChatGPT.</p>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">TRADUCIR</h4>
+                        <p>Pedile a ChatGPT: <em>"Traduce este texto a un inglés natural y coloquial"</em></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">VOZ NATIVA</h4>
+                        <p>En ElevenLabs, elegí una voz nativa: <strong>"Adam"</strong> (americano) o <strong>"Charlotte"</strong> (británica).</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">ESCUCHAR</h4>
+                        <p>Generá y descargá. <strong>¡Vas a escuchar tu texto en otro idioma con voz nativa!</strong></p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Tip Pro:</strong> Podés combinar este audio con el video del Ejercicio 2 para crear contenido bilingüe completo. Efecto WOW garantizado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 21: EJERCICIO EXTRA 3 - FACELESS ==================== -->
+        <section class="slide" data-slide="20">
+            <div class="slide-content">
+                <h2 class="slide-heading">👻 Ejercicio Extra 3: Contenido Faceless</h2>
+                <div class="exercise-time-badge">⏱ 30 minutos</div>
+                <span class="level-badge level-1">NIVEL 1</span>
+                <p class="slide-text"><strong>Objetivo:</strong> Crear un Reel viral usando solo videos de stock gratuitos y narración de IA. Perfecto para cuentas de nicho (motivación, datos, curiosidades).</p>
+                <div class="step-cards" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">GUION</h4>
+                        <p>ChatGPT: <em>"Escribe 3 frases cortas y motivadoras sobre [TEMA]. Máximo 15 palabras cada una."</em></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">VOZ</h4>
+                        <p>Generá el audio en <strong>ElevenLabs</strong> con voz de autoridad y calidez.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">VIDEO</h4>
+                        <p>Buscá 3 clips verticales (9:16) en <strong>Pexels.com</strong> o <strong>Pixabay.com</strong>.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">EDITAR</h4>
+                        <p>En CapCut: importá los clips + audio. Usá <strong>Auto Captions</strong> y exportá.</p>
+                    </div>
+                </div>
+                <div class="code-block small">
+<pre><code><strong>Palabras clave para buscar en Pexels:</strong>
+"woman organizing happy" · "person working laptop"
+"sunrise motivation" · "success celebration"</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Nichos perfectos:</strong> Frases motivacionales, datos curiosos, tips de productividad, hechos históricos, consejos de salud.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 22: EJERCICIO EXTRA 4 - EXPLICATIVO ==================== -->
+        <section class="slide" data-slide="21">
+            <div class="slide-content">
+                <h2 class="slide-heading">📚 Ejercicio Extra 4: Video Explicativo</h2>
+                <div class="exercise-time-badge">⏱ 25 minutos</div>
+                <span class="level-badge level-1">NIVEL 1</span>
+                <p class="slide-text"><strong>Objetivo:</strong> Crear un mini-tutorial o explicación de 15 segundos usando avatar + voz, sin grabarte. <strong>Herramientas:</strong> ElevenLabs + Hedra + Veo3.</p>
+                <div class="practice-checklist">
+                    <div class="check-item">📖 <strong>Explicá un concepto:</strong> "¿Qué es el machine learning?" / "¿Cómo funciona el WiFi?"</div>
+                    <div class="check-item">🍳 <strong>Compartí un tip:</strong> "3 trucos para sacar mejores fotos con el celular"</div>
+                    <div class="check-item">🎮 <strong>Enseñá algo:</strong> "Cómo configurar tu cuenta de [app]" / "3 atajos que no conocías"</div>
+                    <div class="check-item">💡 <strong>Dato curioso:</strong> "¿Sabías que los pulpos tienen 3 corazones?" — perfecto para TikTok</div>
+                </div>
+                <div class="code-block small">
+<pre><code><strong>Estructura de 3 pasos (15 seg de audio):</strong>
+
+"¿Sabías que [DATO CURIOSO]?
+La razón es [EXPLICACIÓN SIMPLE].
+Ahora ya lo sabés... ¡compartilo con alguien!"</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Tip Pro:</strong> Creá una serie de 5 mini-explicaciones sobre un tema que te apasione. Publicá uno por día como Reels y mirá cómo crece tu cuenta.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 23: NIVEL AVANZADO INTRO ==================== -->
+        <section class="slide" data-slide="22">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔥 Nivel Avanzado: Técnicas Pro</h2>
+                <span class="level-badge level-2">NIVEL 2</span>
+                <p class="slide-text">Para quienes ya dominaron los ejercicios básicos y quieren llevar su contenido al <strong>siguiente nivel profesional</strong>.</p>
+                <div class="exercises-list">
+                    <div class="exercise-card">
+                        <span class="exercise-num">🎤</span>
+                        <div>
+                            <h4>Clonación de Voz</h4>
+                            <p>Digitalizá tu propia voz para crear contenido sin grabar nunca más.</p>
+                        </div>
+                        <span class="difficulty hard">Avanzado</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">🎧</span>
+                        <div>
+                            <h4>Intro de Podcast</h4>
+                            <p>Creá la apertura profesional para tu podcast o canal de YouTube.</p>
+                        </div>
+                        <span class="difficulty hard">Avanzado</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">🎬</span>
+                        <div>
+                            <h4>Cortometraje con IA</h4>
+                            <p>Combiná varios clips de Veo3 para armar una mini-historia visual de 30 segundos.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">🎭</span>
+                        <div>
+                            <h4>Narrador de Historias</h4>
+                            <p>Creá un video tipo "storytime" con tu avatar contando una anécdota o dato curioso.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 24: CLONACIÓN DE VOZ ==================== -->
+        <section class="slide" data-slide="23">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎤 Avanzado 1: Clonación de Voz</h2>
+                <div class="exercise-time-badge">⏱ 30 minutos</div>
+                <span class="level-badge level-3">NIVEL 3</span>
+                <p class="slide-text"><strong>Objetivo:</strong> Clonar tu propia voz para no tener que grabar audios nunca más. <strong>Herramienta:</strong> ElevenLabs (Instant Voice Cloning).</p>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">GRABAR</h4>
+                        <p>Grabá <strong>1 minuto</strong> hablando con naturalidad en tu celular. Lugar silencioso, sin leer como locutor.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">SUBIR</h4>
+                        <p>En ElevenLabs: <strong>Voices → Add Voice → Instant Voice Cloning</strong>. Subí tu audio.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">PROBAR</h4>
+                        <p>Escribí algo que <strong>nunca dijiste</strong>, seleccioná tu voz clonada y dale play. ¡Impactante!</p>
+                    </div>
+                </div>
+                <div class="ethics-box">
+                    <h4>⚠️ Consideración ética</h4>
+                    <p>Solo cloná tu propia voz o la de alguien con <strong>permiso explícito por escrito</strong>. La clonación de voz sin autorización es ilegal en muchos países.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 25: NARRADOR DE HISTORIAS ==================== -->
+        <section class="slide" data-slide="24">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎭 Avanzado 2: Narrador de Historias</h2>
+                <div class="exercise-time-badge">⏱ 25 minutos</div>
+                <span class="level-badge level-2">NIVEL 2</span>
+                <p class="slide-text"><strong>Objetivo:</strong> Crear un video estilo "storytime" donde tu avatar cuenta una anécdota, un dato curioso o una mini-historia. Combiná todo lo aprendido en un solo proyecto.</p>
+                <div class="step-cards" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Pedile a ChatGPT: <em>"Escribí una historia corta de 30 segundos sobre [TEMA, ej: un dato curioso de la ciencia]"</em></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Generá el <strong>audio</strong> en ElevenLabs eligiendo una voz que le dé personalidad a la historia.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>Creá el video del avatar en <strong>Hedra</strong> con tu foto o personaje favorito.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <p>En CapCut: agregá <strong>subtítulos + música de fondo</strong> de Suno y exportá.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Ideas para tu historia:</strong> Un dato histórico sorprendente, una leyenda urbana, un mito de la ciencia desmentido, una anécdota personal graciosa, o un "¿Sabías que...?" viral.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 26: CIERRE ==================== -->
+        <section class="slide" data-slide="25">
+            <div class="slide-content slide-title-content">
+                <h2 class="slide-heading">📝 Tarea para la Clase 5</h2>
+                <div class="homework-card">
+                    <h3>Tu Proyecto Multimedia Completo</h3>
+                    <p>Antes de la Clase 5 (Análisis de Datos con IA), completá estas tareas:</p>
+                    <ul>
+                        <li><strong>Obligatorio:</strong> Completá los 3 ejercicios principales (audio + video + avatar)</li>
+                        <li><strong>Obligatorio:</strong> Subí AL MENOS 1 video a tus redes sociales (Historia o Reel)</li>
+                        <li><strong>Obligatorio:</strong> Traé las métricas (vistas, likes, comentarios, compartidos)</li>
+                        <li><strong>Recomendado:</strong> Completá 1 ejercicio extra del Nivel 1 que te haya gustado</li>
+                        <li><strong>Opcional:</strong> Intentá 1 ejercicio avanzado del Nivel 2</li>
+                        <li><strong>Bonus:</strong> Creá una serie de 3-5 videos con un tema unificado</li>
+                    </ul>
+                </div>
+                <div class="closing-message">
+                    <div class="pixel-badge">CLASE 04 COMPLETADA</div>
+                    <p>De contenido estático → a director de cine digital. Tu IA ahora es tu equipo de producción completo.</p>
+                    <div class="title-logo">BYTEC<span class="blink">_</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="keyboard-hint desktop-only">
+        Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar
+    </div>
+    <div class="keyboard-hint mobile-only">
+        Deslizá con el dedo <span class="swipe-icon">👆</span> para pasar los slides
+    </div>
+
+    <div class="mobile-overlay" id="mobileOverlay">
+        <div class="overlay-content">
+            <div class="overlay-icon">
+                <span class="swipe-hand">👆</span>
+                <div class="swipe-arrows">
+                    <span class="swipe-arrow-left">◂</span>
+                    <span class="swipe-arrow-right">▸</span>
+                </div>
+            </div>
+            <h3 class="overlay-title">¡Bienvenido!</h3>
+            <p class="overlay-text">Deslizá con el dedo hacia la <strong>izquierda</strong> o <strong>derecha</strong> para navegar entre los slides.</p>
+            <p class="overlay-text small">También podés usar los botones <strong>◂ ▸</strong> de arriba.</p>
+            <button class="overlay-btn" id="overlayBtn">¡Entendido, empecemos!</button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navProgress = document.getElementById('navProgress');
+
+        function updateSlide() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) slide.classList.add('active');
+            });
+            navProgress.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(dir) {
+            const next = currentSlide + dir;
+            if (next >= 0 && next < totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        document.addEventListener('touchend', e => {
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = touchStartY - e.changedTouches[0].screenY;
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                changeSlide(diffX > 0 ? 1 : -1);
+            }
+        }, { passive: true });
+
+        (function() {
+            const overlay = document.getElementById('mobileOverlay');
+            const btn = document.getElementById('overlayBtn');
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            const storageKey = 'bytec-swipe-hint-seen';
+
+            if (isTouchDevice && !localStorage.getItem(storageKey)) {
+                overlay.classList.add('visible');
+            }
+
+            btn.addEventListener('click', () => {
+                overlay.classList.remove('visible');
+                overlay.classList.add('hiding');
+                localStorage.setItem(storageKey, 'true');
+                setTimeout(() => { overlay.style.display = 'none'; }, 400);
+            });
+
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    btn.click();
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>

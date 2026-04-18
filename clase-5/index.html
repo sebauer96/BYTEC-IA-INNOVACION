@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Clase 5: Datos y Páginas Web con IA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-logo">▸ BYTEC</a>
+        <span class="nav-progress" id="navProgress">1 / 26</span>
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
+        </div>
+    </nav>
+
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: PORTADA ==================== -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CLASE 05</div>
+                <h1 class="title-main">Datos y Páginas Web<br><span class="title-accent">con Inteligencia Artificial</span></h1>
+                <p class="title-sub">Excel · Gráficos · Análisis · Páginas Web · Sin Código</p>
+                <div class="title-meta">
+                    <span class="meta-item">⏱ 90 minutos</span>
+                    <span class="meta-item">📊 100% Práctica</span>
+                    <span class="meta-item">🚀 Nivel: Analista</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 2: OBJETIVO ==================== -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Objetivo de Hoy</h2>
+                <div class="objective-card">
+                    <p class="objective-text">Aprender a usar la IA para <strong>analizar datos, crear gráficos y generar páginas web completas</strong> sin saber programar. Hoy la IA se convierte en tu analista de datos y tu diseñador web personal.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">5 min</span>
+                        <span class="timeline-label">¿Por qué datos + IA?</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">35 min</span>
+                        <span class="timeline-label">Parte 1: Datos con ChatGPT</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">40 min</span>
+                        <span class="timeline-label">Parte 2: Páginas web con IA</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">5 min</span>
+                        <span class="timeline-label">Ejercicios extra + cierre</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: POR QUÉ DATOS ==================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-heading">📊 ¿Por Qué Datos + IA?</h2>
+                <p class="slide-text">Todos tenemos datos: gastos personales, notas de la facultad, seguidores de redes, listas de contactos. El problema es que <strong>nadie nos enseñó a interpretarlos</strong>. La IA lo hace por vos en segundos.</p>
+                <div class="metaphor-box">
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">📋</div>
+                        <h3>Tenés datos</h3>
+                        <p>Excel, listas, números, planillas que no entendés del todo.</p>
+                    </div>
+                    <div class="metaphor-plus">+</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">🤖</div>
+                        <h3>La IA los analiza</h3>
+                        <p>Le subís los datos y te explica qué significan, en español.</p>
+                    </div>
+                    <div class="metaphor-plus">=</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">💡</div>
+                        <h3>Tomás mejores decisiones</h3>
+                        <p>Gráficos claros, patrones ocultos, resúmenes útiles.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⚡ <strong>Antes:</strong> Necesitabas saber Excel avanzado, fórmulas, tablas dinámicas. <strong>Ahora:</strong> Le subís un archivo y le preguntás en castellano: <em>"¿Qué mes gasté más?"</em></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: QUÉ PUEDE HACER CHATGPT CON DATOS ==================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-heading">🤖 ChatGPT como Analista de Datos</h2>
+                <p class="slide-text">ChatGPT puede leer archivos Excel, CSV, fotos de tablas e incluso datos que le copies y pegues. Mirá todo lo que puede hacer:</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">📄</span>
+                        <h4>Leer archivos</h4>
+                        <p>Subí un Excel o CSV y la IA entiende las columnas y filas automáticamente</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📈</span>
+                        <h4>Crear gráficos</h4>
+                        <p>Pedí gráficos de barras, torta, líneas y la IA los genera al instante</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🔍</span>
+                        <h4>Encontrar patrones</h4>
+                        <p>"¿Qué mes gasté más?" "¿Qué producto se vende mejor?" La IA te responde</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🧹</span>
+                        <h4>Limpiar datos</h4>
+                        <p>Datos desordenados, duplicados o con errores: la IA los organiza</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📝</span>
+                        <h4>Crear fórmulas</h4>
+                        <p>"¿Cómo sumo solo los gastos de comida?" y te da la fórmula de Excel</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📊</span>
+                        <h4>Resumir info</h4>
+                        <p>Transforma 500 filas en un resumen de 5 puntos clave que cualquiera entiende</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: CÓMO SUBIR DATOS ==================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-heading">📁 Cómo Subir Datos a ChatGPT</h2>
+                <p class="slide-text">Hay 3 formas de darle datos a la IA. Usá la que te sea más cómoda:</p>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">📎</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">SUBIR ARCHIVO</h4>
+                        <p>Hacé clic en el clip 📎 de ChatGPT y subí tu archivo <strong>.xlsx</strong> o <strong>.csv</strong> directo. La forma más fácil.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">📋</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">COPIAR Y PEGAR</h4>
+                        <p>Seleccioná la tabla en Excel, copiá (Ctrl+C) y pegá directo en el chat. <strong>Funciona perfecto.</strong></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">📸</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">FOTO DE TABLA</h4>
+                        <p>¿Tenés datos en papel o en pantalla? <strong>Sacá una foto</strong> y subila. La IA lee la imagen.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Tip:</strong> Si no tenés un archivo propio, podés inventar datos de ejemplo o pedirle a ChatGPT: <em>"Generá una tabla de ejemplo con gastos mensuales de una persona durante 6 meses"</em>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 6: EJERCICIO 1 ==================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio 1: Tu Primer Análisis de Datos</h2>
+                <div class="exercise-time-badge">⏱ 15 minutos</div>
+                <p class="slide-text"><strong>Objetivo:</strong> Subir datos a ChatGPT y hacerle preguntas en español para obtener información útil.</p>
+                <div class="step-cards" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Subí tu archivo o copiá y pegá datos. Si no tenés, pedile a ChatGPT que genere una tabla de ejemplo.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Hacele estas preguntas: <em>"¿Cuál es el total?"</em>, <em>"¿Qué mes tiene el valor más alto?"</em>, <em>"Haceme un resumen"</em>.</p>
+                    </div>
+                </div>
+                <div class="code-block">
+<pre><code><strong>Si no tenés datos, copiá esto en ChatGPT:</strong>
+
+"Generá una tabla con mis gastos mensuales ficticios
+de enero a junio. Categorías: Comida, Transporte,
+Entretenimiento, Servicios. Inventá números realistas.
+Después decime: ¿en qué categoría gasto más?"</code></pre>
+                </div>
+                <div class="code-block small">
+<pre><code><strong>Preguntas para probar:</strong>
+"¿Cuál fue mi mes más caro?"
+"¿Qué porcentaje representa cada categoría?"
+"¿Hay algún patrón en mis gastos?"
+"Dame 3 consejos para gastar menos basándote en estos datos"</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: GRÁFICOS ==================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-heading">📈 Gráficos con IA: De Números a Imágenes</h2>
+                <p class="slide-text">Los datos en tabla son aburridos. Un gráfico te muestra la historia completa en un segundo. ChatGPT puede <strong>generar gráficos directamente</strong> desde tus datos.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">📊</span>
+                        <h4>Barras</h4>
+                        <p>Ideal para comparar cantidades entre categorías o meses</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🥧</span>
+                        <h4>Torta / Pie</h4>
+                        <p>Perfecto para ver porcentajes y proporciones del total</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📉</span>
+                        <h4>Líneas</h4>
+                        <p>Muestra tendencias a lo largo del tiempo (sube, baja, se mantiene)</p>
+                    </div>
+                </div>
+                <div class="code-block">
+<pre><code><strong>Prompts para pedir gráficos:</strong>
+
+"Con estos datos, haceme un gráfico de barras comparando
+los gastos por categoría"
+
+"Creá un gráfico de torta mostrando qué porcentaje
+representa cada categoría del total"
+
+"Haceme un gráfico de líneas mostrando cómo cambiaron
+mis gastos mes a mes"</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: EJERCICIO 2 ==================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio 2: Creá tu Primer Gráfico</h2>
+                <div class="exercise-time-badge">⏱ 10 minutos</div>
+                <p class="slide-text"><strong>Objetivo:</strong> Pedirle a ChatGPT que genere gráficos desde los datos del Ejercicio 1.</p>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>En la misma conversación del Ejercicio 1, pedí: <em>"Haceme un gráfico de barras con estos datos"</em></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Ahora pedí otro tipo: <em>"Ahora un gráfico de torta con los porcentajes"</em></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>Personalizá: <em>"Cambiá los colores a azul y naranja"</em> o <em>"Ponele título: Mis Gastos 2025"</em></p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Resultado:</strong> Gráficos profesionales que podés descargar como imagen y usar en presentaciones, redes sociales o informes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: EJERCICIO BONUS PATRONES ==================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio Bonus: Detective de Datos</h2>
+                <div class="exercise-time-badge">⏱ 10 minutos</div>
+                <p class="slide-text">La IA puede encontrar <strong>patrones que vos no ves</strong>. Vamos a hacer preguntas más inteligentes a nuestros datos.</p>
+                <div class="code-block">
+<pre><code><strong>Preguntas de detective (copiá las que te interesen):</strong>
+
+"¿Hay alguna tendencia en estos datos? ¿Suben o bajan?"
+"¿Qué predicción harías para el próximo mes?"
+"¿Hay algún dato que parezca raro o fuera de lugar?"
+"Si quisiera reducir mis gastos un 20%, ¿dónde cortarías?"
+"Comparame los primeros 3 meses vs los últimos 3"
+"¿Qué día de la semana gasto más?" (si tenés fechas)</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Pregunta para el grupo:</strong> ¿Alguien descubrió algo sorprendente en sus datos? A veces la IA encuentra patrones que nosotros no vemos porque estamos demasiado acostumbrados a nuestros números.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: FÓRMULAS EXCEL ==================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔢 Fórmulas de Excel sin Saber Excel</h2>
+                <p class="slide-text">¿Necesitás una fórmula pero no sabés cómo escribirla? <strong>Pedísela a ChatGPT en español</strong> y te la da lista para copiar y pegar.</p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">Antes ❌</h3>
+                        <p style="margin-top: 12px; font-size: 13px;">Googlear "fórmula Excel sumar si condición", leer 5 tutoriales, probar y equivocarte.</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Ahora ✅</h3>
+                        <p style="margin-top: 12px; font-size: 13px;"><em>"Necesito una fórmula que sume solo los gastos de comida de la columna B"</em> → fórmula lista.</p>
+                    </div>
+                </div>
+                <div class="code-block">
+<pre><code><strong>Ejemplos de pedidos de fórmulas:</strong>
+
+"Dame la fórmula para sumar toda la columna B"
+"Necesito buscar un valor en otra hoja (tipo BUSCARV)"
+"¿Cómo cuento cuántas veces aparece 'Aprobado'?"
+"Quiero calcular el promedio sin contar los ceros"
+"Dame una fórmula que ponga 'Alto' si supera 1000"</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: EJERCICIO 3 FÓRMULAS ==================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio 3: El Traductor de Fórmulas</h2>
+                <div class="exercise-time-badge">⏱ 10 minutos</div>
+                <p class="slide-text"><strong>Objetivo:</strong> Pedirle a ChatGPT fórmulas de Excel explicadas paso a paso.</p>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">PEDIR</h4>
+                        <p>Describí lo que necesitás en español: <em>"Quiero sumar solo las celdas que digan 'Enero'"</em></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">ENTENDER</h4>
+                        <p>Pedile: <em>"Explicame qué hace cada parte de esa fórmula como si tuviera 10 años"</em></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">ADAPTAR</h4>
+                        <p>Pedí variaciones: <em>"¿Y si en vez de 'Enero' quiero que sea el mes actual automáticamente?"</em></p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Tip:</strong> Si tenés un Excel abierto, copiá un pedazo de la tabla y pegalo en ChatGPT diciendo <em>"Estos son mis datos, necesito una fórmula que..."</em>. La IA adapta la fórmula a tus columnas reales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: LIMPIEZA DE DATOS ==================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧹 Limpieza de Datos: De Caos a Orden</h2>
+                <p class="slide-text">Tener datos desordenados es peor que no tener datos. La IA puede <strong>limpiar, organizar y formatear</strong> cualquier lío en segundos.</p>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Problemas comunes</h4>
+                        <ul>
+                            <li>Nombres escritos distinto ("Juan", "juan", "JUAN")</li>
+                            <li>Fechas en distintos formatos (01/03, 1-mar, marzo 1)</li>
+                            <li>Datos duplicados o filas vacías</li>
+                            <li>Categorías inconsistentes ("Comida", "comida", "COMIDA")</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>La IA lo resuelve</h4>
+                        <ul>
+                            <li>"Unificá todos los nombres en mayúscula"</li>
+                            <li>"Convertí todas las fechas al formato DD/MM/AAAA"</li>
+                            <li>"Eliminá las filas duplicadas"</li>
+                            <li>"Categorizá estos datos en 5 grupos lógicos"</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="code-block small">
+<pre><code><strong>Prompt mágico para limpieza:</strong>
+
+"Te paso estos datos desordenados. Necesito que:
+1. Unifiques los nombres (todo en mayúscula)
+2. Ordenes por fecha de más viejo a más nuevo
+3. Elimines duplicados
+4. Me devuelvas la tabla limpia lista para Excel"</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: TRANSICIÓN A WEB ==================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2 class="slide-heading">🌐 Parte 2: Tu Propia Página Web</h2>
+                <p class="slide-text">Ya sabés crear textos, imágenes, videos y analizar datos con IA. Ahora viene lo más impactante: <strong>crear páginas web completas sin escribir una sola línea de código</strong>.</p>
+                <div class="metaphor-box">
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">💬</div>
+                        <h3>Describís</h3>
+                        <p>"Quiero una página web para mi portfolio de fotografía"</p>
+                    </div>
+                    <div class="metaphor-plus">▸</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">🤖</div>
+                        <h3>La IA crea</h3>
+                        <p>Genera el diseño, los colores, el texto y toda la estructura</p>
+                    </div>
+                    <div class="metaphor-plus">▸</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">🌐</div>
+                        <h3>Tenés tu web</h3>
+                        <p>Una página real, funcional, que podés publicar en internet</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⚡ <strong>Dato impactante:</strong> Hace 5 años, una página web básica costaba $500-2.000 USD y tardaba semanas. Hoy la IA la genera en minutos. Gratis.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: HERRAMIENTAS WEB ==================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2 class="slide-heading">🛠️ Herramientas para Crear Webs sin Código</h2>
+                <p class="slide-text">Hay varias herramientas que permiten crear páginas web <strong>describiendo lo que querés en español</strong>:</p>
+                <div class="tools-grid">
+                    <div class="tool-card featured">
+                        <span class="tool-emoji">⚡</span>
+                        <h4>Bolt.new</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag pro">Gratis (limitado)</span>
+                            <span class="tool-tag pro">Web completa</span>
+                        </div>
+                        <p>Escribís qué querés y genera una página web completa que podés editar en vivo y publicar.</p>
+                    </div>
+                    <div class="tool-card featured">
+                        <span class="tool-emoji">💜</span>
+                        <h4>Lovable</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag pro">Gratis (limitado)</span>
+                            <span class="tool-tag pro">Muy intuitivo</span>
+                        </div>
+                        <p>Similar a Bolt pero con interfaz más amigable. Ideal para principiantes absolutos.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">🤖</span>
+                        <h4>ChatGPT</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Gratis</span>
+                            <span class="tool-tag">Genera HTML</span>
+                        </div>
+                        <p>Genera el código HTML completo que podés guardar como archivo y abrir en el navegador.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">▲</span>
+                        <h4>v0.dev (Vercel)</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">Gratis (limitado)</span>
+                            <span class="tool-tag">Diseño moderno</span>
+                        </div>
+                        <p>Genera componentes y páginas con diseño ultra profesional estilo aplicación moderna.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: ANATOMÍA PROMPT WEB ==================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔬 Anatomía de un Prompt para Páginas Web</h2>
+                <p class="slide-text">Para que la IA genere una buena página web, tu prompt necesita <strong>4 ingredientes clave</strong>:</p>
+                <div class="numbered-steps">
+                    <div class="num-step">
+                        <span class="num-step-number">01</span>
+                        <h4>Propósito</h4>
+                        <p>¿Para qué es? Portfolio, CV, invitación, recetas, blog...</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">02</span>
+                        <h4>Contenido</h4>
+                        <p>¿Qué secciones tiene? Sobre mí, galería, contacto...</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">03</span>
+                        <h4>Estilo visual</h4>
+                        <p>¿Cómo se ve? Minimalista, colorida, oscura, moderna...</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">04</span>
+                        <h4>Detalles extras</h4>
+                        <p>Colores específicos, animaciones, responsive (que se vea bien en celular)</p>
+                    </div>
+                </div>
+                <div class="code-block small">
+<pre><code><strong>Ejemplo de prompt completo:</strong>
+
+"Creá una página web para mi portfolio de fotografía.
+Secciones: Hero con mi nombre, Galería con 6 fotos,
+Sobre Mí y Contacto. Estilo minimalista y moderno,
+fondo oscuro, tipografía elegante. Que se vea bien
+en celular. Colores: blanco y dorado."</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: EJERCICIO 4 ==================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio 4: Tu Primera Página Web</h2>
+                <div class="exercise-time-badge">⏱ 20 minutos</div>
+                <p class="slide-text"><strong>Objetivo:</strong> Crear tu primera página web con IA en menos de 5 minutos. <strong>Herramienta:</strong> Bolt.new o Lovable.</p>
+                <div class="step-cards" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Entrá a <strong>bolt.new</strong> o <strong>lovable.dev</strong> y creá una cuenta gratuita.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Elegí uno de los <strong>prompts de abajo</strong> o inventá el tuyo propio.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>Esperá que la IA genere tu página. <strong>Mirá el resultado en vivo.</strong></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <p>Iterá: <em>"Cambiá el color de fondo a negro"</em>, <em>"Agregá una sección de contacto"</em>.</p>
+                    </div>
+                </div>
+                <div class="practice-checklist">
+                    <div class="check-item">🎨 <strong>Opción A:</strong> "Creá un portfolio personal de fotografía, estilo minimalista, fondo oscuro"</div>
+                    <div class="check-item">📝 <strong>Opción B:</strong> "Creá una página de invitación para un cumpleaños de 30 años, estilo elegante"</div>
+                    <div class="check-item">🍳 <strong>Opción C:</strong> "Creá una página de recetas de cocina con mis 5 platos favoritos, estilo cálido"</div>
+                    <div class="check-item">🎮 <strong>Opción D:</strong> "Creá una página personal tipo linktree con mis redes sociales, estilo gamer"</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: EJERCICIO BONUS ITERACIÓN WEB ==================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio Bonus: Mejorá tu Página</h2>
+                <div class="exercise-time-badge">⏱ 10 minutos</div>
+                <p class="slide-text">La primera versión nunca es la final. El poder real está en <strong>iterar</strong>. Pedile cambios a la IA como si fuera tu diseñador personal.</p>
+                <div class="code-block">
+<pre><code><strong>Pedidos de iteración (copiá los que necesites):</strong>
+
+"Cambiá los colores a tonos más cálidos"
+"Hacé el texto más grande, no se lee bien"
+"Agregá un efecto de animación cuando scrolleo"
+"Ponele un fondo con degradado de azul a violeta"
+"Agregá íconos de redes sociales con links"
+"Hacé que las fotos tengan un efecto hover"
+"Cambiá la tipografía a algo más moderno"
+"Agregá un botón de WhatsApp flotante"</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Desafío:</strong> Hacé al menos <strong>3 iteraciones</strong> sobre tu página. Cada cambio la acerca más a lo que imaginás. Compartí el antes y después con el grupo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: TIPOS DE PÁGINAS ==================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-content">
+                <h2 class="slide-heading">🌐 Tipos de Páginas que Podés Crear</h2>
+                <p class="slide-text">La IA puede generar <strong>cualquier tipo de página web</strong>. Acá van ideas según lo que necesites:</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">👤</span>
+                        <h4>CV / Portfolio</h4>
+                        <p>Tu currículum web interactivo con proyectos, habilidades y contacto</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🔗</span>
+                        <h4>Linktree personal</h4>
+                        <p>Todos tus links en un solo lugar: redes, canal, email, lo que quieras</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🎉</span>
+                        <h4>Invitaciones</h4>
+                        <p>Cumpleaños, casamientos, baby showers con cuenta regresiva y mapa</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📸</span>
+                        <h4>Galería de fotos</h4>
+                        <p>Mostrá tu trabajo fotográfico o artístico con estilo profesional</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📖</span>
+                        <h4>Blog / Recetas</h4>
+                        <p>Compartí tus recetas, tips, reflexiones o lo que te apasione</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📊</span>
+                        <h4>Dashboard de datos</h4>
+                        <p>Visualizá tus datos con gráficos interactivos en una web</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 19: EJERCICIO 5 ==================== -->
+        <section class="slide" data-slide="18">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio 5: La Página que Siempre Quisiste</h2>
+                <div class="exercise-time-badge">⏱ 20 minutos</div>
+                <p class="slide-text"><strong>Objetivo:</strong> Crear una página web más elaborada, con múltiples secciones y un propósito real.</p>
+                <div class="code-block">
+<pre><code><strong>Prompt profesional (personalizá los [CAMPOS]):</strong>
+
+"Creá una página web [TIPO: portfolio / CV / blog /
+invitación] para [NOMBRE]. Secciones: [LISTAR: ej:
+Hero con foto, Sobre Mí, Mis Proyectos, Habilidades,
+Contacto con formulario]. Estilo: [ESTILO: minimalista
+/ colorido / elegante / futurista]. Colores: [COLORES].
+Que sea responsive (se vea bien en celular).
+Agregá animaciones sutiles al scrollear."</code></pre>
+                </div>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Armá tu prompt con los datos reales de tu proyecto. <strong>Cuanto más detalle, mejor resultado.</strong></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Generá la página en Bolt.new o Lovable. <strong>Revisá cada sección.</strong></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>Iterá al menos 3 veces. <strong>Publicá el resultado</strong> si te gusta (Bolt tiene hosting gratis).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 20: WEB CON CHATGPT ==================== -->
+        <section class="slide" data-slide="19">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio Bonus: Página Web con ChatGPT</h2>
+                <div class="exercise-time-badge">⏱ 15 minutos</div>
+                <p class="slide-text">Si preferís trabajar con ChatGPT, también puede generar <strong>el código HTML completo</strong> de una página que abrís directo en tu navegador.</p>
+                <div class="step-cards" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Pedile a ChatGPT: <em>"Generá el HTML completo de una página web de [TU IDEA]"</em></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>ChatGPT te da el código. Hacé clic en <strong>"Copiar código"</strong>.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>Abrí el Bloc de Notas, pegá el código, guardá como <strong>"mipagina.html"</strong>.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <p>Hacé <strong>doble clic</strong> en el archivo. ¡Se abre tu página web en el navegador!</p>
+                    </div>
+                </div>
+                <div class="warning-box">
+                    <p>⚠️ <strong>Importante:</strong> Al guardar en Bloc de Notas, cambiá "Tipo" de "Documentos de texto" a <strong>"Todos los archivos"</strong> y poné la extensión <strong>.html</strong> manualmente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 21: TIPS PRO ==================== -->
+        <section class="slide" data-slide="20">
+            <div class="slide-content">
+                <h2 class="slide-heading">⚡ Tips Pro para Datos y Web</h2>
+                <p class="slide-text">Consejos que marcan la diferencia entre un resultado "meh" y uno increíble:</p>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">📊</span>
+                        <h4>Datos: Sé específico</h4>
+                        <p>En vez de "analizá esto", preguntá algo concreto: <em>"¿Cuál es la tendencia de los últimos 3 meses?"</em></p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🎨</span>
+                        <h4>Web: Dá referencias</h4>
+                        <p><em>"Quiero un diseño tipo Apple.com"</em> o <em>"estilo similar a Spotify"</em> le da contexto claro a la IA.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🔄</span>
+                        <h4>Siempre iterá</h4>
+                        <p>El primer resultado nunca es el final. Pedí cambios puntuales: <em>"el fondo más oscuro"</em>, <em>"la letra más grande"</em>.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">📱</span>
+                        <h4>Pensá en celular</h4>
+                        <p>Siempre pedí que la web sea "responsive". El 80% de la gente navega desde el teléfono.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">💾</span>
+                        <h4>Guardá tus prompts</h4>
+                        <p>Si un prompt te dio un gran resultado, guardalo. Podés reutilizarlo y adaptarlo.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🌐</span>
+                        <h4>Publicá gratis</h4>
+                        <p>Bolt y Lovable te dan hosting gratuito. Tu página puede estar online hoy mismo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 22: EJERCICIOS EXTRA INTRO ==================== -->
+        <section class="slide" data-slide="21">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏋️ Ejercicios Extra: Seguí Practicando</h2>
+                <p class="slide-text">Ya dominás las bases. Ahora elegí los ejercicios que más te interesen para profundizar.</p>
+                <div class="options-grid">
+                    <div class="option-card">
+                        <span class="option-emoji">📊</span>
+                        <span class="option-label">Extra 1</span>
+                        <h4>Dashboard Visual</h4>
+                        <p class="option-sub">Tus datos en una web interactiva</p>
+                        <p>Combiná datos + web: creá una página que muestre tus gráficos de forma visual.</p>
+                    </div>
+                    <div class="option-card">
+                        <span class="option-emoji">💼</span>
+                        <span class="option-label">Extra 2</span>
+                        <h4>CV Web Interactivo</h4>
+                        <p class="option-sub">Tu currículum que impresiona</p>
+                        <p>Un CV online con animaciones, timeline de experiencia y botón de descarga en PDF.</p>
+                    </div>
+                    <div class="option-card">
+                        <span class="option-emoji">📝</span>
+                        <span class="option-label">Extra 3</span>
+                        <h4>Encuesta + Análisis</h4>
+                        <p class="option-sub">Creá y analizá encuestas con IA</p>
+                        <p>Armá preguntas, recolectá respuestas y que ChatGPT analice los resultados.</p>
+                    </div>
+                    <div class="option-card">
+                        <span class="option-emoji">🎉</span>
+                        <span class="option-label">Extra 4</span>
+                        <h4>Invitación Interactiva</h4>
+                        <p class="option-sub">Evento con cuenta regresiva</p>
+                        <p>Página de invitación con mapa, contador de días, confirmación de asistencia y galería.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 23: EXTRA 1 DASHBOARD ==================== -->
+        <section class="slide" data-slide="22">
+            <div class="slide-content">
+                <h2 class="slide-heading">📊 Extra 1: Dashboard Visual</h2>
+                <div class="exercise-time-badge">⏱ 25 minutos</div>
+                <span class="level-badge level-2">NIVEL 2</span>
+                <p class="slide-text"><strong>Objetivo:</strong> Crear una página web que muestre tus datos con gráficos interactivos. Combinamos todo: datos + web.</p>
+                <div class="code-block">
+<pre><code><strong>Prompt para Bolt.new o Lovable:</strong>
+
+"Creá una página web tipo dashboard que muestre:
+- Un título: 'Mis Gastos 2025'
+- Un gráfico de barras con gastos por categoría
+  (Comida: 45000, Transporte: 22000,
+   Entretenimiento: 18000, Servicios: 30000)
+- Un gráfico de torta con los porcentajes
+- Una tabla con el detalle mensual
+- Tarjetas con el total, el promedio y el máximo
+Estilo oscuro y profesional, colores azul y naranja."</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Resultado:</strong> Una página web que parece sacada de una empresa de análisis de datos. Perfecto para presentaciones o para impresionar en una entrevista.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 24: EXTRA 2 CV WEB ==================== -->
+        <section class="slide" data-slide="23">
+            <div class="slide-content">
+                <h2 class="slide-heading">💼 Extra 2: CV Web Interactivo</h2>
+                <div class="exercise-time-badge">⏱ 25 minutos</div>
+                <span class="level-badge level-1">NIVEL 1</span>
+                <p class="slide-text"><strong>Objetivo:</strong> Crear un CV/portfolio web profesional que podés compartir como link en vez de mandar un PDF aburrido.</p>
+                <div class="code-block">
+<pre><code><strong>Prompt para tu CV web:</strong>
+
+"Creá una página web de CV profesional para [TU NOMBRE].
+Secciones:
+- Hero con nombre grande y una frase que me defina
+- Sobre Mí (breve bio de 2-3 líneas)
+- Experiencia (timeline vertical con 3-4 trabajos)
+- Habilidades (barras de progreso visuales)
+- Educación
+- Contacto (email, LinkedIn, teléfono)
+Estilo moderno y minimalista. Que tenga animaciones
+al scrollear. Responsive para celular.
+Colores: [ELEGÍ TUS COLORES]."</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Tip:</strong> Publicá tu CV web y poné el link en tu bio de Instagram o LinkedIn. Un link a tu web impresiona mucho más que un PDF adjunto.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 25: EXTRA 3 y 4 ==================== -->
+        <section class="slide" data-slide="24">
+            <div class="slide-content">
+                <h2 class="slide-heading">📝 Extra 3: Encuesta + Análisis con IA</h2>
+                <div class="exercise-time-badge">⏱ 20 minutos</div>
+                <span class="level-badge level-1">NIVEL 1</span>
+                <p class="slide-text"><strong>Objetivo:</strong> Usar ChatGPT para armar preguntas de encuesta, recolectar respuestas y analizar resultados.</p>
+                <div class="step-cards" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">CREAR</h4>
+                        <p>Pedile a ChatGPT: <em>"Armá 5 preguntas de encuesta sobre [TEMA, ej: hábitos de estudio / preferencias musicales]"</em></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">SIMULAR</h4>
+                        <p>Pedile: <em>"Simulá 20 respuestas ficticias variadas a esta encuesta y dámelas en tabla"</em></p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <h4 style="color: var(--orange); font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 6px;">ANALIZAR</h4>
+                        <p>Pedile: <em>"Analizá las respuestas. ¿Qué patrones ves? Haceme un gráfico con los resultados"</em></p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Nivel extra:</strong> Si querés hacer la encuesta real, usá Google Forms, exportá los resultados como Excel y subíselos a ChatGPT para un análisis de verdad.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 26: CIERRE ==================== -->
+        <section class="slide" data-slide="25">
+            <div class="slide-content slide-title-content">
+                <h2 class="slide-heading">📝 Tarea para la Clase 6</h2>
+                <div class="homework-card">
+                    <h3>Tu Proyecto de Datos + Web</h3>
+                    <p>Antes de la Clase 6 (Proyecto Final), completá estas tareas:</p>
+                    <ul>
+                        <li><strong>Obligatorio:</strong> Analizá un set de datos real con ChatGPT (pueden ser tus gastos, notas, lo que quieras)</li>
+                        <li><strong>Obligatorio:</strong> Creá al menos 2 gráficos diferentes desde esos datos</li>
+                        <li><strong>Obligatorio:</strong> Creá una página web con alguna de las herramientas (Bolt, Lovable o ChatGPT)</li>
+                        <li><strong>Recomendado:</strong> Publicá tu página y compartí el link con el grupo</li>
+                        <li><strong>Opcional:</strong> Intentá un ejercicio extra que te haya interesado</li>
+                        <li><strong>Bonus:</strong> Combiná datos + web creando un dashboard visual</li>
+                    </ul>
+                </div>
+                <div class="closing-message">
+                    <div class="pixel-badge">CLASE 05 COMPLETADA</div>
+                    <p>De mirar números sin entender → a analista de datos y creador web. Tu IA ahora es tu equipo técnico completo.</p>
+                    <div class="title-logo">BYTEC<span class="blink">_</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="keyboard-hint desktop-only">
+        Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar
+    </div>
+    <div class="keyboard-hint mobile-only">
+        Deslizá con el dedo <span class="swipe-icon">👆</span> para pasar los slides
+    </div>
+
+    <div class="mobile-overlay" id="mobileOverlay">
+        <div class="overlay-content">
+            <div class="overlay-icon">
+                <span class="swipe-hand">👆</span>
+                <div class="swipe-arrows">
+                    <span class="swipe-arrow-left">◂</span>
+                    <span class="swipe-arrow-right">▸</span>
+                </div>
+            </div>
+            <h3 class="overlay-title">¡Bienvenido!</h3>
+            <p class="overlay-text">Deslizá con el dedo hacia la <strong>izquierda</strong> o <strong>derecha</strong> para navegar entre los slides.</p>
+            <p class="overlay-text small">También podés usar los botones <strong>◂ ▸</strong> de arriba.</p>
+            <button class="overlay-btn" id="overlayBtn">¡Entendido, empecemos!</button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navProgress = document.getElementById('navProgress');
+
+        function updateSlide() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) slide.classList.add('active');
+            });
+            navProgress.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(dir) {
+            const next = currentSlide + dir;
+            if (next >= 0 && next < totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        document.addEventListener('touchend', e => {
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = touchStartY - e.changedTouches[0].screenY;
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                changeSlide(diffX > 0 ? 1 : -1);
+            }
+        }, { passive: true });
+
+        (function() {
+            const overlay = document.getElementById('mobileOverlay');
+            const btn = document.getElementById('overlayBtn');
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            const storageKey = 'bytec-swipe-hint-seen';
+
+            if (isTouchDevice && !localStorage.getItem(storageKey)) {
+                overlay.classList.add('visible');
+            }
+
+            btn.addEventListener('click', () => {
+                overlay.classList.remove('visible');
+                overlay.classList.add('hiding');
+                localStorage.setItem(storageKey, 'true');
+                setTimeout(() => { overlay.style.display = 'none'; }, 400);
+            });
+
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    btn.click();
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>

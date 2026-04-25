@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BYTEC | Clase 3: Diseño Visual con IA</title>
+    <link rel="icon" type="image/png" href="../assets/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="shortcut icon" href="../assets/favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
@@ -1074,11 +1077,29 @@ Estilo: Fotografía artística, inspiradora, luz brillante."</code></pre>
         window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
 
         function downloadPDF() {
+            const className = document.title.replace('BYTEC | ', '').trim();
+            const slidesAll = document.querySelectorAll('.slide');
+            const total = slidesAll.length;
+
+            slidesAll.forEach((slide, idx) => {
+                if (slide.querySelector('.pdf-header')) return;
+
+                const header = document.createElement('div');
+                header.className = 'pdf-header';
+                header.innerHTML = '<img src="../assets/logo.png" alt="BYTEC Academy"><span class="pdf-brand">BYTEC<small>ACADEMY</small></span>';
+                slide.insertBefore(header, slide.firstChild);
+
+                const footer = document.createElement('div');
+                footer.className = 'pdf-footer';
+                footer.innerHTML = '<span>' + className + '</span><span>' + (idx + 1) + ' / ' + total + '</span>';
+                slide.appendChild(footer);
+            });
+
             document.body.classList.add('printing');
             setTimeout(() => {
                 window.print();
                 setTimeout(() => document.body.classList.remove('printing'), 500);
-            }, 100);
+            }, 200);
         }
 
         window.addEventListener('beforeprint', () => document.body.classList.add('printing'));

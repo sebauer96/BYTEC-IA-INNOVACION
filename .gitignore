@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+._*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Browser automation artifacts
+.playwright-mcp/
+
+# Logs and temp
+*.log
+.tmp/

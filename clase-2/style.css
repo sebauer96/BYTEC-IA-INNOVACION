@@ -1210,3 +1210,76 @@ kbd {
         text-decoration: none;
     }
 }
+
+/* ==================== PDF BRAND HEADER & FOOTER ==================== */
+
+.pdf-header,
+.pdf-footer {
+    display: none;
+}
+
+@media print {
+    .slide {
+        padding: 70px 40px 50px !important;
+    }
+
+    .pdf-header {
+        display: flex !important;
+        align-items: center;
+        gap: 10px;
+        position: absolute;
+        top: 14px;
+        right: 24px;
+        z-index: 100;
+    }
+
+    .pdf-header img {
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+        background: white;
+        border-radius: 50%;
+        padding: 1px;
+    }
+
+    .pdf-brand {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 11px;
+        color: var(--orange) !important;
+        line-height: 1.2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .pdf-brand small {
+        font-size: 6px;
+        color: var(--blue) !important;
+        letter-spacing: 1.5px;
+        margin-top: 3px;
+    }
+
+    .pdf-footer {
+        display: flex !important;
+        position: absolute;
+        bottom: 12px;
+        left: 30px;
+        right: 30px;
+        justify-content: space-between;
+        align-items: center;
+        font-family: 'Space Mono', monospace;
+        font-size: 9px;
+        color: var(--muted-text) !important;
+        padding-top: 8px;
+        border-top: 1px solid var(--dark-border);
+        letter-spacing: 0.5px;
+    }
+
+    .pdf-footer span:last-child {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 8px;
+        color: var(--orange) !important;
+        letter-spacing: 1px;
+    }
+}

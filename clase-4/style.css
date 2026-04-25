@@ -1355,3 +1355,89 @@ kbd {
     .slide-heading { font-size: 18px; }
     .nav-logo { font-size: 11px; }
 }
+
+/* ==================== PDF BUTTON & PRINT STYLES ==================== */
+
+.pdf-btn {
+    width: auto !important;
+    padding: 0 10px;
+    font-size: 10px !important;
+    letter-spacing: 1px;
+}
+
+@media print {
+    @page {
+        size: A4 landscape;
+        margin: 0;
+    }
+
+    body.printing,
+    body {
+        overflow: visible !important;
+        height: auto !important;
+        background: var(--dark-bg) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    #stars,
+    .nav-bar,
+    .keyboard-hint,
+    .mobile-overlay {
+        display: none !important;
+    }
+
+    .slides-container {
+        position: static !important;
+        height: auto !important;
+        width: 100% !important;
+    }
+
+    .slide {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 100vh;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+        pointer-events: auto !important;
+        page-break-after: always;
+        page-break-inside: avoid;
+        break-after: page;
+        break-inside: avoid;
+        padding: 30px 40px !important;
+        display: flex !important;
+        background: var(--dark-bg) !important;
+    }
+
+    .slide:last-child {
+        page-break-after: auto;
+        break-after: auto;
+    }
+
+    .slide-content {
+        max-height: none !important;
+        overflow: visible !important;
+        width: 100% !important;
+    }
+
+    .pixel-badge,
+    .exercise-time-badge,
+    .blink {
+        animation: none !important;
+    }
+
+    .blink {
+        opacity: 1 !important;
+    }
+
+    a, a:link, a:visited {
+        color: var(--orange) !important;
+        text-decoration: none;
+    }
+}

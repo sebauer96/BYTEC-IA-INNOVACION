@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYTEC | Clase 6: Agentes de IA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="stars"></canvas>
+
+    <nav class="nav-bar">
+        <a href="../index.html" class="nav-logo">▸ BYTEC</a>
+        <span class="nav-progress" id="navProgress">1 / 28</span>
+        <div class="nav-controls">
+            <button class="nav-btn pdf-btn" onclick="downloadPDF()" title="Descargar como PDF" aria-label="Descargar PDF">PDF</button>
+            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">◂</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">▸</button>
+        </div>
+    </nav>
+
+    <main class="slides-container" id="slidesContainer">
+
+        <!-- ==================== SLIDE 1: PORTADA ==================== -->
+        <section class="slide active" data-slide="0">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CLASE 06</div>
+                <h1 class="title-main">Agentes de IA<br><span class="title-accent">Tus Empleados Digitales</span></h1>
+                <p class="title-sub">Claude Code · Cowork · OpenClaw · Hermes · Codex</p>
+                <div class="title-meta">
+                    <span class="meta-item">⏱ 90 minutos</span>
+                    <span class="meta-item">🤖 100% Práctica</span>
+                    <span class="meta-item">🚀 Nivel: Operador</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 2: OBJETIVO ==================== -->
+        <section class="slide" data-slide="1">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎯 Objetivo de Hoy</h2>
+                <div class="objective-card">
+                    <p class="objective-text">Conocer los <strong>agentes de IA</strong>: el siguiente nivel después de los chatbots. Vamos a entender qué son, cómo funcionan y cuáles son los más importantes en 2026 (Claude Code, Cowork, OpenClaw, Hermes y más). Hoy la IA deja de ser una herramienta para convertirse en <strong>tu equipo digital</strong>.</p>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">¿Qué es un agente de IA?</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">10 min</span>
+                        <span class="timeline-label">Cómo funcionan los agentes</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">35 min</span>
+                        <span class="timeline-label">Los agentes top de 2026</span>
+                    </div>
+                    <div class="timeline-item active-timeline">
+                        <span class="timeline-time">25 min</span>
+                        <span class="timeline-label">Ejercicios prácticos</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">5 min</span>
+                        <span class="timeline-label">¿Cuál elegir? + Ética</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-time">5 min</span>
+                        <span class="timeline-label">Cierre del curso</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 3: QUÉ ES UN AGENTE ==================== -->
+        <section class="slide" data-slide="2">
+            <div class="slide-content">
+                <h2 class="slide-heading">🤖 ¿Qué es un Agente de IA?</h2>
+                <p class="slide-text">Un agente de IA es <strong>una IA que actúa por sí misma</strong>. No solo responde preguntas: usa herramientas, ejecuta tareas, toma decisiones y se mueve solo hacia un objetivo.</p>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">Chatbot tradicional 💬</h3>
+                        <p style="margin-top: 12px; font-size: 13px;">Le hacés una pregunta, te responde. Le pedís otra cosa, te responde. <strong>Vos hacés todo el trabajo</strong> de copiar, pegar, ejecutar.</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Agente de IA 🤖</h3>
+                        <p style="margin-top: 12px; font-size: 13px;">Le decís el objetivo y se encarga: <strong>navega, hace clic, escribe, manda mensajes, edita archivos</strong> y vuelve cuando terminó.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>⚡ <strong>Ejemplo simple:</strong> Un chatbot te dice "<em>Para reservar el vuelo, andá a la web, completá los datos, pagá...</em>". Un agente <strong>directamente reserva el vuelo</strong> por vos mientras vos hacés otra cosa.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 4: METÁFORA EMPLEADO DIGITAL ==================== -->
+        <section class="slide" data-slide="3">
+            <div class="slide-content">
+                <h2 class="slide-heading">👨‍💼 La Metáfora del Empleado Digital</h2>
+                <p class="slide-text">Pensá un agente como <strong>un empleado virtual</strong> al que contratás. Le explicás qué hacer, le das herramientas, y trabaja solo.</p>
+                <div class="metaphor-box">
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">🎯</div>
+                        <h3>Le das un objetivo</h3>
+                        <p>"Resumí mis correos del día y hacé una lista de pendientes"</p>
+                    </div>
+                    <div class="metaphor-plus">▸</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">🛠️</div>
+                        <h3>Tiene herramientas</h3>
+                        <p>Puede leer Gmail, escribir notas, buscar en internet, mandar mensajes</p>
+                    </div>
+                    <div class="metaphor-plus">▸</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">✅</div>
+                        <h3>Hace el trabajo</h3>
+                        <p>Vos te tomás un café y volvés cuando ya terminó toda la tarea</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Antes:</strong> Le pedías a ChatGPT que te ayude con un texto. <strong>Ahora:</strong> Un agente te organiza la agenda, te responde mails, te arma presentaciones, te prepara informes... <strong>solo</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 5: CÓMO FUNCIONAN ==================== -->
+        <section class="slide" data-slide="4">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔄 ¿Cómo Funciona un Agente?</h2>
+                <p class="slide-text">Todos los agentes funcionan con el mismo <strong>ciclo de 4 pasos</strong>, repitiéndolo hasta que terminan la tarea:</p>
+                <div class="agent-loop">
+                    <div class="loop-step">
+                        <div class="loop-icon">🧠</div>
+                        <h4>1. PIENSA</h4>
+                        <p>Analiza qué hay que hacer</p>
+                    </div>
+                    <div class="loop-arrow">▸</div>
+                    <div class="loop-step">
+                        <div class="loop-icon">⚡</div>
+                        <h4>2. ACTÚA</h4>
+                        <p>Usa una herramienta (clic, escribir...)</p>
+                    </div>
+                    <div class="loop-arrow">▸</div>
+                    <div class="loop-step">
+                        <div class="loop-icon">👁️</div>
+                        <h4>3. OBSERVA</h4>
+                        <p>Mira qué pasó como resultado</p>
+                    </div>
+                    <div class="loop-arrow">▸</div>
+                    <div class="loop-step">
+                        <div class="loop-icon">🔁</div>
+                        <h4>4. DECIDE</h4>
+                        <p>¿Sigue? ¿Cambia? ¿Terminó?</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Es como vos navegando una web:</strong> mirás la pantalla (observa), pensás dónde hacer clic (piensa), hacés clic (actúa) y mirás el resultado para decidir el próximo paso. La IA hace exactamente lo mismo, pero <strong>mucho más rápido</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 6: TIPOS DE AGENTES ==================== -->
+        <section class="slide" data-slide="5">
+            <div class="slide-content">
+                <h2 class="slide-heading">🗂️ Tipos de Agentes en 2026</h2>
+                <p class="slide-text">No hay un solo tipo. Cada agente está pensado para un escenario distinto. Estos son los <strong>4 grupos principales</strong>:</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">💻</span>
+                        <h4>Agentes de Código</h4>
+                        <p>Diseñados para programar y modificar archivos. Ej: <strong>Claude Code, Codex, Cursor</strong></p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">💼</span>
+                        <h4>Agentes de Trabajo</h4>
+                        <p>Para profesionales no técnicos: informes, planillas, mails. Ej: <strong>Claude Cowork</strong></p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📱</span>
+                        <h4>Agentes Personales</h4>
+                        <p>Viven en WhatsApp, Telegram, Slack. Ej: <strong>OpenClaw, NanoClaw</strong></p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🧬</span>
+                        <h4>Auto-aprendizaje</h4>
+                        <p>Aprenden de cada tarea y mejoran con el tiempo. Ej: <strong>Hermes Agent</strong></p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🌐</span>
+                        <h4>Navegadores Web</h4>
+                        <p>Controlan el navegador como si fueras vos. Ej: <strong>Devin, Computer Use</strong></p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🔒</span>
+                        <h4>Seguros / Sealed</h4>
+                        <p>Para datos sensibles, sin conexión externa. Ej: <strong>NanoClaw</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 7: CLAUDE CODE ==================== -->
+        <section class="slide" data-slide="6">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Claude Code: El Rey del Código</h2>
+                <div class="agent-card-big">
+                    <div class="agent-header">
+                        <span class="agent-emoji">⚡</span>
+                        <div class="agent-info">
+                            <h3>Claude Code</h3>
+                            <p class="agent-tagline">"Hacéme indispensable en tu trabajo"</p>
+                        </div>
+                    </div>
+                    <div class="agent-meta">
+                        <span class="agent-meta-tag">Anthropic</span>
+                        <span class="agent-meta-tag pro">$20-200/mes</span>
+                        <span class="agent-meta-tag">Opus 4.7</span>
+                        <span class="agent-meta-tag">Terminal · IDE · Web</span>
+                    </div>
+                    <p class="agent-desc">El agente líder en tareas de código. Vive en tu terminal, en VS Code o en la web (claude.ai/code). Lee tu proyecto entero, modifica archivos, ejecuta comandos y maneja Git. <strong>87.6% en SWE-bench Verified</strong> — el mejor benchmark del mundo.</p>
+                    <div class="agent-best-for"><strong>Ideal para:</strong> Programadores, gente que quiere entender su código, automatizar tareas técnicas o aprender a programar usando IA. <strong>También sirve para:</strong> análisis de datos, edición de videos por línea de comandos, o investigación.</div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Dato curioso:</strong> Anthropic renombró su SDK de "Claude Code SDK" a "Claude Agent SDK" porque la gente lo usa para mil cosas además de código: video, datos, notas, todo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 8: CLAUDE COWORK ==================== -->
+        <section class="slide" data-slide="7">
+            <div class="slide-content">
+                <h2 class="slide-heading">💼 Claude Cowork: La IA que Trabaja con Vos</h2>
+                <div class="agent-card-big">
+                    <div class="agent-header">
+                        <span class="agent-emoji">🤝</span>
+                        <div class="agent-info">
+                            <h3>Claude Cowork</h3>
+                            <p class="agent-tagline">"Tu compañero de oficina virtual"</p>
+                        </div>
+                    </div>
+                    <div class="agent-meta">
+                        <span class="agent-meta-tag">Anthropic</span>
+                        <span class="agent-meta-tag pro">Claude Pro</span>
+                        <span class="agent-meta-tag">Mac · Windows</span>
+                        <span class="agent-meta-tag">Sin terminal</span>
+                    </div>
+                    <p class="agent-desc">El agente para profesionales que <strong>no son programadores</strong>. Vive dentro de la app Claude Desktop. Se conecta a Google Drive, Gmail, Excel, DocuSign y otras herramientas que ya usás. Hace tareas programadas y ejecuta workflows completos sin que tengas que hacer nada.</p>
+                    <div class="agent-best-for"><strong>Ideal para:</strong> Contadores, abogados, administrativos, jefes de área, profesionales en general. Si trabajás con planillas, informes y mails todo el día, este es para vos.</div>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">📧</span>
+                        <h4>Lee y responde mails</h4>
+                        <p>Conecta tu Gmail y responde correos rutinarios automáticamente</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📊</span>
+                        <h4>Genera reportes</h4>
+                        <p>Toma datos de tus planillas y arma informes ejecutivos</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📅</span>
+                        <h4>Tareas programadas</h4>
+                        <p>"Cada lunes, mandame un resumen del calendario de la semana"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 9: OPENCLAW ==================== -->
+        <section class="slide" data-slide="8">
+            <div class="slide-content">
+                <h2 class="slide-heading">📱 OpenClaw: El Agente que Vive en tu WhatsApp</h2>
+                <div class="agent-card-big">
+                    <div class="agent-header">
+                        <span class="agent-emoji">🦾</span>
+                        <div class="agent-info">
+                            <h3>OpenClaw</h3>
+                            <p class="agent-tagline">"Convertite en la capa de automatización de tu vida"</p>
+                        </div>
+                    </div>
+                    <div class="agent-meta">
+                        <span class="agent-meta-tag pro">Open Source (MIT)</span>
+                        <span class="agent-meta-tag pro">345K+ ⭐ GitHub</span>
+                        <span class="agent-meta-tag">Multi-canal</span>
+                        <span class="agent-meta-tag warning">Self-hosted</span>
+                    </div>
+                    <p class="agent-desc">El agente más viral de 2026 (creado por Peter Steinberger). Funciona en <strong>25+ canales</strong>: WhatsApp, Telegram, Slack, Discord, Signal y más. Es como tener un asistente personal disponible en cualquier app que ya usás. Tiene una <strong>tienda de "skills" (ClawHub)</strong> con miles de habilidades creadas por la comunidad.</p>
+                    <div class="agent-best-for"><strong>Ideal para:</strong> Personas que viven en el celular, quieren automatizar la vida diaria (recordatorios, listas de compras, búsquedas, traducciones), o necesitan una IA personal que esté donde están ellos.</div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>Lo que podés hacer</h4>
+                        <ul>
+                            <li>Pedirle por WhatsApp que te recuerde algo a las 3pm</li>
+                            <li>Que te resuma un PDF que le mandás por Telegram</li>
+                            <li>Que te traduzca un mensaje en cualquier idioma</li>
+                            <li>Que te busque info y te mande la respuesta a Discord</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Atención: requiere setup</h4>
+                        <ul>
+                            <li>Hay que instalarlo en una computadora o servidor</li>
+                            <li>Es gratis pero pagás el modelo de IA aparte</li>
+                            <li>~$20-32/mes en costos de API total</li>
+                            <li>Podés elegir qué modelo de IA usar (Claude, GPT, etc.)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 10: HERMES AGENT ==================== -->
+        <section class="slide" data-slide="9">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧬 Hermes Agent: El que Aprende de Vos</h2>
+                <div class="agent-card-big">
+                    <div class="agent-header">
+                        <span class="agent-emoji">🌱</span>
+                        <div class="agent-info">
+                            <h3>Hermes Agent</h3>
+                            <p class="agent-tagline">"El agente que crece con vos"</p>
+                        </div>
+                    </div>
+                    <div class="agent-meta">
+                        <span class="agent-meta-tag pro">Open Source (Apache 2.0)</span>
+                        <span class="agent-meta-tag pro">Multi-modelo</span>
+                        <span class="agent-meta-tag">Nous Research</span>
+                        <span class="agent-meta-tag">Memoria infinita</span>
+                    </div>
+                    <p class="agent-desc">Lo más innovador de 2026. Hermes <strong>aprende de cada interacción</strong>: cuando resolvés un problema con él, lo guarda como una "skill" que puede reutilizar. Mientras más lo usás, <strong>más rápido y preciso se vuelve</strong>. Tiene memoria persistente que construye un modelo de quién sos vos a lo largo del tiempo.</p>
+                    <div class="agent-best-for"><strong>Ideal para:</strong> Personas que hacen tareas repetitivas, investigadores, estudiantes que estudian un tema durante meses, o cualquiera que quiera una IA que <strong>se vaya personalizando</strong> automáticamente.</div>
+                </div>
+                <div class="comparison-box">
+                    <div class="comparison-side">
+                        <h3 class="comparison-title old">Otros agentes 🤖</h3>
+                        <p style="margin-top: 12px; font-size: 13px;">Cada conversación empieza de cero. Si le explicaste algo ayer, hoy se lo tenés que volver a explicar.</p>
+                    </div>
+                    <div class="comparison-arrow">vs</div>
+                    <div class="comparison-side">
+                        <h3 class="comparison-title new">Hermes 🧬</h3>
+                        <p style="margin-top: 12px; font-size: 13px;">Recuerda tus preferencias, las soluciones que ya encontró, tu forma de hablar. <strong>Mejora 40% en tareas repetidas</strong> (verificado en ICLR).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 11: CODEX ==================== -->
+        <section class="slide" data-slide="10">
+            <div class="slide-content">
+                <h2 class="slide-heading">⚙️ Codex: El Agente de OpenAI</h2>
+                <div class="agent-card-big">
+                    <div class="agent-header">
+                        <span class="agent-emoji">🤖</span>
+                        <div class="agent-info">
+                            <h3>Codex (OpenAI)</h3>
+                            <p class="agent-tagline">"El superapp de OpenAI"</p>
+                        </div>
+                    </div>
+                    <div class="agent-meta">
+                        <span class="agent-meta-tag">OpenAI</span>
+                        <span class="agent-meta-tag pro">Incluido en ChatGPT Plus</span>
+                        <span class="agent-meta-tag">GPT-5.4</span>
+                        <span class="agent-meta-tag">3M usuarios/semana</span>
+                    </div>
+                    <p class="agent-desc">El agente de OpenAI para tareas técnicas. Funciona en la nube, terminal y app de Mac. En abril 2026 se convirtió en un "<strong>superapp</strong>": puede controlar tu computadora, navegar webs, generar imágenes y crear máquinas remotas para ejecutar tareas largas.</p>
+                    <div class="agent-best-for"><strong>Ideal para:</strong> Si ya tenés ChatGPT Plus o Pro, <strong>ya viene incluido</strong>. Sirve para tareas en la nube, asincrónicas (le decís qué hacer y volvés más tarde a buscar el resultado).</div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Dato:</strong> Pasó de casi cero usuarios a <strong>3 millones por semana</strong> en solo 5 meses. La adopción más rápida de un agente de IA en la historia.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 12: OTROS AGENTES ==================== -->
+        <section class="slide" data-slide="11">
+            <div class="slide-content">
+                <h2 class="slide-heading">🌌 Otros Agentes que Tenés que Conocer</h2>
+                <p class="slide-text">El ecosistema de agentes en 2026 es enorme. Estos son los otros nombres importantes que vas a escuchar:</p>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <span class="tool-emoji">🎨</span>
+                        <h4>Cursor</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">$16/mes</span>
+                            <span class="tool-tag pro">IDE visual</span>
+                        </div>
+                        <p>Editor de código con IA integrada. Ideal si preferís pantallas visuales antes que terminal. <strong>$50B de valuación</strong>.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">💎</span>
+                        <h4>Gemini CLI</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag pro">Gratis</span>
+                            <span class="tool-tag">1M tokens</span>
+                        </div>
+                        <p>El agente de Google. <strong>Totalmente gratis</strong> con cuenta de Google. Bueno para empezar sin gastar nada.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">🚀</span>
+                        <h4>Devin</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag">$20/mes + uso</span>
+                            <span class="tool-tag warning">Muy autónomo</span>
+                        </div>
+                        <p>El "ingeniero IA" autónomo. Le asignás una tarea como en un Trello y la resuelve solo, mandando un PR.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">🔒</span>
+                        <h4>NanoClaw</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag pro">Sealed container</span>
+                            <span class="tool-tag pro">Open Source</span>
+                        </div>
+                        <p>Versión segura de OpenClaw. <strong>No envía datos afuera</strong> sin tu permiso. Para datos sensibles.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">🐙</span>
+                        <h4>GitHub Copilot</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag pro">$10/mes</span>
+                            <span class="tool-tag">15M devs</span>
+                        </div>
+                        <p>El más usado del mundo. Se integra a tu editor y autocompleta código. Buena puerta de entrada.</p>
+                    </div>
+                    <div class="tool-card">
+                        <span class="tool-emoji">🔓</span>
+                        <h4>OpenCode</h4>
+                        <div class="tool-tags">
+                            <span class="tool-tag pro">Open Source</span>
+                            <span class="tool-tag">75+ modelos</span>
+                        </div>
+                        <p>Agente de código open source. Soporta <strong>cualquier modelo</strong> (Claude, GPT, Llama local, etc.).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 13: TABLA COMPARATIVA ==================== -->
+        <section class="slide" data-slide="12">
+            <div class="slide-content">
+                <h2 class="slide-heading">📊 Comparativa Rápida de los Top 5</h2>
+                <p class="slide-text">Tabla resumen para que sepas <strong>cuál mirar primero</strong> según lo que necesitás:</p>
+                <table class="agents-table">
+                    <thead>
+                        <tr>
+                            <th>Agente</th>
+                            <th>Mejor para</th>
+                            <th>Plataforma</th>
+                            <th>Precio</th>
+                            <th>Aprende</th>
+                            <th>Open Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="agent-name">Claude Code</td>
+                            <td>Programar / técnico</td>
+                            <td>Terminal · IDE</td>
+                            <td>$20-200/mes</td>
+                            <td class="check-no">No</td>
+                            <td class="check-no">No</td>
+                        </tr>
+                        <tr>
+                            <td class="agent-name">Claude Cowork</td>
+                            <td>Profesional no-técnico</td>
+                            <td>App Desktop</td>
+                            <td>Claude Pro</td>
+                            <td class="check-no">No</td>
+                            <td class="check-no">No</td>
+                        </tr>
+                        <tr>
+                            <td class="agent-name">OpenClaw</td>
+                            <td>WhatsApp · Telegram · Slack</td>
+                            <td>25+ apps</td>
+                            <td>~$20-32/mes</td>
+                            <td class="check-no">Memoria local</td>
+                            <td class="check-yes">Sí (MIT)</td>
+                        </tr>
+                        <tr>
+                            <td class="agent-name">Hermes Agent</td>
+                            <td>Tareas que se repiten</td>
+                            <td>Terminal · Multi</td>
+                            <td>$5-20/mes</td>
+                            <td class="check-yes">¡Sí!</td>
+                            <td class="check-yes">Sí (Apache)</td>
+                        </tr>
+                        <tr>
+                            <td class="agent-name">Codex</td>
+                            <td>Tareas en la nube</td>
+                            <td>Web · Mac · CLI</td>
+                            <td>Incluido en ChatGPT</td>
+                            <td class="check-partial">Memoria</td>
+                            <td class="check-partial">CLI sí</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Tip:</strong> Los profesionales avanzados <strong>combinan dos agentes</strong>: por ejemplo Claude Code (para tareas técnicas) + OpenClaw (para tareas personales). No te cases con uno solo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 14: EJERCICIO 1 ==================== -->
+        <section class="slide" data-slide="13">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio 1: Tu Primer Agente con Claude Cowork</h2>
+                <div class="exercise-time-badge">⏱ 15 minutos</div>
+                <span class="level-badge level-1">NIVEL 1 - INICIAL</span>
+                <p class="slide-text"><strong>Objetivo:</strong> Probar tu primer agente real en un entorno amigable y sin terminal. <strong>Herramienta:</strong> Claude Desktop (descargable gratis).</p>
+                <div class="step-cards" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Descargá <strong>Claude Desktop</strong> desde <code>claude.ai/download</code> (Mac o Windows).</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Iniciá sesión y activá <strong>"Cowork"</strong> en la configuración.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">3</span>
+                        <p>Pedile que <strong>te ayude con una tarea real</strong> (ver ejemplos abajo).</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">4</span>
+                        <p><strong>Mirá cómo trabaja</strong>: te va a ir mostrando lo que hace paso a paso.</p>
+                    </div>
+                </div>
+                <div class="code-block">
+<pre><code><strong>Pedidos para probar (elegí uno):</strong>
+
+"Armame una agenda semanal de estudio para aprender
+guitarra, 30 minutos al día"
+
+"Buscá en internet 5 recetas vegetarianas fáciles
+y armame una lista de ingredientes única"
+
+"Investigá qué necesito para visitar Japón:
+documentos, vacunas, mejor época, presupuesto.
+Resumime todo en una tabla"</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 15: EJERCICIO 2 ==================== -->
+        <section class="slide" data-slide="14">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio 2: Vibe Coding con Claude Code</h2>
+                <div class="exercise-time-badge">⏱ 20 minutos</div>
+                <span class="level-badge level-2">NIVEL 2 - INTERMEDIO</span>
+                <p class="slide-text"><strong>Objetivo:</strong> Crear algo real con Claude Code <strong>sin saber programar</strong>. Esto se llama "vibe coding": le decís lo que querés y la IA lo hace.</p>
+                <div class="numbered-steps">
+                    <div class="num-step">
+                        <span class="num-step-number">01</span>
+                        <h4>Acceso web</h4>
+                        <p>Andá a <code>claude.ai/code</code></p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">02</span>
+                        <h4>Pedido claro</h4>
+                        <p>Describí qué querés en castellano</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">03</span>
+                        <h4>Mirá el proceso</h4>
+                        <p>El agente piensa, crea, prueba</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">04</span>
+                        <h4>Iterá</h4>
+                        <p>Pedile cambios o mejoras</p>
+                    </div>
+                </div>
+                <div class="practice-checklist">
+                    <div class="check-item">🎮 <strong>Opción A:</strong> "Hacéme un juego del ahorcado en HTML que pueda abrir en mi navegador"</div>
+                    <div class="check-item">📝 <strong>Opción B:</strong> "Creá una calculadora de propinas con diseño moderno y modo oscuro"</div>
+                    <div class="check-item">🎨 <strong>Opción C:</strong> "Armame un generador de paletas de colores aleatorias para diseño"</div>
+                    <div class="check-item">⏰ <strong>Opción D:</strong> "Creá un timer pomodoro (25 min trabajo, 5 min descanso) con notificaciones"</div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Lo mágico:</strong> Vas a ver al agente pensar en voz alta, escribir el código, probarlo, encontrar errores y corregirlos. <strong>Sin que toques nada.</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 16: EJERCICIO 3 ==================== -->
+        <section class="slide" data-slide="15">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio 3: Agente de Investigación</h2>
+                <div class="exercise-time-badge">⏱ 15 minutos</div>
+                <span class="level-badge level-1">NIVEL 1 - INICIAL</span>
+                <p class="slide-text">Los agentes son <strong>excelentes investigadores</strong>: pueden buscar, leer múltiples fuentes y resumir. Vamos a aprovecharlo.</p>
+                <div class="code-block">
+<pre><code><strong>Prompt para usar en cualquier agente (Claude, ChatGPT, Gemini):</strong>
+
+"Actuá como mi agente de investigación.
+
+Tema: [TU TEMA, ej: las mejores universidades públicas
+de Argentina / qué auto eléctrico me conviene comprar /
+cómo funciona la economía circular]
+
+Tareas:
+1. Buscá información en al menos 5 fuentes diferentes
+2. Comparalas entre sí
+3. Identificá los puntos en común y las diferencias
+4. Hacéme un resumen en formato tabla
+5. Dame tu recomendación basada en evidencia
+6. Citá las fuentes al final"</code></pre>
+                </div>
+                <div class="step-cards" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="step-card">
+                        <span class="step-num">1</span>
+                        <p>Elegí un tema que te interese de verdad. Algo donde necesites tomar una decisión.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-num">2</span>
+                        <p>Pegá el prompt en tu agente preferido y <strong>observá cómo investiga solo</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 17: EJERCICIO 4 PERSONALIZACIÓN ==================== -->
+        <section class="slide" data-slide="16">
+            <div class="slide-content">
+                <h2 class="slide-heading">💻 Ejercicio 4: Personalizá tu Agente</h2>
+                <div class="exercise-time-badge">⏱ 15 minutos</div>
+                <span class="level-badge level-2">NIVEL 2 - INTERMEDIO</span>
+                <p class="slide-text">Los agentes <strong>se vuelven mejores cuando los personalizás</strong>. Vamos a darle a tu IA un "manual de cómo trabajar con vos".</p>
+                <div class="code-block">
+<pre><code><strong>Pedile a Claude o ChatGPT que cree tu manual personal:</strong>
+
+"Quiero crear un documento de configuración personal
+para que cualquier agente de IA me conozca.
+
+Hacéme las preguntas necesarias para armar:
+- Cómo me llamo y a qué me dedico
+- Mis preferencias (cómo me gusta que me hablen,
+  formales/informales, idioma, longitud de respuestas)
+- Mis intereses principales y áreas en las que trabajo
+- Mis valores y lo que NO quiero que hagas
+- Herramientas que ya uso (Google Drive, Notion, etc.)
+- Mi zona horaria y horario habitual
+
+Después armá el documento en formato markdown
+para que pueda copiarlo y pegarlo en cualquier
+conversación nueva."</code></pre>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Tip Pro:</strong> Guardá ese documento en notas. La próxima vez que abras una conversación nueva con cualquier IA, pegalo al inicio. La calidad de las respuestas <strong>mejora dramáticamente</strong>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 18: MCP - EL ESTÁNDAR ==================== -->
+        <section class="slide" data-slide="17">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔌 MCP: El Estándar que Conecta Todo</h2>
+                <p class="slide-text">MCP (Model Context Protocol) es como el <strong>USB de la IA</strong>: un estándar que permite que cualquier agente se conecte a cualquier servicio (Gmail, Notion, GitHub, tu base de datos...) sin reinventar la rueda.</p>
+                <div class="metaphor-box">
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">🔌</div>
+                        <h3>El "USB" de la IA</h3>
+                        <p>Un solo conector para todos los agentes y todos los servicios.</p>
+                    </div>
+                    <div class="metaphor-plus">▸</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">🛠️</div>
+                        <h3>Plug & Play</h3>
+                        <p>Conectás Notion una vez y cualquier agente que soporte MCP puede usarlo.</p>
+                    </div>
+                    <div class="metaphor-plus">▸</div>
+                    <div class="metaphor-item">
+                        <div class="metaphor-icon">🌐</div>
+                        <h3>Estándar abierto</h3>
+                        <p>Lo creó Anthropic pero todos lo adoptaron: OpenAI, Google, etc.</p>
+                    </div>
+                </div>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>¿Por qué te importa?</h4>
+                        <ul>
+                            <li>Tu agente puede leer tu Drive sin desarrollo</li>
+                            <li>Puede mandar mensajes en Slack con un click</li>
+                            <li>Puede actualizar tu base de datos de Notion</li>
+                            <li>Hay <strong>cientos de "MCPs"</strong> ya hechos para descargar</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Cómo se usa</h4>
+                        <ul>
+                            <li>Buscás un MCP en MCPMarket.com o similar</li>
+                            <li>Lo agregás a tu agente con un par de clicks</li>
+                            <li>Listo: el agente ya puede usar ese servicio</li>
+                            <li>Sin código, sin configuración compleja</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 19: SKILLS Y MEMORIA ==================== -->
+        <section class="slide" data-slide="18">
+            <div class="slide-content">
+                <h2 class="slide-heading">🧠 Skills, Memoria y Configuración</h2>
+                <p class="slide-text">Los agentes modernos tienen <strong>3 conceptos clave</strong> que los hacen mejorar con el uso:</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🎓</span>
+                        <h4>Skills</h4>
+                        <p>Habilidades específicas que el agente puede aprender. Como "expertise" puntual: editar fotos, traducir, programar en Python.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">💾</span>
+                        <h4>Memoria</h4>
+                        <p>Lo que el agente recuerda de vos entre sesiones: preferencias, trabajos anteriores, contexto.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📜</span>
+                        <h4>Reglas (.md)</h4>
+                        <p>Archivos como <code>CLAUDE.md</code> o <code>SOUL.md</code> donde le explicás <strong>cómo trabajar con vos</strong>.</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>El secreto pro:</strong> Los que sacan más provecho de los agentes son los que <strong>invierten 30 minutos en configurarlos bien</strong>. Después de eso, el agente trabaja perfecto durante meses.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 20: CUÁL ELEGIR ==================== -->
+        <section class="slide" data-slide="19">
+            <div class="slide-content">
+                <h2 class="slide-heading">🤔 ¿Cuál Agente Elegir?</h2>
+                <p class="slide-text">Guía rápida según tu perfil. <strong>No hay un "mejor agente"</strong>, hay uno mejor para vos:</p>
+                <div class="options-grid">
+                    <div class="option-card">
+                        <span class="option-emoji">👶</span>
+                        <span class="option-label">Si recién empezás</span>
+                        <h4>Claude Cowork o ChatGPT</h4>
+                        <p class="option-sub">Sin instalación, sin terminal</p>
+                        <p>Empezá por el agente más amigable. Sin curva de aprendizaje técnica.</p>
+                    </div>
+                    <div class="option-card">
+                        <span class="option-emoji">📱</span>
+                        <span class="option-label">Si vivís en el celular</span>
+                        <h4>OpenClaw</h4>
+                        <p class="option-sub">Tu IA donde sea que estés</p>
+                        <p>Ideal si querés tu agente en WhatsApp, Telegram o Slack.</p>
+                    </div>
+                    <div class="option-card">
+                        <span class="option-emoji">💻</span>
+                        <span class="option-label">Si te gusta programar</span>
+                        <h4>Claude Code o Codex</h4>
+                        <p class="option-sub">Los más potentes técnicamente</p>
+                        <p>El mejor experiencia para tareas técnicas, código y automatización profunda.</p>
+                    </div>
+                    <div class="option-card">
+                        <span class="option-emoji">🔄</span>
+                        <span class="option-label">Si hacés tareas repetidas</span>
+                        <h4>Hermes Agent</h4>
+                        <p class="option-sub">Aprende de vos, mejora con el uso</p>
+                        <p>Si trabajás meses con el mismo proyecto, este se vuelve tu mejor aliado.</p>
+                    </div>
+                    <div class="option-card">
+                        <span class="option-emoji">💰</span>
+                        <span class="option-label">Si querés gratis</span>
+                        <h4>Gemini CLI</h4>
+                        <p class="option-sub">100% gratis con Google</p>
+                        <p>El más generoso en el plan free. Ideal para experimentar sin gastar.</p>
+                    </div>
+                    <div class="option-card">
+                        <span class="option-emoji">🔒</span>
+                        <span class="option-label">Si manejás datos sensibles</span>
+                        <h4>NanoClaw</h4>
+                        <p class="option-sub">Sin enviar datos a la nube</p>
+                        <p>Para profesionales con datos confidenciales (médicos, legales, etc.).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 21: ÉTICA ==================== -->
+        <section class="slide" data-slide="20">
+            <div class="slide-content">
+                <h2 class="slide-heading">⚖️ Ética y Responsabilidad con Agentes</h2>
+                <p class="slide-text">Los agentes son <strong>más poderosos que los chatbots</strong>: pueden ejecutar acciones reales en el mundo. Eso requiere reglas claras:</p>
+                <div class="ethics-box">
+                    <h4>🚫 Las 5 Reglas de Oro</h4>
+                    <ul>
+                        <li><strong>Nunca des contraseñas reales</strong> a un agente sin verificar la herramienta. Usá apps de confianza y revisá los permisos.</li>
+                        <li><strong>Revisá lo que hace</strong> antes de aprobarlo. La mayoría de los agentes piden confirmación antes de acciones importantes (mandar mails, gastar plata, borrar archivos).</li>
+                        <li><strong>No le des acceso a tus cuentas bancarias</strong> a menos que sea una herramienta oficial y verificada del banco.</li>
+                        <li><strong>Sé transparente:</strong> si un mail lo escribió el agente, no inventes que lo hiciste vos. La gente cada vez detecta más estos casos.</li>
+                        <li><strong>Cuidado con los datos sensibles:</strong> los agentes pueden enviar información a servidores de terceros. Para datos privados, usá agentes locales (NanoClaw, modelos en tu computadora).</li>
+                    </ul>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Regla simple:</strong> Si no le darías esa tarea a un becario nuevo en su primer día, tampoco se la des a un agente sin supervisión.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 22: TIPS PRO ==================== -->
+        <section class="slide" data-slide="21">
+            <div class="slide-content">
+                <h2 class="slide-heading">⚡ Tips Pro para Trabajar con Agentes</h2>
+                <p class="slide-text">Lo que aprendiste con prompts de chatbots <strong>también aplica acá</strong>, pero con algunas diferencias clave:</p>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <span class="tip-icon">🎯</span>
+                        <h4>Objetivo claro</h4>
+                        <p>No le digas "ayudame con X". Decile <em>"el resultado final que quiero es Y"</em>.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">📋</span>
+                        <h4>Pasos en orden</h4>
+                        <p>Si la tarea es compleja, dale <em>"primero hacé A, después B, después C"</em>.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🚦</span>
+                        <h4>Puntos de control</h4>
+                        <p><em>"Pará y mostrame antes de mandar el mail"</em>. No le des autoridad total al toque.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">🔄</span>
+                        <h4>Iterá rápido</h4>
+                        <p>El primer intento rara vez sale perfecto. Pedí ajustes: <em>"hacelo más corto"</em>.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">💾</span>
+                        <h4>Guardá los buenos</h4>
+                        <p>Cuando un prompt te dé un gran resultado, anotalo. Vas a reutilizarlo mil veces.</p>
+                    </div>
+                    <div class="tip-card">
+                        <span class="tip-icon">⏸️</span>
+                        <h4>Sabé pararlo</h4>
+                        <p>Si va por mal camino, frenalo y reformulá. No esperes que termine si está perdido.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 23: EJERCICIOS EXTRA ==================== -->
+        <section class="slide" data-slide="22">
+            <div class="slide-content">
+                <h2 class="slide-heading">🏋️ Ejercicios Extra para Casa</h2>
+                <p class="slide-text">Para los que quieren seguir profundizando, acá van 4 desafíos extra:</p>
+                <div class="exercises-list">
+                    <div class="exercise-card">
+                        <span class="exercise-num">🤖</span>
+                        <div>
+                            <h4>Configurá tu Asistente Personal</h4>
+                            <p>Creá un documento de configuración usando el ejercicio 4 y probalo en 3 agentes distintos. Compará los resultados.</p>
+                        </div>
+                        <span class="difficulty easy">Fácil</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">📲</span>
+                        <div>
+                            <h4>Instalá OpenClaw</h4>
+                            <p>Seguí el tutorial oficial y poné OpenClaw en tu Telegram. Probá pedirle 5 cosas distintas durante una semana.</p>
+                        </div>
+                        <span class="difficulty hard">Avanzado</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">🌐</span>
+                        <div>
+                            <h4>Web con Claude Code</h4>
+                            <p>Pedile a Claude Code que te haga una página web personal. Iterá hasta que te guste y publicala (te ayuda con eso también).</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-num">🔌</span>
+                        <div>
+                            <h4>Probá un MCP</h4>
+                            <p>Buscá un MCP que te conecte tu Notion o tu Drive a Claude. Configuralo y pedile al agente que organice algo por vos.</p>
+                        </div>
+                        <span class="difficulty medium">Medio</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 24: FUTURO ==================== -->
+        <section class="slide" data-slide="23">
+            <div class="slide-content">
+                <h2 class="slide-heading">🔮 ¿Qué Viene en el Futuro?</h2>
+                <p class="slide-text">Los agentes están evolucionando rapidísimo. Lo que viene en los próximos años va a cambiar todo otra vez:</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">👥</span>
+                        <h4>Equipos de agentes</h4>
+                        <p>No un agente, sino <strong>10 agentes especializados</strong> trabajando juntos en tu proyecto.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🌍</span>
+                        <h4>Agentes 24/7</h4>
+                        <p>Trabajando mientras dormís. Te despertás con resultados ya hechos.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🤝</span>
+                        <h4>Marketplaces</h4>
+                        <p>Tiendas donde comprás agentes especializados (como apps en App Store).</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🧬</span>
+                        <h4>Personalización total</h4>
+                        <p>Tu agente <strong>solo tuyo</strong>, entrenado en años de tu trabajo.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🏛️</span>
+                        <h4>Regulación</h4>
+                        <p>Leyes nuevas sobre qué pueden y no pueden hacer los agentes en tu nombre.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🌐</span>
+                        <h4>Internet de agentes</h4>
+                        <p>Agentes hablando con otros agentes para resolver tareas conjuntas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 25: REPASO CURSO ==================== -->
+        <section class="slide" data-slide="24">
+            <div class="slide-content">
+                <h2 class="slide-heading">🎓 Repaso: Tu Camino en el Curso</h2>
+                <p class="slide-text">Mirá todo lo que aprendiste en estas 6 clases. <strong>De cero a operador de agentes</strong>:</p>
+                <div class="numbered-steps" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="num-step">
+                        <span class="num-step-number">01</span>
+                        <h4>¿Qué es la IA?</h4>
+                        <p>Fundamentos, historia, ética y futuro</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">02</span>
+                        <h4>Prompts</h4>
+                        <p>Creatividad aumentada y A.I.D.A.</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">03</span>
+                        <h4>Diseño Visual</h4>
+                        <p>Imágenes, logos y avatares con IA</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">04</span>
+                        <h4>Videos y Voz</h4>
+                        <p>ElevenLabs, Veo3, Hedra y más</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">05</span>
+                        <h4>Datos y Web</h4>
+                        <p>Análisis y páginas sin código</p>
+                    </div>
+                    <div class="num-step">
+                        <span class="num-step-number">06</span>
+                        <h4>Agentes</h4>
+                        <p>Empleados digitales que trabajan por vos</p>
+                    </div>
+                </div>
+                <div class="highlight-box">
+                    <p>🎯 <strong>Lo más importante:</strong> No se trata de saber todas las herramientas. Se trata de <strong>saber cómo pensar</strong> con IA: definir objetivos, pedir bien, iterar y combinar herramientas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 26: PROYECTO FINAL ==================== -->
+        <section class="slide" data-slide="25">
+            <div class="slide-content">
+                <h2 class="slide-heading">🚀 Tu Proyecto Final</h2>
+                <p class="slide-text">El último desafío del curso: <strong>creá un proyecto personal completo</strong> usando todo lo aprendido. Acá van 4 ideas:</p>
+                <div class="options-grid">
+                    <div class="option-card">
+                        <span class="option-emoji">🎬</span>
+                        <span class="option-label">Proyecto A</span>
+                        <h4>Mini-Documental</h4>
+                        <p class="option-sub">Sobre un tema que te apasione</p>
+                        <p>Guion (clase 2) + imágenes (clase 3) + voz y video (clase 4) + página web para mostrarlo (clase 5) + agente que te ayude a investigar (clase 6).</p>
+                    </div>
+                    <div class="option-card">
+                        <span class="option-emoji">🎨</span>
+                        <span class="option-label">Proyecto B</span>
+                        <h4>Tu Marca Personal</h4>
+                        <p class="option-sub">Identidad visual completa</p>
+                        <p>Logo + paleta de colores + avatar + voz para presentarte + página web personal + agente que te ayude con tus redes.</p>
+                    </div>
+                    <div class="option-card">
+                        <span class="option-emoji">📚</span>
+                        <span class="option-label">Proyecto C</span>
+                        <h4>Sitio Educativo</h4>
+                        <p class="option-sub">Enseñá algo que sabés</p>
+                        <p>Tema + guiones + ilustraciones + videos explicativos + página con todo + agente que responda dudas a los estudiantes.</p>
+                    </div>
+                    <div class="option-card">
+                        <span class="option-emoji">🤖</span>
+                        <span class="option-label">Proyecto D</span>
+                        <h4>Sistema Personal</h4>
+                        <p class="option-sub">IA que maneje tu vida</p>
+                        <p>Configurá Claude Cowork + OpenClaw para que te organicen mails, calendarios, tareas, recordatorios y resúmenes diarios.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 27: TAREA Y CIERRE PARTE 1 ==================== -->
+        <section class="slide" data-slide="26">
+            <div class="slide-content">
+                <h2 class="slide-heading">📝 Desafío Final del Curso</h2>
+                <div class="homework-card">
+                    <h3>Tu Proyecto Personal con IA</h3>
+                    <p>Después de este curso, <strong>el siguiente paso es practicar</strong>. Estos son los desafíos:</p>
+                    <ul>
+                        <li><strong>Esta semana:</strong> Probá al menos 2 agentes distintos del nivel 1</li>
+                        <li><strong>Este mes:</strong> Configurá tu manual personal y guardalo para usarlo siempre</li>
+                        <li><strong>Este trimestre:</strong> Elegí uno de los 4 proyectos y hacelo de principio a fin</li>
+                        <li><strong>Para el largo plazo:</strong> Mantenete actualizado siguiendo las novedades del ecosistema</li>
+                        <li><strong>Compartí:</strong> Mostrá tu proyecto a otros, enseñá lo que aprendiste, sumate a comunidades</li>
+                        <li><strong>Recordá:</strong> La IA cambia rápido. Lo que aprendiste hoy es la <strong>forma de pensar</strong>, no las herramientas puntuales.</li>
+                    </ul>
+                </div>
+                <div class="highlight-box">
+                    <p>💡 <strong>Verdad incómoda:</strong> En 6 meses, varias de las herramientas que vimos van a ser distintas. Pero la <strong>mentalidad de "trabajo con IA"</strong> que ganaste te va a servir para siempre.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SLIDE 28: CIERRE FINAL ==================== -->
+        <section class="slide" data-slide="27">
+            <div class="slide-content slide-title-content">
+                <div class="pixel-badge">CURSO COMPLETADO</div>
+                <h1 class="title-main" style="font-size: 32px;">¡Felicitaciones!<br><span class="title-accent">Sos parte de la primera generación que entiende la IA</span></h1>
+                <p class="title-sub" style="margin-top: 30px;">6 clases · 90 minutos cada una · Cientos de ejercicios</p>
+                <div class="closing-message">
+                    <p>De observar la IA → a usarla → a colaborar con ella.<br>Ahora tenés las herramientas para que la IA <strong>trabaje por vos</strong>.</p>
+                </div>
+                <div class="title-meta">
+                    <span class="meta-item">🎓 Curso completo</span>
+                    <span class="meta-item">🚀 Próximo nivel: Práctica</span>
+                    <span class="meta-item">💜 Gracias por venir</span>
+                </div>
+                <div class="title-logo">BYTEC<span class="blink">_</span></div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="keyboard-hint desktop-only">
+        Usá las teclas <kbd>←</kbd> <kbd>→</kbd> o hacé clic en los botones para navegar
+    </div>
+    <div class="keyboard-hint mobile-only">
+        Deslizá con el dedo <span class="swipe-icon">👆</span> para pasar los slides
+    </div>
+
+    <div class="mobile-overlay" id="mobileOverlay">
+        <div class="overlay-content">
+            <div class="overlay-icon">
+                <span class="swipe-hand">👆</span>
+                <div class="swipe-arrows">
+                    <span class="swipe-arrow-left">◂</span>
+                    <span class="swipe-arrow-right">▸</span>
+                </div>
+            </div>
+            <h3 class="overlay-title">¡Bienvenido!</h3>
+            <p class="overlay-text">Deslizá con el dedo hacia la <strong>izquierda</strong> o <strong>derecha</strong> para navegar entre los slides.</p>
+            <p class="overlay-text small">También podés usar los botones <strong>◂ ▸</strong> de arriba.</p>
+            <button class="overlay-btn" id="overlayBtn">¡Entendido, empecemos!</button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 3000);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005
+                });
+            }
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            stars.forEach(star => {
+                star.opacity += star.speed;
+                if (star.opacity > 1 || star.opacity < 0) star.speed *= -1;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.opacity)})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(drawStars);
+        }
+
+        resizeCanvas();
+        createStars();
+        drawStars();
+        window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
+
+        function downloadPDF() {
+            document.body.classList.add('printing');
+            setTimeout(() => {
+                window.print();
+                setTimeout(() => document.body.classList.remove('printing'), 500);
+            }, 100);
+        }
+
+        window.addEventListener('beforeprint', () => document.body.classList.add('printing'));
+        window.addEventListener('afterprint', () => document.body.classList.remove('printing'));
+
+        if (new URLSearchParams(window.location.search).get('download') === 'pdf') {
+            window.addEventListener('load', () => setTimeout(downloadPDF, 800));
+        }
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const navProgress = document.getElementById('navProgress');
+
+        function updateSlide() {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) slide.classList.add('active');
+            });
+            navProgress.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(dir) {
+            const next = currentSlide + dir;
+            if (next >= 0 && next < totalSlides) {
+                currentSlide = next;
+                updateSlide();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') changeSlide(1);
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+        });
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        document.addEventListener('touchend', e => {
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = touchStartY - e.changedTouches[0].screenY;
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                changeSlide(diffX > 0 ? 1 : -1);
+            }
+        }, { passive: true });
+
+        (function() {
+            const overlay = document.getElementById('mobileOverlay');
+            const btn = document.getElementById('overlayBtn');
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+            const storageKey = 'bytec-swipe-hint-seen';
+
+            if (isTouchDevice && !localStorage.getItem(storageKey)) {
+                overlay.classList.add('visible');
+            }
+
+            btn.addEventListener('click', () => {
+                overlay.classList.remove('visible');
+                overlay.classList.add('hiding');
+                localStorage.setItem(storageKey, 'true');
+                setTimeout(() => { overlay.style.display = 'none'; }, 400);
+            });
+
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    btn.click();
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>

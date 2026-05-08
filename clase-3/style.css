@@ -1441,3 +1441,160 @@ kbd {
         letter-spacing: 1px;
     }
 }
+
+/* ==================== PDF GENERATION MODE (jsPDF + html2canvas) ==================== */
+
+.pdf-mode {
+    overflow: visible !important;
+    height: auto !important;
+}
+
+.pdf-mode #stars,
+.pdf-mode .nav-bar,
+.pdf-mode .keyboard-hint,
+.pdf-mode .mobile-overlay {
+    display: none !important;
+}
+
+.pdf-mode .slides-container {
+    position: static !important;
+    height: auto !important;
+    width: 100% !important;
+}
+
+.pdf-mode .slide {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 1280px !important;
+    min-height: 720px !important;
+    height: auto !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    pointer-events: auto !important;
+    padding: 70px 50px 60px !important;
+    display: flex !important;
+    background: var(--dark-bg) !important;
+    overflow: hidden !important;
+    margin: 0 auto;
+}
+
+.pdf-mode .slide-content {
+    max-height: none !important;
+    overflow: visible !important;
+    width: 100% !important;
+}
+
+.pdf-mode .pixel-badge,
+.pdf-mode .exercise-time-badge,
+.pdf-mode .blink {
+    animation: none !important;
+}
+
+.pdf-mode .blink { opacity: 1 !important; }
+
+.pdf-mode .pdf-header {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 14px;
+    right: 24px;
+    z-index: 100;
+}
+
+.pdf-mode .pdf-header img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    background: white;
+    border-radius: 50%;
+    padding: 1px;
+}
+
+.pdf-mode .pdf-brand {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+    color: var(--orange);
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.pdf-mode .pdf-brand small {
+    font-size: 6px;
+    color: var(--blue);
+    letter-spacing: 1.5px;
+    margin-top: 3px;
+}
+
+.pdf-mode .pdf-footer {
+    display: flex !important;
+    position: absolute;
+    bottom: 12px;
+    left: 30px;
+    right: 30px;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--muted-text);
+    padding-top: 8px;
+    border-top: 1px solid var(--dark-border);
+    letter-spacing: 0.5px;
+}
+
+.pdf-mode .pdf-footer span:last-child {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    color: var(--orange);
+    letter-spacing: 1px;
+}
+
+/* ==================== PDF LOADER OVERLAY ==================== */
+
+.pdf-loader {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 6, 20, 0.95);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    backdrop-filter: blur(6px);
+}
+
+.pdf-loader.active { display: flex; }
+
+.pdf-loader-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--dark-border);
+    border-top-color: var(--orange);
+    border-radius: 50%;
+    animation: pdf-spin 0.8s linear infinite;
+}
+
+@keyframes pdf-spin {
+    to { transform: rotate(360deg); }
+}
+
+.pdf-loader-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    color: var(--orange);
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.pdf-loader-progress {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    color: var(--light-text);
+}

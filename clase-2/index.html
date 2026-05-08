@@ -954,34 +954,104 @@ SÍ usá:
         drawStars();
         window.addEventListener('resize', () => { resizeCanvas(); createStars(); });
 
-        function downloadPDF() {
+        function loadScript(src) {
+            return new Promise((resolve, reject) => {
+                if (document.querySelector('script[data-src="' + src + '"]')) return resolve();
+                const s = document.createElement('script');
+                s.src = src;
+                s.dataset.src = src;
+                s.onload = resolve;
+                s.onerror = () => reject(new Error('No se pudo cargar ' + src));
+                document.head.appendChild(s);
+            });
+        }
+
+        function ensurePdfLoader() {
+            let loader = document.getElementById('pdfLoader');
+            if (loader) return loader;
+            loader = document.createElement('div');
+            loader.id = 'pdfLoader';
+            loader.className = 'pdf-loader';
+            loader.innerHTML = '<div class="pdf-loader-spinner"></div>' +
+                '<div class="pdf-loader-text">Generando PDF</div>' +
+                '<div class="pdf-loader-progress" id="pdfLoaderProgress">Preparando…</div>';
+            document.body.appendChild(loader);
+            return loader;
+        }
+
+        async function downloadPDF() {
             const className = document.title.replace('BYTEC | ', '').trim();
+            const safeName = className.replace(/[\\/:*?"<>|]/g, '').trim();
+            const loader = ensurePdfLoader();
+            const progressEl = loader.querySelector('#pdfLoaderProgress');
+            loader.classList.add('active');
+            progressEl.textContent = 'Cargando librerías…';
+
             const slidesAll = document.querySelectorAll('.slide');
             const total = slidesAll.length;
 
-            slidesAll.forEach((slide, idx) => {
-                if (slide.querySelector('.pdf-header')) return;
+            try {
+                await loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
+                await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
 
-                const header = document.createElement('div');
-                header.className = 'pdf-header';
-                header.innerHTML = '<img src="../assets/logo.png" alt="BYTEC Academy"><span class="pdf-brand">BYTEC<small>ACADEMY</small></span>';
-                slide.insertBefore(header, slide.firstChild);
+                slidesAll.forEach((slide, idx) => {
+                    if (slide.querySelector('.pdf-header')) return;
+                    const header = document.createElement('div');
+                    header.className = 'pdf-header';
+                    header.innerHTML = '<img src="../assets/logo.png" alt="BYTEC Academy" crossorigin="anonymous"><span class="pdf-brand">BYTEC<small>ACADEMY</small></span>';
+                    slide.insertBefore(header, slide.firstChild);
 
-                const footer = document.createElement('div');
-                footer.className = 'pdf-footer';
-                footer.innerHTML = '<span>' + className + '</span><span>' + (idx + 1) + ' / ' + total + '</span>';
-                slide.appendChild(footer);
-            });
+                    const footer = document.createElement('div');
+                    footer.className = 'pdf-footer';
+                    footer.innerHTML = '<span>' + className + '</span><span>' + (idx + 1) + ' / ' + total + '</span>';
+                    slide.appendChild(footer);
+                });
 
-            document.body.classList.add('printing');
-            setTimeout(() => {
-                window.print();
-                setTimeout(() => document.body.classList.remove('printing'), 500);
-            }, 200);
+                document.body.classList.add('pdf-mode');
+                await new Promise(r => setTimeout(r, 400));
+
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
+                const pdfW = pdf.internal.pageSize.getWidth();
+                const pdfH = pdf.internal.pageSize.getHeight();
+
+                for (let i = 0; i < slidesAll.length; i++) {
+                    progressEl.textContent = 'Slide ' + (i + 1) + ' de ' + total;
+                    const canvas = await html2canvas(slidesAll[i], {
+                        scale: 2,
+                        backgroundColor: '#060614',
+                        logging: false,
+                        useCORS: true,
+                        allowTaint: true,
+                        windowWidth: 1280
+                    });
+
+                    const imgData = canvas.toDataURL('image/jpeg', 0.92);
+                    if (i > 0) pdf.addPage();
+
+                    const ratio = canvas.height / canvas.width;
+                    let imgW = pdfW;
+                    let imgH = pdfW * ratio;
+                    if (imgH > pdfH) {
+                        imgH = pdfH;
+                        imgW = pdfH / ratio;
+                    }
+                    const x = (pdfW - imgW) / 2;
+                    const y = (pdfH - imgH) / 2;
+                    pdf.addImage(imgData, 'JPEG', x, y, imgW, imgH);
+                }
+
+                progressEl.textContent = 'Descargando…';
+                pdf.save('BYTEC - ' + safeName + '.pdf');
+            } catch (err) {
+                console.error('Error generando PDF:', err);
+                alert('Hubo un error al generar el PDF. Probá nuevamente.');
+            } finally {
+                document.body.classList.remove('pdf-mode');
+                document.querySelectorAll('.pdf-header, .pdf-footer').forEach(el => el.remove());
+                loader.classList.remove('active');
+            }
         }
-
-        window.addEventListener('beforeprint', () => document.body.classList.add('printing'));
-        window.addEventListener('afterprint', () => document.body.classList.remove('printing'));
 
         if (new URLSearchParams(window.location.search).get('download') === 'pdf') {
             window.addEventListener('load', () => setTimeout(downloadPDF, 800));
